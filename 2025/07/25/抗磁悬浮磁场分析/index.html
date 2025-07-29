@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"oni-hui.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="实现磁体在空中静态稳定磁悬浮 假设我们有一圆柱形永磁体，我们需要构造一个静磁场让它稳定悬浮在空中。 让我们从势能的角度考虑，假如在磁场中存在一个磁势的极小值点，那么极小值点附近会形成一个磁势的低谷，低谷足够低，永磁体陷入低谷后即便在重力的作用下也无法逃逸。这样永磁体就会稳定存在于低谷中的某个位置。 在磁场中磁体的磁势为： U &#x3D; −M ⋅ B &#x3D; −MxBx − MyBy − MzBz">
+    <meta name="description" content="实现磁体在空中静态稳定磁悬浮 假设我们有一圆柱形永磁体，我们需要构造一个静磁场让它稳定悬浮在空中。 让我们从势能的角度考虑，假如在磁场中存在一个磁势的极小值点，那么极小值点附近会形成一个磁势的低谷，低谷足够低，永磁体陷入低谷后即便在重力的作用下也无法逃逸。这样永磁体就会稳定存在于低谷中的某个位置。 在磁场中磁体的磁势为： \[ U &#x3D; -M \cdot B &#x3D; -M_xB_x - M_yB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="抗磁悬浮磁场分析">
 <meta property="og:url" content="https://oni-hui.github.io/2025/07/25/%E6%8A%97%E7%A3%81%E6%82%AC%E6%B5%AE%E7%A3%81%E5%9C%BA%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="oniiii的小站">
-<meta property="og:description" content="实现磁体在空中静态稳定磁悬浮 假设我们有一圆柱形永磁体，我们需要构造一个静磁场让它稳定悬浮在空中。 让我们从势能的角度考虑，假如在磁场中存在一个磁势的极小值点，那么极小值点附近会形成一个磁势的低谷，低谷足够低，永磁体陷入低谷后即便在重力的作用下也无法逃逸。这样永磁体就会稳定存在于低谷中的某个位置。 在磁场中磁体的磁势为： U &#x3D; −M ⋅ B &#x3D; −MxBx − MyBy − MzBz">
+<meta property="og:description" content="实现磁体在空中静态稳定磁悬浮 假设我们有一圆柱形永磁体，我们需要构造一个静磁场让它稳定悬浮在空中。 让我们从势能的角度考虑，假如在磁场中存在一个磁势的极小值点，那么极小值点附近会形成一个磁势的低谷，低谷足够低，永磁体陷入低谷后即便在重力的作用下也无法逃逸。这样永磁体就会稳定存在于低谷中的某个位置。 在磁场中磁体的磁势为： \[ U &#x3D; -M \cdot B &#x3D; -M_xB_x - M_yB">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://oni-hui.github.io/images/%E6%8A%97%E7%A3%81%E6%82%AC%E6%B5%AE%E7%B3%BB%E7%BB%9F.jpg">
 <meta property="article:published_time" content="2025-07-25T08:22:02.000Z">
@@ -228,20 +228,22 @@
     <div class="post-body" itemprop="articleBody"><h1 id="实现磁体在空中静态稳定磁悬浮">实现磁体在空中静态稳定磁悬浮</h1>
 <p>假设我们有一圆柱形永磁体，我们需要构造一个静磁场让它稳定悬浮在空中。</p>
 <p>让我们从势能的角度考虑，假如在磁场中存在一个磁势的极小值点，那么极小值点附近会形成一个磁势的低谷，低谷足够低，永磁体陷入低谷后即便在重力的作用下也无法逃逸。这样永磁体就会稳定存在于低谷中的某个位置。</p>
-<p>在磁场中磁体的磁势为： <span
-class="math display"><em>U</em> = −<em>M</em> ⋅ <em>B</em> = −<em>M</em><sub><em>x</em></sub><em>B</em><sub><em>x</em></sub> − <em>M</em><sub><em>y</em></sub><em>B</em><sub><em>y</em></sub> − <em>M</em><sub><em>z</em></sub><em>B</em><sub><em>z</em></sub></span></p>
+<p>在磁场中磁体的磁势为： <span class="math display">\[
+U = -M \cdot B = -M_xB_x - M_yB_y - M_zB_z \tag{1.1}
+\]</span></p>
 <ul>
-<li><span class="math inline"><em>U</em></span>是磁势</li>
+<li><span class="math inline">\(U\)</span>是磁势</li>
+<li><span class="math inline">\(M\)</span>是磁体的磁矩（恒定），<span
+class="math inline">\(M_x, M_y,
+M_z\)</span>分别是x、y、z三个方向的磁矩的分量</li>
 <li><span
-class="math inline"><em>M</em></span>是磁体的磁矩（恒定），<span
-class="math inline"><em>M</em><sub><em>x</em></sub>, <em>M</em><sub><em>y</em></sub>, <em>M</em><sub><em>z</em></sub></span>分别是x、y、z三个方向的磁矩的分量</li>
-<li><span
-class="math inline"><em>B</em></span>是磁感应强度（磁通密度），<span
-class="math inline"><em>B</em><sub><em>x</em></sub>, <em>B</em><sub><em>y</em></sub>, <em>B</em><sub><em>z</em></sub></span>分别是x、y、z三个方向的磁感应强度的分量</li>
+class="math inline">\(B\)</span>是磁感应强度（磁通密度），<span
+class="math inline">\(B_x, B_y,
+B_z\)</span>分别是x、y、z三个方向的磁感应强度的分量</li>
 </ul>
 <p>磁势的低谷，即磁势的极小值点，使用数学语言描述：</p>
 <pre><code>磁势的二阶导数构成的海森（Hessian）矩阵的全部特征值大于0</code></pre>
-<p><span class="math display">$$
+<p><span class="math display">\[
 H =
 \left[
 \begin{array}{l}
@@ -254,7 +256,7 @@ U}{\partial z \partial y} &amp; \frac{\partial^2 U}{\partial z^2}
 \end{array}
 \right]
 \tag{1.2}
-$$</span></p>
+\]</span></p>
 <details>
 <summary>
 海森矩阵特征值与局部极值的关系
@@ -276,36 +278,34 @@ theorem），我们无法使用普通磁性材料构造出一个存在局部势�
 </details>
 <h2 id="推导磁场中的恩绍定理">推导磁场中的恩绍定理</h2>
 <p>此小节中，我们的目的是在数学上证明在无电流的静磁场中不存在磁势的极小值。即<strong>磁势的二阶导数构成的海森（Hessian）矩阵的特征值不全大于0</strong></p>
-<p>回顾静磁场的麦克斯韦方程组 <span class="math display">$$
+<p>回顾静磁场的麦克斯韦方程组 <span class="math display">\[
 \begin{align*}
     \nabla \cdot B &amp;= 0 \\
     \nabla \times B &amp;= \mu_0 J
 \end{align*}
 \tag{1.3}
-$$</span></p>
+\]</span></p>
 <ul>
-<li><span
-class="math inline"><em>B</em></span>是磁感应强度（磁通密度）</li>
-<li><span
-class="math inline"><em>μ</em><sub>0</sub></span>是真空磁导率</li>
-<li><span class="math inline"><em>J</em></span>是电流密度</li>
+<li><span class="math inline">\(B\)</span>是磁感应强度（磁通密度）</li>
+<li><span class="math inline">\(\mu_0\)</span>是真空磁导率</li>
+<li><span class="math inline">\(J\)</span>是电流密度</li>
 </ul>
 <p>在空间中无电流的地方，电流密度为0于是<span
-class="math inline">∇ × <em>B</em> = 0</span></p>
+class="math inline">\(\nabla \times B = 0\)</span></p>
 <p>总结一下，在静磁场且无电流的空间中，磁场的麦克斯韦方程组如下 <span
-class="math display">$$
+class="math display">\[
 \begin{align*}
     \nabla \cdot B &amp;= 0 \\
     \nabla \times B &amp;= 0
 \end{align*}
 \tag{1.4}
-$$</span></p>
+\]</span></p>
 <p>回顾前文提到的磁势<span
-class="math inline"><em>U</em></span>，它依赖于<strong>磁感应强度<span
-class="math inline"><em>B</em></span>的一次项</strong>。</p>
+class="math inline">\(U\)</span>，它依赖于<strong>磁感应强度<span
+class="math inline">\(B\)</span>的一次项</strong>。</p>
 <p>我们可以证明，自由空间中标量势<span
-class="math inline"><em>U</em></span>有如下性质： <span
-class="math display">$$
+class="math inline">\(U\)</span>有如下性质： <span
+class="math display">\[
 \begin{align*}
     \nabla \cdot (\nabla U) &amp;= \nabla^2 U \\
     &amp;= \frac{\partial^2 U}{\partial x^2} + \frac{\partial^2
@@ -313,16 +313,16 @@ U}{\partial y^2} + \frac{\partial^2 U}{\partial z^2} \\\\
     &amp;= 0 \\
 \end{align*}
 \tag{1.5}
-$$</span></p>
+\]</span></p>
 <details>
 <summary>
 该性质的证明过程
 </summary>
 <blockquote>
-<p>将式子<span class="math inline">(1.1)</span>带入<span
-class="math inline">(1.5)</span>，得到用<span
-class="math inline"><em>B</em></span>表达的标量势展开 <span
-class="math display">$$
+<p>将式子<span class="math inline">\((1.1)\)</span>带入<span
+class="math inline">\((1.5)\)</span>，得到用<span
+class="math inline">\(B\)</span>表达的标量势展开 <span
+class="math display">\[
 \begin{align*}
     &amp; \nabla^2 U &amp;= -\frac{\partial^2}{\partial x^2}(M_xB_x +
 M_yB_y + M_zB_z) &amp; \\
@@ -332,9 +332,9 @@ M_zB_z) &amp; \\
 M_zB_z) &amp; \\
 \end{align*}
 \tag{1.6}
-$$</span></p>
-<p>将<span class="math inline">(1.6)</span>整理得到 <span
-class="math display">$$
+\]</span></p>
+<p>将<span class="math inline">\((1.6)\)</span>整理得到 <span
+class="math display">\[
 \begin{align*}
     \nabla^2 U = &amp;-M_x(\frac{\partial^2 B_x}{\partial x^2} +
 \frac{\partial^2 B_x}{\partial y^2}+ \frac{\partial^2 B_x}{\partial
@@ -349,79 +349,86 @@ z^2}) &amp; &amp; \\
 M_z\nabla^2B_z &amp; &amp; \\\\
 \end{align*}
 \tag{1.7}
-$$</span></p>
-<p>式<span class="math inline">(1.7)</span>的最后，我们得到了<span
-class="math inline"><em>B</em></span>的三个分量的拉普拉斯运算<span
-class="math inline">∇<sup>2</sup><em>B</em><sub><em>x</em></sub></span>、<span
-class="math inline">∇<sup>2</sup><em>B</em><sub><em>y</em></sub></span>、<span
-class="math inline">∇<sup>2</sup><em>B</em><sub><em>z</em></sub></span>。</p>
-<p>这里我们应用向量恒等式 <span
-class="math display">∇ × (∇ × <em>B</em>) = ∇(∇ ⋅ <em>B</em>) − ∇<sup>2</sup><em>B</em></span></p>
-<p>式<span class="math inline">(1.4)</span>带入式<span
-class="math inline">(1.8)</span> <span class="math display">$$
+\]</span></p>
+<p>式<span class="math inline">\((1.7)\)</span>的最后，我们得到了<span
+class="math inline">\(B\)</span>的三个分量的拉普拉斯运算<span
+class="math inline">\(\nabla^2 B_x\)</span>、<span
+class="math inline">\(\nabla^2 B_y\)</span>、<span
+class="math inline">\(\nabla^2 B_z\)</span>。</p>
+<p>这里我们应用向量恒等式 <span class="math display">\[
+\nabla \times (\nabla \times B) = \nabla(\nabla \cdot B) - \nabla^2 B
+\tag{1.8}
+\]</span></p>
+<p>式<span class="math inline">\((1.4)\)</span>带入式<span
+class="math inline">\((1.8)\)</span> <span class="math display">\[
 \begin{align}
     0 &amp;= 0 - \nabla^2 B \\
     \nabla^2 B &amp;= 0
 \end{align}
 \tag{1.9}
-$$</span></p>
-<p>因为<span
-class="math inline">∇<sup>2</sup><em>B</em> = (∇<sup>2</sup><em>B</em><sub><em>x</em></sub>, ∇<sup>2</sup><em>B</em><sub><em>y</em></sub>, ∇<sup>2</sup><em>B</em><sub><em>z</em></sub>) = 0</span>，所以
-<span
-class="math display">∇<sup>2</sup><em>B</em><sub><em>x</em></sub> = ∇<sup>2</sup><em>B</em><sub><em>y</em></sub> = ∇<sup>2</sup><em>B</em><sub><em>z</em></sub> = 0</span></p>
-<p>将式<span class="math inline">(1.10)</span>带入式<span
-class="math inline">(1.7)</span>， 得到<span
-class="math inline">∇<sup>2</sup><em>U</em> = 0</span>，得证。</p>
+\]</span></p>
+<p>因为<span class="math inline">\(\nabla^2 B = (\nabla^2 B_x, \nabla^2
+B_y, \nabla^2 B_z)=0\)</span>，所以 <span class="math display">\[
+\nabla^2 B_x = \nabla^2 B_y = \nabla^2 B_z = 0
+\tag{1.10}
+\]</span></p>
+<p>将式<span class="math inline">\((1.10)\)</span>带入式<span
+class="math inline">\((1.7)\)</span>， 得到<span
+class="math inline">\(\nabla^2 U = 0\)</span>，得证。</p>
 </blockquote>
 </details>
-<p><span
-class="math inline">∇<sup>2</sup><em>U</em> = 0</span>等价于海森矩阵<span
-class="math inline"><em>H</em></span>的迹（trace）为零，<span
-class="math inline">∇<sup>2</sup><em>U</em></span>即<span
-class="math inline"><em>H</em></span>对角元素之和 <span
-class="math display">$$
+<p><span class="math inline">\(\nabla^2 U =
+0\)</span>等价于海森矩阵<span
+class="math inline">\(H\)</span>的迹（trace）为零，<span
+class="math inline">\(\nabla^2 U\)</span>即<span
+class="math inline">\(H\)</span>对角元素之和 <span
+class="math display">\[
 tr(H) = \nabla^2 U = \frac{\partial^2 U}{\partial x^2} +
 \frac{\partial^2 U}{\partial y^2} + \frac{\partial^2 U}{\partial z^2} =
 0
-$$</span></p>
+\]</span></p>
 <p>矩阵的迹<span
-class="math inline"><em>t</em><em>r</em>(<em>H</em>)</span>等于矩阵的特征值之和<span
-class="math inline"><em>λ</em><sub>1</sub> + <em>λ</em><sub>2</sub> + <em>λ</em><sub>3</sub></span>，所以
-<span
-class="math display"><em>λ</em><sub>1</sub> + <em>λ</em><sub>2</sub> + <em>λ</em><sub>3</sub> = 0</span></p>
+class="math inline">\(tr(H)\)</span>等于矩阵的特征值之和<span
+class="math inline">\(\lambda_1+\lambda_2+\lambda_3\)</span>，所以 <span
+class="math display">\[
+\lambda_1+\lambda_2+\lambda_3=0
+\tag{1.11}
+\]</span></p>
 <p>但是我们要求海森矩阵的所有特征值大于0，这与式<span
-class="math inline">(1.11)</span>矛盾</p>
+class="math inline">\((1.11)\)</span>矛盾</p>
 <p>静磁场中的恩绍定理得证</p>
 <h2 id="引入抗磁性物质绕过恩绍定理">引入抗磁性物质绕过恩绍定理</h2>
 <p>前文提到一般静磁场中磁势依赖磁感应强度的一次项<span
-class="math inline"><em>B</em></span>。
+class="math inline">\(B\)</span>。
 磁偶极子产生的磁感应强度在远场近似正比于<span
-class="math inline">$\frac{1}{r^3}$</span> 磁势<span
-class="math inline"><em>U</em> = −<em>M</em> ⋅ <em>B</em></span>，其中磁矩<span
-class="math inline"><em>M</em></span>正比于<span
-class="math inline"><em>r</em><sup>2</sup></span>，所以磁势属于<span
-class="math inline">$\frac{1}{r}$</span>类型的势能。</p>
+class="math inline">\(\frac{1}{r^3}\)</span> 磁势<span
+class="math inline">\(U = - M \cdot B\)</span>，其中磁矩<span
+class="math inline">\(M\)</span>正比于<span
+class="math inline">\(r^2\)</span>，所以磁势属于<span
+class="math inline">\(\frac{1}{r}\)</span>类型的势能。</p>
 <p>而所有<span
-class="math inline">$\frac{1}{r}$</span>形式的势能，其拉普拉斯运算都为0，因此都不存在局部极小值点。</p>
+class="math inline">\(\frac{1}{r}\)</span>形式的势能，其拉普拉斯运算都为0，因此都不存在局部极小值点。</p>
 <p>假如磁势依赖于磁感应强度的二次项<span
-class="math inline"><em>B</em><sup>2</sup></span>，那情况就会有所不同。</p>
+class="math inline">\(B^2\)</span>，那情况就会有所不同。</p>
 我们考虑如图系统 <img src="/images/抗磁悬浮系统.jpg"
 title="抗磁悬浮系统DOI: 10.1119/1.1375157" alt="抗磁悬浮系统" />
 <center>
 图2.1 抗磁悬浮系统
 </center>
 <p>悬浮系统上方是一个较大的圆柱形钕铁硼永磁体（称为提升磁铁），中间是半径500<span
-class="math inline"><em>μ</em><em>m</em></span>，高500<span
-class="math inline"><em>μ</em><em>m</em></span>的圆柱形钕铁硼永磁体（称为悬浮磁铁），下方是1<span
-class="math inline"><em>m</em><em>m</em></span>厚的热解石墨（称为抗磁层，热解石墨是抗磁性物质，磁导率<span
-class="math inline"><em>μ</em> &lt; 1</span>）</p>
+class="math inline">\(\mu m\)</span>，高500<span
+class="math inline">\(\mu
+m\)</span>的圆柱形钕铁硼永磁体（称为悬浮磁铁），下方是1<span
+class="math inline">\(mm\)</span>厚的热解石墨（称为抗磁层，热解石墨是抗磁性物质，磁导率<span
+class="math inline">\(\mu &lt; 1\)</span>）</p>
 <p>在推导磁场中的恩绍定理过程中，为了简化问题我们没有考虑磁势以外的势能。但是在图<span
-class="math inline">(2.1)</span>展示的抗磁悬浮系统中，我们要解决静磁场中悬浮磁铁克服重力在抗磁层上方悬浮的问题，所以要同时考虑悬浮磁铁的磁势能、重力势能和引入抗磁层后产生的势能。</p>
-<p>悬浮磁铁的势能表示为 <span
-class="math display"><em>U</em><sub><em>d</em></sub> = <em>U</em> + <em>m</em><em>g</em><em>z</em> = −<em>M</em> ⋅ <em>B</em> + <em>m</em><em>g</em><em>z</em></span></p>
+class="math inline">\((2.1)\)</span>展示的抗磁悬浮系统中，我们要解决静磁场中悬浮磁铁克服重力在抗磁层上方悬浮的问题，所以要同时考虑悬浮磁铁的磁势能、重力势能和引入抗磁层后产生的势能。</p>
+<p>悬浮磁铁的势能表示为 <span class="math display">\[
+U_d = U + mgz = - M \cdot B + mgz
+\tag{2.1}
+\]</span></p>
 <ul>
-<li><span
-class="math inline"><em>m</em><em>g</em><em>z</em></span>是重力势能</li>
+<li><span class="math inline">\(mgz\)</span>是重力势能</li>
 <li>由于磁力矩的作用，磁体将与局部磁场方向对齐，因此能量仅依赖于磁场强度的大小，而不是任何磁场分量。</li>
 </ul>
 <p>我们先看简化版的抗磁悬浮原理以及悬浮条件推导（参考文献“M. D. Simon,
@@ -429,261 +436,259 @@ Diamagnetically stabilized magnet levitation, 2001. DOI:
 10.1119/1.1375157”）。</p>
 <blockquote>
 <p>利用自由空间中静磁场无旋无散的性质，并假设关于 z
-轴对称，我们可以将磁场分量展开如下： <span class="math display">$$
-B_z = B_0 + B'z+ \frac{1}{2} B''z^2 - \frac{1}{4} B''(x^2 + y^2) + ...
+轴对称，我们可以将磁场分量展开如下： <span class="math display">\[
+B_z = B_0 + B&#39;z+ \frac{1}{2} B&#39;&#39;z^2 - \frac{1}{4}
+B&#39;&#39;(x^2 + y^2) + ...
 \tag{2.2}
-$$</span> <span class="math display">$$
-B_x = -\frac{1}{2} B'x - \frac{1}{2} B''xz + ...
+\]</span> <span class="math display">\[
+B_x = -\frac{1}{2} B&#39;x - \frac{1}{2} B&#39;&#39;xz + ...
 \tag{2.3}
-$$</span> <span class="math display">$$
-B_y = -\frac{1}{2} B'y - \frac{1}{2} B''yz + ...
+\]</span> <span class="math display">\[
+B_y = -\frac{1}{2} B&#39;y - \frac{1}{2} B&#39;&#39;yz + ...
 \tag{2.4}
-$$</span> 其中： <span class="math display">$$
-B' = \frac{\partial B_z}{\partial z}, B'' = \frac{\partial^2 B_z}{z^2}
-$$</span> 这些导数在悬浮点(<span
-class="math inline"><em>x</em> = <em>y</em> = <em>z</em> = 0</span>)处计算，转换为柱坐标，有：
-<span class="math display">$$
-B_z = B_0 + B'z+ \frac{1}{2} B''z^2 - \frac{1}{4} B''r^2 + ...
+\]</span> 其中： <span class="math display">\[
+B&#39; = \frac{\partial B_z}{\partial z}, B&#39;&#39; = \frac{\partial^2
+B_z}{z^2}
+\]</span> 这些导数在悬浮点(<span
+class="math inline">\(x=y=z=0\)</span>)处计算，转换为柱坐标，有： <span
+class="math display">\[
+B_z = B_0 + B&#39;z+ \frac{1}{2} B&#39;&#39;z^2 - \frac{1}{4}
+B&#39;&#39;r^2 + ...
 \tag{2.5}
-$$</span> <span class="math display">$$
-B_r = -\frac{1}{2} B'r - \frac{1}{2} B''rz + ...
+\]</span> <span class="math display">\[
+B_r = -\frac{1}{2} B&#39;r - \frac{1}{2} B&#39;&#39;rz + ...
 \tag{2.6}
-$$</span> 那么 <span class="math display">$$
-B^2 = B_0^2 + 2B_0B'z + (B_0 B'' + B'^2)z^2 + \frac{1}{4}(B'^2 -
-2B_0B'')r^2 + \cdot \cdot \cdot
+\]</span> 那么 <span class="math display">\[
+B^2 = B_0^2 + 2B_0B&#39;z + (B_0 B&#39;&#39; + B&#39;^2)z^2 +
+\frac{1}{4}(B&#39;^2 - 2B_0B&#39;&#39;)r^2 + \cdot \cdot \cdot
 \tag{2.7}
-$$</span> 其中<span
-class="math inline"><em>r</em><sup>2</sup> = <em>x</em><sup>2</sup> + <em>y</em><sup>2</sup></span></p>
+\]</span> 其中<span class="math inline">\(r^2 = x^2 + y^2\)</span></p>
 <p>使用方程<span
-class="math inline">(2.5)(2.6)</span>在悬浮点附近展开提升磁体的场强大小，并添加两个新项<span
-class="math inline"><em>C</em><sub><em>z</em></sub><em>z</em><sup>2</sup></span>和<span
-class="math inline"><em>C</em><sub><em>r</em></sub><em>r</em><sup>2</sup></span>（它们代表将要添加并随后评估的抗磁体的影响），悬浮磁体的势能为：
-<span class="math display">$$
-U_d = -M\left[ B_0 + (B' - \frac{mg}{M})z + \frac{1}{2}B''z^2 +
-\frac{1}{4}(\frac{B'^2}{2B_0} - B'')r^2 + ... \right] + C_z z^2 + C_r
-r^2
+class="math inline">\((2.5)(2.6)\)</span>在悬浮点附近展开提升磁体的场强大小，并添加两个新项<span
+class="math inline">\(C_z z^2\)</span>和<span class="math inline">\(C_r
+r^2\)</span>（它们代表将要添加并随后评估的抗磁体的影响），悬浮磁体的势能为：
+<span class="math display">\[
+U_d = -M\left[ B_0 + (B&#39; - \frac{mg}{M})z +
+\frac{1}{2}B&#39;&#39;z^2 + \frac{1}{4}(\frac{B&#39;^2}{2B_0} -
+B&#39;&#39;)r^2 + ... \right] + C_z z^2 + C_r r^2
 \tag{2.8}
-$$</span>
+\]</span>
 在悬浮点，第一个括号内的表达式必须为零。磁场梯度平衡了重力：</p>
-<p><span class="math display">$$
-B' = \frac{mg}{M}
+<p><span class="math display">\[
+B&#39; = \frac{mg}{M}
 \tag{2.9}
-$$</span> 垂直和水平稳定性的条件为： <span class="math display">$$
-K_v = C_z - \frac{1}{2} MB'' &gt; 0 (垂直稳定性)
+\]</span> 垂直和水平稳定性的条件为： <span class="math display">\[
+K_v = C_z - \frac{1}{2} MB&#39;&#39; &gt; 0 (垂直稳定性)
 \tag{2.10}
-$$</span> <span class="math display">$$
-K_h = C_r + \frac{1}{4}M(B'' - \frac{B'^2}{2B_0}) = C_r +
-\frac{1}{4}M(B'' - \frac{m^2g^2}{2M^2B_0}) &gt; 0 (水平稳定性)
+\]</span> <span class="math display">\[
+K_h = C_r + \frac{1}{4}M(B&#39;&#39; - \frac{B&#39;^2}{2B_0}) = C_r +
+\frac{1}{4}M(B&#39;&#39; - \frac{m^2g^2}{2M^2B_0}) &gt; 0 (水平稳定性)
 \tag{2.11}
-$$</span> 对于稳定性条件中<span
-class="math inline"><em>C</em><sub><em>z</em></sub></span>和<span
-class="math inline"><em>C</em><sub><em>r</em></sub></span>项的计算，作者给出了两种计算方法。</p>
+\]</span> 对于稳定性条件中<span
+class="math inline">\(C_z\)</span>和<span
+class="math inline">\(C_r\)</span>项的计算，作者给出了两种计算方法。</p>
 <blockquote>
 <p>一种是计算较为简单的偶极近似方法，该方法下<span
-class="math inline"><em>C</em><sub><em>z</em></sub></span>，<span
-class="math inline"><em>C</em><sub><em>r</em></sub></span>计算公式为
-<span class="math display">$$
+class="math inline">\(C_z\)</span>，<span
+class="math inline">\(C_r\)</span>计算公式为 <span
+class="math display">\[
 C_z = \frac{6M^2|\chi|\mu_0}{\pi D^5}
-$$</span> <span class="math display">$$
+\]</span> <span class="math display">\[
 C_r = \frac{45\mu_0 |\chi| M^2}{16D^5}
-$$</span> 其中<span class="math inline"><em>M</em></span>是磁矩，<span
-class="math inline"><em>D</em></span>是和悬浮高度线性相关的一个变量。</p>
+\]</span> 其中<span class="math inline">\(M\)</span>是磁矩，<span
+class="math inline">\(D\)</span>是和悬浮高度线性相关的一个变量。</p>
 <p>第二种计算方法是镜像电流法，该方法要对复杂的积分做数值计算，受限于篇幅不在此处展示。</p>
 </blockquote>
 </blockquote>
 <p>也许你会好奇作者思路是什么，为什么磁场是这样展开的，为什么引入<span
-class="math inline"><em>C</em><sub><em>z</em></sub></span>，<span
-class="math inline"><em>C</em><sub><em>r</em></sub></span>，为什么稳定条件长这样</p>
+class="math inline">\(C_z\)</span>，<span
+class="math inline">\(C_r\)</span>，为什么稳定条件长这样</p>
 <p>关于作者思路，笔者给出自己的理解。</p>
 <blockquote>
 <p>对于抗磁材料，它们没有自带的磁偶极矩。它们的磁场是感应出来的，方向与原磁场相反。磁体在感应磁场中的磁势依赖于<span
-class="math inline"><em>B</em><sup>2</sup></span>。回顾前文的结论<span
-class="math inline">∇<sup>2</sup><em>B</em> = 0</span>，是恩绍定理成立的条件，但是<span
-class="math inline">∇<sup>2</sup><em>B</em><sup>2</sup> ≥ 0</span>，说明抗磁材料的引入有望绕过恩绍定理。</p>
+class="math inline">\(B^2\)</span>。回顾前文的结论<span
+class="math inline">\(\nabla^2 B =
+0\)</span>，是恩绍定理成立的条件，但是<span
+class="math inline">\(\nabla^2 B^2 \geq
+0\)</span>，说明抗磁材料的引入有望绕过恩绍定理。</p>
 <p>在此基础上，作者给出了磁体在抗磁悬浮系统中的总势能方程，并引入抗磁层对势能的影响（<span
-class="math inline"><em>C</em><sub><em>z</em></sub></span>，<span
-class="math inline"><em>C</em><sub><em>r</em></sub></span>项），之后在势场中找到二次型势阱，说明磁体可以稳定悬浮于该势阱中，并给出稳定悬浮的条件。</p>
+class="math inline">\(C_z\)</span>，<span
+class="math inline">\(C_r\)</span>项），之后在势场中找到二次型势阱，说明磁体可以稳定悬浮于该势阱中，并给出稳定悬浮的条件。</p>
 <p>最后作者仔细分析了抗磁层对磁体产生的恢复力，对<span
-class="math inline"><em>C</em><sub><em>z</em></sub></span>，<span
-class="math inline"><em>C</em><sub><em>r</em></sub></span>项进行严谨的推导并加以实验证明。至此作者提出的抗磁悬浮物理模型得到完整的证明</p>
+class="math inline">\(C_z\)</span>，<span
+class="math inline">\(C_r\)</span>项进行严谨的推导并加以实验证明。至此作者提出的抗磁悬浮物理模型得到完整的证明</p>
 </blockquote>
 <p>对于剩下的问题，笔者将给出详细解释和推导。</p>
 <h3 id="旋转对称条件下磁场展开">旋转对称条件下磁场展开</h3>
-<p>回顾前文无电流静磁场的性质 <span class="math display">$$
+<p>回顾前文无电流静磁场的性质 <span class="math display">\[
 \begin{align*}
     \nabla \cdot B &amp;= 0 \\
     \nabla \times B &amp;= 0 \\
     \nabla^2 B &amp;= (\nabla^2 B_x, \nabla^2 B_y, \nabla^2 B_z) = 0
 \end{align*}
 \tag{2.12}
-$$</span></p>
+\]</span></p>
 <p>提升磁铁和悬浮磁铁都是圆柱形，可以利用磁场旋转对称的特性简化磁场的泰勒展开项。
 令悬浮磁体的悬浮位置为坐标原点<span
-class="math inline">(0, 0, 0)</span>，<span
-class="math inline"><em>z</em></span>轴方向竖直向上。那么系统关于<span
-class="math inline"><em>z</em></span>轴旋转对称。</p>
+class="math inline">\((0,0,0)\)</span>，<span
+class="math inline">\(z\)</span>轴方向竖直向上。那么系统关于<span
+class="math inline">\(z\)</span>轴旋转对称。</p>
 <p>因此</p>
 <ul>
-<li>圆柱坐标简化：使用柱坐标描述<span
-class="math inline">(<em>r</em>, <em>ϕ</em>, <em>z</em>)</span>，并且场量与<span
-class="math inline"><em>ϕ</em></span>无关</li>
-<li>横向分量<span
-class="math inline"><em>B</em><sub><em>x</em></sub>, <em>B</em><sub><em>y</em></sub></span>统一为径向分量<span
-class="math inline"><em>B</em><sub><em>r</em></sub></span></li>
+<li>圆柱坐标简化：使用柱坐标描述<span class="math inline">\((r, \phi,
+z)\)</span>，并且场量与<span
+class="math inline">\(\phi\)</span>无关</li>
+<li>横向分量<span class="math inline">\(B_x,
+B_y\)</span>统一为径向分量<span class="math inline">\(B_r\)</span></li>
 </ul>
 <p>在旋转对称下，拉普拉斯方程的解具有<strong>标准分离变量形式</strong>。沿对称轴<span
-class="math inline">(<em>r</em> = 0)</span>的场<span
-class="math inline"><em>B</em><sub><em>z</em></sub>(0, <em>z</em>)</span>及其导数决定了全空间场分布。</p>
+class="math inline">\((r=0)\)</span>的场<span
+class="math inline">\(B_z(0, z)\)</span>及其导数决定了全空间场分布。</p>
 <p>在悬浮平衡点<span
-class="math inline">(0, 0, 0)</span>附近展开磁场</p>
-<p>依据条件<span
-class="math inline">∇<sup>2</sup><em>B</em><sub><em>z</em></sub> = 0</span>，旋转对称。<span
-class="math inline"><em>B</em><sub><em>z</em></sub></span>的展开满足</p>
+class="math inline">\((0,0,0)\)</span>附近展开磁场</p>
+<p>依据条件<span class="math inline">\(\nabla^2
+B_z=0\)</span>，旋转对称。<span
+class="math inline">\(B_z\)</span>的展开满足</p>
 <ul>
 <li>对称性要求是偶函数，所以无<span
-class="math inline"><em>r</em></span>的奇次幂</li>
-<li>满足拉普拉斯方程<span class="math inline">$\frac{\partial^2
+class="math inline">\(r\)</span>的奇次幂</li>
+<li>满足拉普拉斯方程<span class="math inline">\(\frac{\partial^2
 B_z}{\partial r^2} + \frac{1}{r} \frac{\partial B_z}{\partial r} +
-\frac{\partial^2 B_z}{\partial z^2}=0$</span></li>
+\frac{\partial^2 B_z}{\partial z^2}=0\)</span></li>
 </ul>
-<p>将<span
-class="math inline"><em>B</em><sub><em>z</em></sub>(<em>r</em>, <em>z</em>)</span>展开至二阶项
-<span class="math display">$$
+<p>将<span class="math inline">\(B_z(r,z)\)</span>展开至二阶项 <span
+class="math display">\[
 B_z(r,z) = B_z(0, z) + \frac{\partial^2 B_z}{\partial r^2} \bigg|_{r=0}
 \frac{r^2}{2} + \cdot \cdot \cdot
 \tag{2.13}
-$$</span></p>
-<p>代入拉普拉斯方程并令<span class="math inline"><em>r</em> = 0</span>
-<span class="math display">$$
+\]</span></p>
+<p>代入拉普拉斯方程并令<span class="math inline">\(r=0\)</span> <span
+class="math display">\[
 \frac{\partial^2 B_z}{\partial r^2} \bigg|_{r=0} = -
 \frac{1}{2}\frac{\partial^2 B_z}{\partial z^2} \bigg|_{z=0}
 \tag{2.14}
-$$</span></p>
+\]</span></p>
 <details>
 <summary>
 关于式(2.14)中系数-1/2的解释
 </summary>
 <blockquote>
-<p><span
-class="math inline"><em>B</em><sub><em>z</em></sub>(<em>r</em>, <em>z</em>)</span>是关于<span
-class="math inline"><em>r</em></span>的偶函数，所以有<span
-class="math inline">$\frac{\partial B_z}{\partial r} \big|_{r=0} =
-0$</span></p>
-<p>我们把<span class="math inline">$\frac{\partial B_z}{\partial
-r}$</span>泰勒展开 <span class="math display">$$
+<p><span class="math inline">\(B_z(r,z)\)</span>是关于<span
+class="math inline">\(r\)</span>的偶函数，所以有<span
+class="math inline">\(\frac{\partial B_z}{\partial r} \big|_{r=0} =
+0\)</span></p>
+<p>我们把<span class="math inline">\(\frac{\partial B_z}{\partial
+r}\)</span>泰勒展开 <span class="math display">\[
 \frac{\partial B_z}{\partial r} = c_1 r + c_3 r^3 + \cdot \cdot \cdot
-$$</span> 那么 <span class="math display">$$
+\]</span> 那么 <span class="math display">\[
 \frac{1}{r}\frac{\partial B_z}{\partial r} = c_1 + c_3 r^2 + \cdot \cdot
 \cdot
-$$</span> 所以 <span class="math display">$$
+\]</span> 所以 <span class="math display">\[
 \lim_{r \to 0} \frac{1}{r}\frac{\partial B_z}{\partial r} = c_1 =
 \frac{\partial B_z}{\partial r^2}\bigg|_{r=0}
 \tag{2.15}
-$$</span> 将式<span
-class="math inline">(2.15)</span>带入拉普拉斯方程，可以得到式<span
-class="math inline">(2.14)</span></p>
+\]</span> 将式<span
+class="math inline">\((2.15)\)</span>带入拉普拉斯方程，可以得到式<span
+class="math inline">\((2.14)\)</span></p>
 </blockquote>
 </details>
-<p>定义轴上导数 <span class="math display">$$
-B_0 = B_z(0,0), ~~ B' = \frac{\partial B_z}{\partial z}\bigg|_{z=0,r=0},
-~~ B'' = \frac{\partial^2 B_z}{\partial z^2}\bigg|_{z=0,r=0}
+<p>定义轴上导数 <span class="math display">\[
+B_0 = B_z(0,0), ~~ B&#39; = \frac{\partial B_z}{\partial
+z}\bigg|_{z=0,r=0}, ~~ B&#39;&#39; = \frac{\partial^2 B_z}{\partial
+z^2}\bigg|_{z=0,r=0}
 \tag{2.16}
-$$</span></p>
-<p>将<span
-class="math inline"><em>B</em><sub><em>z</em></sub>(<em>r</em>, <em>z</em>)</span>展开到二次项
-<span class="math display">$$
+\]</span></p>
+<p>将<span class="math inline">\(B_z(r,z)\)</span>展开到二次项 <span
+class="math display">\[
 \begin{align*}
-    B_z(r,z) &amp;= \left[ B_0 + B'z + \frac{1}{2}B''z^2 + \cdot \cdot
-\cdot \right] + \left[- \frac{1}{2} \cdot \frac{1}{2} B''r^2 + \cdot
-\cdot \cdot \right] \\
-    &amp;= B_0 + B'z + \frac{1}{2}B''z^2 - \frac{1}{4} B''r^2
+    B_z(r,z) &amp;= \left[ B_0 + B&#39;z + \frac{1}{2}B&#39;&#39;z^2 +
+\cdot \cdot \cdot \right] + \left[- \frac{1}{2} \cdot \frac{1}{2}
+B&#39;&#39;r^2 + \cdot \cdot \cdot \right] \\
+    &amp;= B_0 + B&#39;z + \frac{1}{2}B&#39;&#39;z^2 - \frac{1}{4}
+B&#39;&#39;r^2
 \end{align*}
 \tag{2.17}
-$$</span></p>
-<p><strong>式<span class="math inline">(2.17)</span>和式<span
-class="math inline">(2.5)</span>是一样的</strong></p>
-<p>由<span
-class="math inline">∇ ⋅ <em>B</em> = 0</span>和旋转对称性，<span
-class="math inline"><em>B</em><sub><em>r</em></sub></span>的展开要求</p>
+\]</span></p>
+<p><strong>式<span class="math inline">\((2.17)\)</span>和式<span
+class="math inline">\((2.5)\)</span>是一样的</strong></p>
+<p>由<span class="math inline">\(\nabla \cdot B =
+0\)</span>和旋转对称性，<span
+class="math inline">\(B_r\)</span>的展开要求</p>
 <ul>
-<li><span
-class="math inline"><em>B</em><sub><em>r</em></sub></span>是关于<span
-class="math inline"><em>r</em></span>的奇函数</li>
-<li>散度方程<span class="math inline">$\frac{1}{r}
+<li><span class="math inline">\(B_r\)</span>是关于<span
+class="math inline">\(r\)</span>的奇函数</li>
+<li>散度方程<span class="math inline">\(\frac{1}{r}
 \frac{\partial}{\partial r} (rB_r) + \frac{1}{r} \frac{\partial
 B_{\theta}}{\partial \theta} + \frac{\partial B_z}{\partial
-z}=0$</span></li>
+z}=0\)</span></li>
 </ul>
-<p><span class="math display">$$
+<p><span class="math display">\[
 \frac{\partial(rB_r)}{\partial r} + r\frac{\partial B_z}{\partial z} = 0
 \tag{2.18}
-$$</span></p>
+\]</span></p>
 <details>
 <summary>
 柱坐标下散度方程以及旋转对称性相关推导
 </summary>
 <blockquote>
-<p>柱坐标下散度方程 <span class="math display">$$
+<p>柱坐标下散度方程 <span class="math display">\[
 \nabla \cdot B = \frac{1}{r} \frac{\partial}{\partial r} (rB_r) +
 \frac{1}{r} \frac{\partial B_{\theta}}{\partial \theta} + \frac{\partial
 B_z}{\partial z}=0
-$$</span> 旋转对称情况下<span class="math inline">$\frac{\partial
-}{\partial \theta} = 0$</span></p>
-<p>所以 <span class="math display">$$
+\]</span> 旋转对称情况下<span class="math inline">\(\frac{\partial
+}{\partial \theta} = 0\)</span></p>
+<p>所以 <span class="math display">\[
 \nabla \cdot B = \frac{1}{r} \frac{\partial}{\partial r} (rB_r) +
 \frac{\partial B_z}{\partial z} = 0
 \tag{2.19}
-$$</span> 式<span class="math inline">(2.18)</span>即在式<span
-class="math inline">(2.19)</span>两边同乘<span
-class="math inline"><em>r</em></span>得到</p>
+\]</span> 式<span class="math inline">\((2.18)\)</span>即在式<span
+class="math inline">\((2.19)\)</span>两边同乘<span
+class="math inline">\(r\)</span>得到</p>
 </blockquote>
 </details>
-<p>利用式<span class="math inline">(2.17)</span>和式<span
-class="math inline">(2.18)</span>将<span
-class="math inline"><em>B</em><sub><em>r</em></sub></span>展开 <span
-class="math display">$$
-B_r(r,z) = -\frac{r}{2}(B' + B''z + \cdot \cdot \cdot)
+<p>利用式<span class="math inline">\((2.17)\)</span>和式<span
+class="math inline">\((2.18)\)</span>将<span
+class="math inline">\(B_r\)</span>展开 <span class="math display">\[
+B_r(r,z) = -\frac{r}{2}(B&#39; + B&#39;&#39;z + \cdot \cdot \cdot)
 \tag{2.20}
-$$</span></p>
-<p><strong>式<span class="math inline">(2.20)</span>和式<span
-class="math inline">(2.6)</span>是一样的</strong></p>
+\]</span></p>
+<p><strong>式<span class="math inline">\((2.20)\)</span>和式<span
+class="math inline">\((2.6)\)</span>是一样的</strong></p>
 <details>
 <summary>
 式(2.18)到式(2.20)的推导
 </summary>
 <blockquote>
-<p>旋转对称性要求<span
-class="math inline"><em>B</em><sub><em>r</em></sub></span>是关于<span
-class="math inline"><em>r</em></span>的奇函数</p>
-<p>于是<span
-class="math inline"><em>B</em><sub><em>r</em></sub></span>展开保留<span
-class="math inline"><em>r</em></span>的奇数次幂</p>
-<p><span class="math display">$$
+<p>旋转对称性要求<span class="math inline">\(B_r\)</span>是关于<span
+class="math inline">\(r\)</span>的奇函数</p>
+<p>于是<span class="math inline">\(B_r\)</span>展开保留<span
+class="math inline">\(r\)</span>的奇数次幂</p>
+<p><span class="math display">\[
 B_r = a_1 r + a_2 zr + a_3 z^2r + a_4 r^3 + \cdot \cdot \cdot \\
 \tag{2.21}
-$$</span></p>
-<p>式<span class="math inline">(2.18)</span>移项得到</p>
-<p><span class="math display">$$
+\]</span></p>
+<p>式<span class="math inline">\((2.18)\)</span>移项得到</p>
+<p><span class="math display">\[
 \frac{\partial (rB_r)}{\partial r} = - r \frac{\partial B_z}{\partial z}
 \tag{2.22}
-$$</span></p>
-<p>式<span class="math inline">(2.21)</span>、式<span
-class="math inline">(2.17)</span>代入式<span
-class="math inline">(2.22)</span></p>
-<p><span class="math display">$$
+\]</span></p>
+<p>式<span class="math inline">\((2.21)\)</span>、式<span
+class="math inline">\((2.17)\)</span>代入式<span
+class="math inline">\((2.22)\)</span></p>
+<p><span class="math display">\[
 \begin{align*}
 \frac{\partial (rB_r)}{\partial r} &amp;= \frac{\partial}{\partial
 r}(r^2a_1 + r^2za_2 + r^2z^2a_3 + r^4a_4 + \cdot \cdot \cdot) \\
 &amp;= (2a_1r + 2a_2rz + 2a_3rz^2 + 4a_4r^3 + \cdot \cdot \cdot) \\
--r\frac{\partial B_z}{\partial z} &amp;= -(B_0r + B'rz +
-\frac{1}{2}B''rz^2 - \frac{1}{4}B''r^3)
+-r\frac{\partial B_z}{\partial z} &amp;= -(B_0r + B&#39;rz +
+\frac{1}{2}B&#39;&#39;rz^2 - \frac{1}{4}B&#39;&#39;r^3)
 \end{align*}
 \tag{2.23}
-$$</span></p>
-<p>式<span class="math inline">(2.23)</span>上下系数一一对应得到</p>
-<p><span class="math display">$$
-a_1 = -\frac{1}{2}B', ~~ a_2 = -\frac{1}{2}B''
-$$</span></p>
+\]</span></p>
+<p>式<span class="math inline">\((2.23)\)</span>上下系数一一对应得到</p>
+<p><span class="math display">\[
+a_1 = -\frac{1}{2}B&#39;, ~~ a_2 = -\frac{1}{2}B&#39;&#39;
+\]</span></p>
 </blockquote>
 </details>
 

@@ -219,20 +219,22 @@
           <h1 id="实现磁体在空中静态稳定磁悬浮">实现磁体在空中静态稳定磁悬浮</h1>
 <p>假设我们有一圆柱形永磁体，我们需要构造一个静磁场让它稳定悬浮在空中。</p>
 <p>让我们从势能的角度考虑，假如在磁场中存在一个磁势的极小值点，那么极小值点附近会形成一个磁势的低谷，低谷足够低，永磁体陷入低谷后即便在重力的作用下也无法逃逸。这样永磁体就会稳定存在于低谷中的某个位置。</p>
-<p>在磁场中磁体的磁势为： <span
-class="math display"><em>U</em> = −<em>M</em> ⋅ <em>B</em> = −<em>M</em><sub><em>x</em></sub><em>B</em><sub><em>x</em></sub> − <em>M</em><sub><em>y</em></sub><em>B</em><sub><em>y</em></sub> − <em>M</em><sub><em>z</em></sub><em>B</em><sub><em>z</em></sub></span></p>
+<p>在磁场中磁体的磁势为： <span class="math display">\[
+U = -M \cdot B = -M_xB_x - M_yB_y - M_zB_z \tag{1.1}
+\]</span></p>
 <ul>
-<li><span class="math inline"><em>U</em></span>是磁势</li>
+<li><span class="math inline">\(U\)</span>是磁势</li>
+<li><span class="math inline">\(M\)</span>是磁体的磁矩（恒定），<span
+class="math inline">\(M_x, M_y,
+M_z\)</span>分别是x、y、z三个方向的磁矩的分量</li>
 <li><span
-class="math inline"><em>M</em></span>是磁体的磁矩（恒定），<span
-class="math inline"><em>M</em><sub><em>x</em></sub>, <em>M</em><sub><em>y</em></sub>, <em>M</em><sub><em>z</em></sub></span>分别是x、y、z三个方向的磁矩的分量</li>
-<li><span
-class="math inline"><em>B</em></span>是磁感应强度（磁通密度），<span
-class="math inline"><em>B</em><sub><em>x</em></sub>, <em>B</em><sub><em>y</em></sub>, <em>B</em><sub><em>z</em></sub></span>分别是x、y、z三个方向的磁感应强度的分量</li>
+class="math inline">\(B\)</span>是磁感应强度（磁通密度），<span
+class="math inline">\(B_x, B_y,
+B_z\)</span>分别是x、y、z三个方向的磁感应强度的分量</li>
 </ul>
 <p>磁势的低谷，即磁势的极小值点，使用数学语言描述：</p>
 <pre><code>磁势的二阶导数构成的海森（Hessian）矩阵的全部特征值大于0</code></pre>
-<p><span class="math display">$$
+<p><span class="math display">\[
 H =
 \left[
 \begin{array}{l}
@@ -245,7 +247,7 @@ U}{\partial z \partial y} &amp; \frac{\partial^2 U}{\partial z^2}
 \end{array}
 \right]
 \tag{1.2}
-$$</span></p>
+\]</span></p>
 <details>
 <summary>
 海森矩阵特征值与局部极值的关系
