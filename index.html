@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"oni-hui.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"oni-hui.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="一个菜菜的研究生建的站">
 <meta property="og:type" content="website">
@@ -194,7 +194,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-07-31 15:37:49" itemprop="dateModified" datetime="2025-07-31T15:37:49+08:00">2025-07-31</time>
+      <time title="修改时间：2025-08-24 22:50:54" itemprop="dateModified" datetime="2025-08-24T22:50:54+08:00">2025-08-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -216,7 +216,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="实现磁体在空中静态稳定磁悬浮">实现磁体在空中静态稳定磁悬浮</h1>
+          <h1 id="前言">前言</h1>
+<p>抗磁悬浮系统是一个极低成本，能在室温下零能耗稳定悬浮的磁悬浮方案。近几年有科学家发现其低噪声、高自旋密度的特性可以用于基础物理探测。</p>
+<p>悬浮的意义在于隔离环境，降低噪声，为高精度测量提供合适的平台。</p>
+<p>本文基于论文“M. D. Simon, Diamagnetically stabilized magnet
+levitation, 2001. DOI:
+10.1119/1.1375157”分析抗磁悬浮系统的物理模型及其对应的数学表达。</p>
+<h1 id="实现磁体在空中静态稳定磁悬浮">实现磁体在空中静态稳定磁悬浮</h1>
 <p>假设我们有一圆柱形永磁体，我们需要构造一个静磁场让它稳定悬浮在空中。</p>
 <p>让我们从势能的角度考虑，假如在磁场中存在一个磁势的极小值点，那么极小值点附近会形成一个磁势的低谷，低谷足够低，永磁体陷入低谷后即便在重力的作用下也无法逃逸。这样永磁体就会稳定存在于低谷中的某个位置。</p>
 <p>在磁场中磁体的磁势为： <span class="math display">\[
@@ -299,8 +305,6 @@ theorem），我们无法使用普通磁性材料构造出一个存在局部势�
       <i class="fa fa-heart"></i>
     </span>
     <span class="author" itemprop="copyrightHolder">oniiii</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
     </div>
