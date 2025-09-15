@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://oni-hui.github.io/images/jingxiang_dianliu2.png">
 <meta property="og:image" content="https://oni-hui.github.io/images/mo-xing-wu-cha.png">
 <meta property="article:published_time" content="2025-07-25T08:22:02.000Z">
-<meta property="article:modified_time" content="2025-09-14T02:32:26.017Z">
+<meta property="article:modified_time" content="2025-09-15T14:54:57.822Z">
 <meta property="article:author" content="oniiii">
 <meta property="article:tag" content="静磁场">
 <meta property="article:tag" content="恩绍定理">
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.1k 字
+          6.2k 字
         
       </span>
     
@@ -245,7 +245,7 @@
         
         
         
-          43 分钟
+          52 分钟
         
       </span>
     
@@ -352,8 +352,7 @@ theorem），我们无法使用普通磁性材料构造出一个存在局部势�
 <p>恩绍定理指出点粒子集不能被稳定维持在仅由电荷的静电相互作用构成的一个稳定静止的力学平衡结构。或者推广成，任意多个仅有平方反比作用的物体之间无法形成稳定平衡。由于引力场、静电场、静磁场均满足平方反比定律，因此恩绍定理可以推广到引力场、静电场与静磁场的混合场中</p>
 </blockquote>
 </details>
-<hr />
-<h2 id="推导磁场中的恩绍定理">推导磁场中的恩绍定理</h2>
+<h2 id="恩绍定理的限制">恩绍定理的限制</h2>
 <p>此小节中，我们的目的是在数学上证明在无电流的静磁场中不存在磁势的极小值。即<strong>磁势的二阶导数构成的海森（Hessian）矩阵的特征值不全大于0</strong></p>
 <p>回顾静磁场的麦克斯韦方程组 <span class="math display">\[
 \begin{align*}
@@ -476,25 +475,41 @@ class="math inline">\((1.11)\)</span>矛盾</p>
 <p>静磁场中的恩绍定理得证</p>
 <hr />
 <h2 id="引入抗磁性物质绕过恩绍定理">引入抗磁性物质绕过恩绍定理</h2>
-<p>前文提到一般静磁场中磁势依赖磁感应强度的一次项<span
-class="math inline">\(B\)</span>。
-磁偶极子产生的磁感应强度在远场近似正比于<span
-class="math inline">\(\frac{1}{r^3}\)</span> 磁势<span
-class="math inline">\(U = - M \cdot B\)</span>，其中磁矩<span
-class="math inline">\(M\)</span>正比于<span
-class="math inline">\(r^2\)</span>，所以磁势属于<span
-class="math inline">\(\frac{1}{r}\)</span>类型的势能。</p>
-<p>而所有<span
-class="math inline">\(\frac{1}{r}\)</span>形式的势能，其拉普拉斯运算都为0，因此都不存在局部极小值点。</p>
+<p>前文证明了<span class="math inline">\(U = -\mathbf{M} \cdot
+\mathbf{B} =
+MB\)</span>（因为磁体会对齐磁场）这样的势能（依赖于磁场分量）无法提供稳定的三维势阱。</p>
+<p>但是引入抗磁层，利用其感应磁场的特性，可以得到依赖于场幅值的平方的势能。该势能会帮助构建自由空间中三维势阱。</p>
+<p>抗磁材料在外磁场中的磁化强度<span
+class="math inline">\(M_{dia}\)</span>与磁场方向相反：<span
+class="math inline">\(\mathbf{M}_{dia} = \chi H, (\chi &lt;
+0)\)</span>。其磁能密度为： <span class="math display">\[
+u_{dia} = - \frac{1}{2} \mu_0 \mathbf{M}_{dia} \cdot \mathbf{H} =
+-\frac{1}{2}\mu_0 \chi H^2
+\]</span> 由于<span class="math inline">\(\mathbf{B} = \mu_0
+\mathbf{H}\)</span>，所以<span class="math inline">\(H^2 =
+B^2/\mu_0^2\)</span>。带入上式： <span class="math display">\[
+u_{dia} = -\frac{1}{2}\mu_0\chi\left( \frac{B^2}{\mu_0^2} \right) = =
+-\frac{\chi}{2\mu_0}B^2
+\]</span> 因为<span class="math inline">\(\chi &lt; 0\)</span>，
+所以<span class="math inline">\(-\chi &gt; 0\)</span>，令<span
+class="math inline">\(k = -\chi/(2\mu_0) &gt; 0\)</span>，则： <span
+class="math display">\[
+U_{dia} = \int_V u_{dia} dV \approx kVB^2
+\]</span></p>
+<p>现在，系统的总势能<span class="math inline">\(U_{tot}\)</span>为：
+<span class="math display">\[
+U_{tot} = MB + kVB^2 + mgz
+\]</span></p>
+<p>（为了简化，我们假设抗磁层是固定的，且其贡献可模型化为一个点或一个简单的几何形状，其净效果是增加一个<span
+class="math inline">\(CB^2\)</span>项，如论文中的<span
+class="math inline">\(C_z z^2\)</span>和<span class="math inline">\(C_r
+r^2\)</span>项）。</p>
 <p>我们考虑如图系统</p>
 <figure>
 <img src="/images/抗磁悬浮系统.jpg" srcset="/img/loading.gif" lazyload
-title="抗磁悬浮系统DOI: 10.1119/1.1375157" alt="抗磁悬浮系统" />
-<figcaption aria-hidden="true">抗磁悬浮系统</figcaption>
+title="抗磁悬浮系统DOI: 10.1119/1.1375157" alt="图2.1 抗磁悬浮系统" />
+<figcaption aria-hidden="true">图2.1 抗磁悬浮系统</figcaption>
 </figure>
-<center>
-图2.1 抗磁悬浮系统
-</center>
 <p>悬浮系统上方是一个较大的圆柱形钕铁硼永磁体（称为提升磁铁），中间是半径500<span
 class="math inline">\(\mu m\)</span>，高500<span
 class="math inline">\(\mu
@@ -612,9 +627,9 @@ class="math inline">\(C_r\)</span>项进行严谨的推导并加以实验证明�
 \end{align*}
 \tag{2.12}
 \]</span></p>
-<p>提升磁铁和悬浮磁铁都是圆柱形，可以利用磁场旋转对称的特性简化磁场的泰勒展开项。
-令悬浮磁体的悬浮位置为坐标原点<span
-class="math inline">\((0,0,0)\)</span>，<span
+<p>提升磁铁和悬浮磁铁都是圆柱形，可以利用磁场旋转对称的特性简化磁场的泰勒展开项。</p>
+<p>令<strong>悬浮磁体的悬浮位置为坐标原点<span
+class="math inline">\((0,0,0)\)</span></strong>，<span
 class="math inline">\(z\)</span>轴方向竖直向上。那么系统关于<span
 class="math inline">\(z\)</span>轴旋转对称。</p>
 <p>因此</p>
@@ -843,13 +858,16 @@ class="math inline">\((B&#39; - \frac{mg}{M})\)</span>应当为<span
 class="math inline">\(0\)</span>，代表磁感应强度的梯度<span
 class="math inline">\(MB&#39;\)</span>平衡重力<span
 class="math inline">\(mg\)</span>。</p>
-<p>整理总势能里二次项： <span
-class="math display">\[(\frac{1}{2}B&#39;&#39; + C_z)z^2\]</span> <span
-class="math display">\[(\frac{1}{4}(\frac{B&#39;^2}{2B_0} - B&#39;&#39;)
-+ C_r)r^2\]</span></p>
+<p>整理总势能里二次项：</p>
+<p><span class="math display">\[
+\begin{cases}
+    (\frac{1}{2}B&#39;&#39; + C_z)z^2 \\
+    (\frac{1}{4}(\frac{B&#39;^2}{2B_0} - B&#39;&#39;) + C_r)r^2
+\end{cases}
+\]</span></p>
 <p>类比弹簧的弹性势能公式：<span class="math inline">\(E =
 \frac{1}{2}Kx^2\)</span></p>
-<p>假如二次项前面的系数都是正的，那么在竖直方向和水平方向上，磁体都会受到一个向内的“恢复力”。实现磁体在空中稳定悬浮。论文作者为了“恢复力”这坛醋包了一整篇论文的饺子（乐）。</p>
+<p>假如二次项前面的系数都是正的，那么在竖直方向和水平方向上，磁体都会受到一个向内的“恢复力”。实现磁体在空中稳定悬浮。</p>
 <p>总结一下，磁体的稳定条件为： <span class="math display">\[
 \left\{
 \begin{align*}
@@ -862,22 +880,23 @@ class="math display">\[(\frac{1}{4}(\frac{B&#39;^2}{2B_0} - B&#39;&#39;)
 \]</span></p>
 <h3 id="分析计算c_z-c_r项">分析计算<span class="math inline">\(C_z,
 C_r\)</span>项</h3>
-当磁体接近磁导率为<span class="math inline">\(\mu = 1+\chi \approx
+<p>当磁体接近磁导率为<span class="math inline">\(\mu = 1+\chi \approx
 1\)</span>的抗磁性薄片时，我们可以考虑薄片感应出的镜像电流<span
 class="math inline">\(I&#39;\)</span>解决外部磁场问题。 <span
 class="math display">\[
 I&#39; = I \frac{\mu - 1}{\mu + 1} \approx I\frac{\chi}{2}
-\]</span> <img src="/images/jingxiang_dianliu2.png" srcset="/img/loading.gif" lazyload title="镜像电流"
-alt="镜像电流" />
-<center>
-图2.2 感应出的镜像电流
-</center>
+\]</span></p>
+<figure>
+<img src="/images/jingxiang_dianliu2.png" srcset="/img/loading.gif" lazyload title="镜像电流"
+alt="图2.2 镜像电流" />
+<figcaption aria-hidden="true">图2.2 镜像电流</figcaption>
+</figure>
 <p>如果该材料是完美的抗磁体，例如具有<span class="math inline">\(\chi =
 -1\)</span>和<span class="math inline">\(\mu =
 0\)</span>的超导体，则会按预期创建一个相等且相反的镜像。</p>
 <p>考虑磁体的有限尺寸，我们应该将磁体和镜像视为带状电流（如图2.2右边情况），带状电流模型计算较为复杂。论文还给出了计算更为简单但是更加粗糙的模型：偶极子近似（如图2.2中左边情况），该近似在远离极板的位置以及一些其他条件下也有效。</p>
-<h4 id="偶极子近似模型下的c_zc_r项计算">偶极子近似模型下的<span
-class="math inline">\(C_z,C_r\)</span>项计算</h4>
+<h4 id="偶极子近似模型下的c_z项计算">偶极子近似模型下的<span
+class="math inline">\(C_z\)</span>项计算</h4>
 <p>偶极子近似下磁体受力被看成是磁场中环形电流的受力。抗磁层中的镜像偶极子位于悬浮磁体下方距离<span
 class="math inline">\(D=2d+L\)</span>的位置。其中<span
 class="math inline">\(d\)</span>是悬浮磁铁底部到抗磁层的距离，<span
@@ -928,20 +947,109 @@ class="math display">\[
 \end{align*}
 \tag{2.32}
 \]</span></p>
-<h4 id="表面电流近似模型下的c_zc_r项计算">表面电流近似模型下的<span
-class="math inline">\(C_z,C_r\)</span>项计算</h4>
+<h4 id="带状电流近似模型下的c_z项计算">带状电流近似模型下的<span
+class="math inline">\(C_z\)</span>项计算</h4>
 <p>如果悬浮磁铁离抗磁层很近，那么偶极子近似模型会产生很大的误差：当悬浮磁铁逐渐靠近抗磁层，能量会趋于无穷。
 <span class="math display">\[
 \lim_{D\to 0}C_z z^2 = \frac{6M^2|\chi|\mu_0}{\pi D^5}z^2
 \]</span></p>
 <figure>
-<img src="/images/mo-xing-wu-cha.png" srcset="/img/loading.gif" lazyload title="模型误差" alt="模型误差" />
-<figcaption aria-hidden="true">模型误差</figcaption>
+<img src="/images/mo-xing-wu-cha.png" srcset="/img/loading.gif" lazyload title="模型误差"
+alt="图2.3 模拟结果与实际测量比较" />
+<figcaption aria-hidden="true">图2.3 模拟结果与实际测量比较</figcaption>
 </figure>
-<center>
-图2.3 模拟结果与实际测量比较
-</center>
-<p>图中还给出了表面电流近似模型的计算结果，很明显，表面电流近似模型的模拟结果更加贴近实际。</p>
+<p>图中还给出了带状电流近似模型的计算结果，很明显，带状电流近似模型的模拟结果更加贴近实际。</p>
+<p>两个形状一样的带状电流环之间的作用力可以用以下方程描述：</p>
+<p>带状电流环半径<span
+class="math inline">\(a\)</span>，两个环的间距<span
+class="math inline">\(c\)</span>，两个环的电流分别为<span
+class="math inline">\(I\)</span>和<span
+class="math inline">\(I&#39;\)</span> <span class="math display">\[
+F_{loops} = \mu_0 II&#39;\frac{c}{\sqrt{4a^2 + c^2}}\left[ -K +
+\frac{2a^2 + c^2}{c^2}E \right]
+\tag{2.33}
+\]</span></p>
+<p>其中<span class="math inline">\(K\)</span>和<span
+class="math inline">\(E\)</span>是椭圆积分 <span class="math display">\[
+\begin{align*}
+    K = \int_0^{\pi/2} \frac{1}{\sqrt{1 - k^2\sin^2\theta}}d\theta \\
+    E = \int_0^{\pi/2} \sqrt{1 - k^2\sin^2\theta}d\theta
+\end{align*}
+\tag{2.34}
+\]</span></p>
+<p><span class="math inline">\(k^2\)</span>的计算 <span
+class="math display">\[
+k^2 = \frac{4a^2}{4a^2 + c^2}
+\tag{2.35}
+\]</span></p>
+<p>可以用带状电流描述悬浮磁铁及其镜像，参考图<span
+class="math inline">\((2.2)\)</span>右边。我们对环路方程在两个带状电流的长度L上做双重积分。通过适当的变量变换，可以把二重积分转为单变量积分。
+<span class="math display">\[
+F = \mu_0 II&#39;\int_{-1}^1 J[1-v sgn(v)]dv
+\tag{2.36}
+\]</span> 其中 <span class="math display">\[
+J = \sqrt{1-k^2}\left[ \frac{1-\frac{1}{2}k^2}{1-k^2} E(k) - K(k)
+\right],
+\]</span> <span class="math display">\[
+k = \frac{1}{\sqrt{1+\gamma^2}}, ~~ \gamma = \frac{d}{R} +
+\frac{L}{2R}(1+v),
+\]</span> <span class="math display">\[
+sgn(v) = sign ~~ of ~~ v =
+\begin{cases}
+    +1 &amp; if ~~ v &gt; 0 \\
+    0  &amp; if ~~ v = 0 \\
+    -1 &amp; if ~~ v &lt; 0
+\end{cases}
+\]</span></p>
+<p><span
+class="math inline">\(d\)</span>是磁体表面到抗磁表面的距离，<span
+class="math inline">\(R\)</span>和<span
+class="math inline">\(L\)</span>分别是悬浮磁体的半径和长度。</p>
+<h4 id="等效电流的计算">等效电流的计算</h4>
+<p>偶极子近似模型计算作用力和带状电流近似计算作用力都要用到电流，电流是通过悬浮磁体的磁矩计算的，磁矩可以通过测量得到。
+<span class="math display">\[
+I = \frac{M}{area} = \frac{M}{\pi R^2}
+\tag{2.37}
+\]</span> 因为<span class="math inline">\(I&#39; = I \frac{\mu - 1}{\mu
++ 1} \approx I\frac{\chi}{2}\)</span> 所以 <span class="math display">\[
+I&#39; = \frac{\chi M}{2\pi R^2}
+\tag{2.38}
+\]</span></p>
+<h4 id="c_z项计算"><span class="math inline">\(C_z\)</span>项计算</h4>
+<p><span
+class="math inline">\(F\)</span>是抗磁层对悬浮磁铁的力，这个力在小范围内可以类比弹簧的恢复力<span
+class="math inline">\(\frac{\partial F}{\partial d}z\)</span>。
+恢复力等同于势能项<span class="math inline">\(C_zz^2\)</span>的负梯度。
+<span class="math display">\[
+-2C_zz = \frac{\partial F}{\partial d}z
+\tag{2.39}
+\]</span> 于是，对于单层抗磁层情况 <span class="math display">\[
+C_z = - \frac{\partial F}{2\partial d}
+\tag{2.40}
+\]</span></p>
+<h4 id="c_r项计算"><span class="math inline">\(C_r\)</span>项计算</h4>
+<p><span
+class="math inline">\(C_r\)</span>只会在空心圆柱形抗磁层中出现，悬浮磁体处于空心圆柱形抗磁层内部。本文项目不涉及该结构，所以<span
+class="math inline">\(C_r\)</span>项计算不在本文考虑范围内。</p>
+<p>以下给出论文中的结论 <span class="math display">\[
+C_r r^2 = \frac{45\mu_0|\chi|M^2}{16D^5}r^2
+\tag{2.41}
+\]</span></p>
+<h3 id="计算悬浮系统的垂直振动频率">计算悬浮系统的垂直振动频率</h3>
+<p>当垂直方向稳定条件满足时，存在近似二次型势阱，垂直振动频率满足 <span
+class="math display">\[
+\nu = \frac{1}{2\pi}\sqrt{\frac{1}{m} \left[ -2\frac{\partial
+F}{\partial d} - MB&#39;&#39; \right] }
+\tag{2.42}
+\]</span></p>
+<p>其中<span class="math inline">\(\frac{\partial F}{\partial
+d}\)</span>可以通过前文偶极子近似或带状电流近似模型计算得到。<span
+class="math inline">\(F\)</span>是抗磁层对悬浮磁铁的作用力。</p>
+<h1 id="总结">总结</h1>
+<p>本文基于论文“M. D. Simon, Diamagnetically stabilized magnet
+levitation,
+2001.”介绍了抗磁悬浮系统组成及其悬浮原理，同时给出了这篇文章的理论部分更加详细的解释。</p>
+<p>受限于恩绍定理磁体无法直接在自由空间静态悬浮，但是通过引入抗磁层利用其感应磁场的特性可以绕过恩绍定理，在自由空间构造出一个三维的势阱。借助于这一发现，论文构建了一套抗磁悬浮系统。该系统由三部分构成，最上方是大号永磁体（提升磁铁），处于中间的是微型磁体（悬浮磁体），最下面是一层抗磁层。论文提供了该系统的物理模型及其对应的数学表达，使得该系统中：悬浮磁体附近的径向与轴向磁场、悬浮磁体垂直方向的受力、悬浮磁体的势能、悬浮磁体垂直方向的谐振频率都能被定量地计算。计算结果与实验结果相匹配。</p>
 
                 
               </div>
