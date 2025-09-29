@@ -28,8 +28,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://oni-hui.github.io/images/yundong/xiangying.png">
 <meta property="og:image" content="https://oni-hui.github.io/images/yundong/all_files_comparison.png">
+<meta property="og:image" content="https://oni-hui.github.io/images/yundong/moxing.png">
 <meta property="article:published_time" content="2025-09-29T20:26:04.000Z">
-<meta property="article:modified_time" content="2025-09-29T21:22:39.441Z">
+<meta property="article:modified_time" content="2025-09-29T21:49:15.997Z">
 <meta property="article:author" content="oniiii">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://oni-hui.github.io/images/yundong/xiangying.png">
@@ -229,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          2.3k 字
         
       </span>
     
@@ -240,7 +241,7 @@
         
         
         
-          11 分钟
+          20 分钟
         
       </span>
     
@@ -299,15 +300,22 @@ class="math inline">\(u\)</span>时，悬浮磁体相对于抗磁层和提升磁
 class="math inline">\(z-u\)</span>。对于小扰动，系统在竖直方向的运动方程可线性化为：
 <span class="math display">\[
 m\frac{d^2 z}{dt^2} = -K_v (z-u)
-\]</span> 其中： - <span class="math inline">\(m\)</span>是悬浮磁铁质量
-- <span class="math inline">\(K_v\)</span>是竖直方向的刚度系数</p>
+\]</span> 其中：</p>
+<ul>
+<li><span class="math inline">\(m\)</span>是悬浮磁铁质量</li>
+<li><span class="math inline">\(K_v\)</span>是竖直方向的刚度系数</li>
+</ul>
 <p>式中的<span class="math inline">\(K_v\)</span>已经在之前的推导中给出
 <span class="math display">\[
 K_v = C_z - \frac{1}{2} MB&#39;&#39;
-\]</span> 其中： - <span
-class="math inline">\(M\)</span>是悬浮磁体的磁矩 - <span
-class="math inline">\(B&#39;&#39;\)</span>是提升磁铁磁场在平衡点的二阶导数（沿竖直方向）
-- <span class="math inline">\(C_z\)</span>是抗磁材料对势能贡献的系数</p>
+\]</span> 其中：</p>
+<ul>
+<li><span class="math inline">\(M\)</span>是悬浮磁体的磁矩</li>
+<li><span
+class="math inline">\(B&#39;&#39;\)</span>是提升磁铁磁场在平衡点的二阶导数（沿竖直方向）</li>
+<li><span
+class="math inline">\(C_z\)</span>是抗磁材料对势能贡献的系数</li>
+</ul>
 <p>基于带状电流方法，<span
 class="math inline">\(C_z\)</span>与抗磁材料产生的力的梯度有关，<span
 class="math inline">\(C_z = -\frac{\partial F}{2\partial d}\)</span></p>
@@ -364,8 +372,11 @@ class="math inline">\(\theta\)</span>。</p>
 <p>无阻尼情况下的运动方程：</p>
 <p><span class="math display">\[I\frac{d^2\theta}{dt^2} + m_z B_z \theta
 = m_z \delta B_x\]</span></p>
-<p>其中： - <span class="math inline">\(I\)</span>：转动惯量 - <span
-class="math inline">\(m_z B_z\)</span>：扭转刚度系数</p>
+<p>其中：</p>
+<ul>
+<li><span class="math inline">\(I\)</span>：转动惯量</li>
+<li><span class="math inline">\(m_z B_z\)</span>：扭转刚度系数</li>
+</ul>
 <h3 id="拉普拉斯变换">拉普拉斯变换</h3>
 <p>对运动方程进行拉普拉斯变换（零初始条件）：</p>
 <p><span class="math display">\[I s^2 \Theta(s) + m_z B_z \Theta(s) =
@@ -378,9 +389,13 @@ B_x(s)} = \frac{m_z}{I s^2 + m_z B_z}\]</span></p>
 <p>改写为标准形式：</p>
 <p><span class="math display">\[G_\theta(s) =
 \frac{K_\theta}{\frac{s^2}{\omega_{n\theta}^2} + 1}\]</span></p>
-<p>其中参数为： - 固有频率：<span class="math inline">\(\omega_{n\theta}
-= \sqrt{\frac{m_z B_z}{I}}\)</span> - 静态增益：<span
-class="math inline">\(K_\theta = \frac{1}{B_z}\)</span></p>
+<p>其中参数为：</p>
+<ul>
+<li>固有频率：<span class="math inline">\(\omega_{n\theta} =
+\sqrt{\frac{m_z B_z}{I}}\)</span></li>
+<li>静态增益：<span class="math inline">\(K_\theta =
+\frac{1}{B_z}\)</span></li>
+</ul>
 <h2 id="横向平动系统传递函数">横向平动系统传递函数</h2>
 <h3 id="物理模型建立-1">物理模型建立</h3>
 <p>系统输入为磁场扰动 <span class="math inline">\(\delta
@@ -429,11 +444,139 @@ x\theta\]</span></p>
 <p>改写为标准形式：</p>
 <p><span class="math display">\[G_x(s) =
 \frac{K_x}{\frac{s^2}{\omega_{nx}^2} + 1}\]</span></p>
-<p>其中参数为： - 固有频率：<span class="math inline">\(\omega_{nx} =
-\sqrt{\frac{k_x}{m}}\)</span> - 静态增益：<span
-class="math inline">\(K_x = \frac{\alpha m_z}{k_x}\)</span></p>
+<p>其中参数为：</p>
+<ul>
+<li>固有频率：<span class="math inline">\(\omega_{nx} =
+\sqrt{\frac{k_x}{m}}\)</span></li>
+<li>静态增益：<span class="math inline">\(K_x = \frac{\alpha
+m_z}{k_x}\)</span></li>
+</ul>
 <h2 id="总结">总结</h2>
 <p>三者都是二阶的低通滤波器</p>
+<h1 id="集成化平台设计">集成化平台设计</h1>
+<figure>
+<img src="/images/yundong/moxing.png" srcset="/img/loading.gif" lazyload title="模型" alt="模型" />
+<figcaption aria-hidden="true">模型</figcaption>
+</figure>
+<h1 id="圆形和方形线圈">圆形和方形线圈</h1>
+<h2 id="核心区别">核心区别</h2>
+<p>最核心的区别在于<strong>几何形状</strong>的不同，这直接导致了<strong>磁场分布</strong>、<strong>制造难度</strong>、<strong>电感值</strong>和<strong>适用场景</strong>的差异。</p>
+<h2 id="详细对比表">详细对比表</h2>
+<table>
+
+<thead>
+<tr>
+<th style="text-align: left;">特性</th>
+<th style="text-align: left;">方形线圈</th>
+<th style="text-align: left;">圆形线圈</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>磁场分布</strong></td>
+<td style="text-align: left;"><strong>不均匀</strong> -
+边角处磁场更集中、更强，直边中心较弱，呈”枕形”分布</td>
+<td style="text-align: left;"><strong>高度均匀</strong> -
+中心区域磁场均匀对称，边缘逐渐减弱，呈完美圆形对称</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>制造与成本</strong></td>
+<td style="text-align: left;"><strong>易于绕制和安装</strong> -
+贴合PCB板或方形骨架，自动化生产方便，成本较低</td>
+<td style="text-align: left;"><strong>传统绕制较复杂</strong> -
+需要专用绕线机保持形状，但PCB工艺成熟后制作变易</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>空间利用率</strong></td>
+<td style="text-align: left;"><strong>高</strong> -
+在矩形设备中可最大化利用空间，填充角落</td>
+<td style="text-align: left;"><strong>低</strong> -
+在方形设备中会浪费四个角区域</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>电感值</strong></td>
+<td
+style="text-align: left;">相同面积和匝数下<strong>电感量略小</strong></td>
+<td
+style="text-align: left;">相同面积和匝数下<strong>电感量最大</strong> -
+效率最高的形状</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>品质因数(Q值)</strong></td>
+<td style="text-align: left;"><strong>较低</strong> -
+边角导线更长导致直流电阻大，尖锐弯曲增加寄生电容和涡流损耗</td>
+<td style="text-align: left;"><strong>较高</strong> -
+导线弯曲均匀，电阻和寄生电容小，能量损耗低，频率特性好</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>应用场景</strong></td>
+<td
+style="text-align: left;">手机无线充电接收端、RFID标签、各种电感器和变压器</td>
+<td
+style="text-align: left;">高精度传感器、电磁铁、无线充电发射端、MRI核磁共振、高频电路</td>
+</tr>
+</tbody>
+</table>
+<h2 id="方形线圈优势与劣势">方形线圈优势与劣势</h2>
+<h3 id="优势">优势</h3>
+<ol type="1">
+<li><strong>空间效率高</strong> -
+在矩形设备中可紧贴外壳边缘布局，最大限度利用内部空间</li>
+<li><strong>易于集成制造</strong> -
+非常适合PCB工艺，通过蚀刻轻松制作高精度平面线圈</li>
+<li><strong>成本较低</strong> -
+自动化生产中绕制更简单快捷，适合大批量消费电子产品</li>
+</ol>
+<h3 id="劣势">劣势</h3>
+<ol type="1">
+<li><strong>磁场不均匀</strong> -
+边角磁场集中导致耦合效率变化大，可能引起局部过热</li>
+<li><strong>电气性能稍差</strong> -
+更高电阻和寄生效应导致Q值较低，频率选择性和效率稍差</li>
+</ol>
+<h2 id="圆形线圈优势与劣势">圆形线圈优势与劣势</h2>
+<h3 id="优势-1">优势</h3>
+<ol type="1">
+<li><strong>最优电感量和Q值</strong> -
+给定面积下提供最大电感量和最高Q值，谐振电路效率高</li>
+<li><strong>磁场均匀稳定</strong> -
+均匀磁场对于高精度测量传感器和医疗设备至关重要</li>
+<li><strong>损耗更低</strong> -
+均匀弯曲减少集肤效应和邻近效应，高频下表现更好</li>
+</ol>
+<h3 id="劣势-1">劣势</h3>
+<ol type="1">
+<li><strong>空间利用率低</strong> - 安装在矩形设备中浪费四个角空间</li>
+<li><strong>传统绕制成本高</strong> -
+非PCB制作的立体线圈需要更精密绕线设备</li>
+</ol>
+<h2 id="选择指南">选择指南</h2>
+<h3 id="选择方形线圈当">选择方形线圈当：</h3>
+<ul>
+<li><strong>空间是首要考虑</strong> -
+智能手机、平板电脑、超薄电子产品</li>
+<li><strong>成本敏感</strong> -
+大批量消费类产品，如无线充电接收器、RFID卡牌</li>
+<li><strong>需要贴合矩形表面</strong> - 贴在墙上的传感器或标签</li>
+</ul>
+<h3 id="选择圆形线圈当">选择圆形线圈当：</h3>
+<ul>
+<li><strong>性能是首要考虑</strong> -
+高Q值要求的谐振电路、射频电路、高性能电感</li>
+<li><strong>需要均匀磁场</strong> -
+无线充电底座(发射端)、高精度电流传感器、医学成像设备</li>
+<li><strong>工作频率很高</strong> -
+高频下圆形线圈的损耗优势更加明显</li>
+</ul>
+<h2 id="总结-1">总结</h2>
+<ul>
+<li><strong>方形线圈</strong>是”务实的经济学家”：牺牲部分性能，换取高空间利用率和低成本，是消费电子领域首选</li>
+<li><strong>圆形线圈</strong>是”完美的物理学家”：提供最佳电性能和均匀磁场，是高性能、高精度应用首选</li>
+</ul>
+<blockquote>
+<p>实际应用中可能出现折中方案，如无线充电发射盘使用多个重叠的小线圈阵列来兼顾性能和灵活性。</p>
+</blockquote>
+<p>不会屏蔽静态磁场，但对高频交变磁场会有一定程度的衰减。</p>
 
                 
               </div>
