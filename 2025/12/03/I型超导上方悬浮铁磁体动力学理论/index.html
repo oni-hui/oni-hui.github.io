@@ -1,0 +1,1323 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/my_head.jpg">
+  <link rel="icon" href="/img/my_head.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="oniiii">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="超导上方磁体动力学笔记 铁磁针悬浮在恒定磁场中的运动模式 为了更好地理解铁磁陀螺（FG）的动力学，我们模拟了一个在空间中自由悬浮的 FG，受到恒定磁场 \(\bm{B}\) 的作用，类似于参考文献 [39] 中的建模。弱磁场导致 FG 以拉莫尔频率进动 \[ \omega_{\mathrm{L}}&#x3D;\frac{g_{\mathrm{e}}\mu_{\mathrm{B}}}{\hbar}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="I型超导上方悬浮铁磁体动力学理论">
+<meta property="og:url" content="https://oni-hui.github.io/2025/12/03/I%E5%9E%8B%E8%B6%85%E5%AF%BC%E4%B8%8A%E6%96%B9%E6%82%AC%E6%B5%AE%E9%93%81%E7%A3%81%E4%BD%93%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%90%86%E8%AE%BA/index.html">
+<meta property="og:site_name" content="oniiii的站点">
+<meta property="og:description" content="超导上方磁体动力学笔记 铁磁针悬浮在恒定磁场中的运动模式 为了更好地理解铁磁陀螺（FG）的动力学，我们模拟了一个在空间中自由悬浮的 FG，受到恒定磁场 \(\bm{B}\) 的作用，类似于参考文献 [39] 中的建模。弱磁场导致 FG 以拉莫尔频率进动 \[ \omega_{\mathrm{L}}&#x3D;\frac{g_{\mathrm{e}}\mu_{\mathrm{B}}}{\hbar}">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-03T14:05:11.000Z">
+<meta property="article:modified_time" content="2025-12-03T14:05:27.602Z">
+<meta property="article:author" content="oniiii">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>I型超导上方悬浮铁磁体动力学理论 - oniiii的站点</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/iconfont_rednote/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"oni-hui.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 80vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>oniiii的站点</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="I型超导上方悬浮铁磁体动力学理论"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-12-03 22:05" pubdate>
+          2025年12月3日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          59 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">I型超导上方悬浮铁磁体动力学理论</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="超导上方磁体动力学笔记">超导上方磁体动力学笔记</h1>
+<h2
+id="铁磁针悬浮在恒定磁场中的运动模式">铁磁针悬浮在恒定磁场中的运动模式</h2>
+<p>为了更好地理解铁磁陀螺（FG）的动力学，我们模拟了一个在空间中自由悬浮的
+FG，受到恒定磁场 <span class="math inline">\(\bm{B}\)</span>
+的作用，类似于参考文献 [39] 中的建模。弱磁场导致 FG 以拉莫尔频率进动</p>
+<p><span class="math display">\[
+\omega_{\mathrm{L}}=\frac{g_{\mathrm{e}}\mu_{\mathrm{B}}}{\hbar}B=\gamma
+B, \tag{4}
+\]</span></p>
+<p>其中 <span class="math inline">\(g_{\mathrm{e}}\)</span> 是电子 <span
+class="math inline">\(g\)</span> 因子，<span
+class="math inline">\(\gamma\)</span> 是旋磁比。我们考虑一个半径为 30
+<span class="math inline">\(\mu\)</span>m、具有 <span
+class="math inline">\(7\times 10^{15}\)</span> 个电子自旋的球形
+FG，与参考文献 [30] 中描述的实验中使用的微球相同。注意，方程 (2)
+中描述的阈值进动频率 <span class="math inline">\(\Omega^{*}\)</span>
+等于爱因斯坦-德哈斯频率</p>
+<p><span class="math display">\[
+\omega_{I}=\frac{S}{I}=\frac{N\hbar}{2I}, \tag{5}
+\]</span></p>
+<p>其中 <span class="math inline">\(I=2mr^{2}/S\)</span> 是质量为 <span
+class="math inline">\(m\)</span>、半径为 <span
+class="math inline">\(r\)</span> 的球体的转动惯量。频率 <span
+class="math inline">\(\omega_{I}\)</span> 在 FG
+动力学的零磁场极限下扮演章动频率的角色。</p>
+<p>铁磁体的运动方程为</p>
+<p><span class="math display">\[
+\frac{\partial\dot{\bm{j}}}{\partial t}
+=\omega_{\mathrm{L}}\left(\bm{n}\times\hat{\bm{B}}\right), \tag{6}
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial\bm{n}}{\partial t}
+=\omega_{I}\left(\dot{\bm{j}}\times\bm{n}\right), \tag{7}
+\]</span></p>
+<p>其中我们定义了以下无量纲向量：单位自旋 <span
+class="math inline">\(\bm{n}\equiv\bm{S}/S\)</span>，旋转角动量 <span
+class="math inline">\(\bm{\ell}\equiv\bm{L}/S\)</span>，以及总角动量
+<span class="math inline">\(\dot{\bm{j}}=\bm{n}+\bm{\ell}\)</span>。方程
+(6) 和 (7) 是从 Landau-Lifshitz-Gilbert
+方程推导出来的，假设自旋矢量锁定在易轴上，如 [35,39] 中 FG
+的建模所做。</p>
+<p>求解 <span class="math inline">\(\dot{f}(t)\)</span> 和 <span
+class="math inline">\(\bm{n}(t)\)</span>，图 1 显示了自由悬浮 FG
+在外部磁场中的不同运动类型。对于低于方程 (3)
+中阈值的磁场，进动运动占主导。在中间状态 <span
+class="math inline">\(B\approx
+B^{*}\)</span>，进动和章动都表现出来。在远大于 <span
+class="math inline">\(B^{*}\)</span>
+的磁场中，章动的幅度变得如此之大，以至于表现为铁磁体围绕施加磁场方向的振荡，即摆动。请注意，即使在摆动是主要运动的情况下，仍然可以观察到摆动平面的进动。每种状态下周期性
+FG 动力学中观察到的频率可以通过运动方程的解析近似解获得 [45]。</p>
+<p>幸运的是，即使对于大于进动阈值场的磁场，也可以通过测量摆动频率 <span
+class="math inline">\(\omega_{\mathrm{I}}\)</span>
+将铁磁体本身用作磁力计。铁磁体在摆动频率 <span
+class="math inline">\(\omega_{\mathrm{I}}\)</span>
+下的振荡已在软铁磁悬浮粒子中观察到 [32]（在那里表示为 <span
+class="math inline">\(\omega_{\phi}\)</span>）并且在使用铁磁体悬浮在 I
+类 SC 上方的实验中观察到 [30]。对于硬铁磁体，<span
+class="math inline">\(\omega_{\mathrm{I}}\)</span> 是拉莫尔频率 <span
+class="math inline">\(\omega_{\mathrm{L}}\)</span> 和爱因斯坦-德哈斯频率
+<span class="math inline">\(\omega_{I}\)</span> 的几何平均值 [29]</p>
+<p><span class="math display">\[
+\omega_{\mathrm{I}}^{2}=\omega_{\mathrm{I}}\omega_{I}. \tag{8}
+\]</span></p>
+<blockquote>
+<p><strong>方程(8)的解释：悬浮微磁体系统中摆动频率的简正模推导</strong></p>
+<p>在悬浮微磁体系统中，<strong>摆动频率（librational
+frequency）</strong> <span class="math inline">\(\omega_l\)</span>
+被表达为拉莫尔频率（<span
+class="math inline">\(\omega_L\)</span>）和爱因斯坦-德哈斯频率（<span
+class="math inline">\(\omega_{\text{EH}}\)</span>）的<strong>几何平均数</strong>：</p>
+<p><span class="math display">\[
+\omega_l = \sqrt{\omega_L \cdot \omega_{\text{EH}}}
+\]</span></p>
+<p>这一关系源于<strong>磁矩进动</strong>与<strong>机械转动</strong>之间的强耦合，形成一个<strong>混合磁旋转模式</strong>。下面通过简正模分析进行推导。</p>
+<p>考虑一个硬磁体，其磁化方向被锁定在易轴上，易轴方向由单位矢量 <span
+class="math inline">\(\mathbf{n}\)</span> 表示。磁矩为 <span
+class="math inline">\(\mathbf{m} = m \mathbf{n}\)</span>，自旋角动量为
+<span class="math inline">\(\mathbf{S} = (m/\gamma)
+\mathbf{n}\)</span>，其中 <span class="math inline">\(\gamma\)</span>
+为旋磁比。机械转动角动量为 <span
+class="math inline">\(\mathbf{L}_{\text{mech}} = I_0
+\boldsymbol{\omega}\)</span>，<span class="math inline">\(I_0\)</span>
+为转动惯量，<span class="math inline">\(\boldsymbol{\omega}\)</span>
+为角速度。总角动量为：</p>
+<p><span class="math display">\[
+\mathbf{J} = \mathbf{L}_{\text{mech}} + \mathbf{S}
+\]</span></p>
+<p>势能包括 Zeeman 项和各向异性能项：</p>
+<p><span class="math display">\[
+U = -\mathbf{m} \cdot \mathbf{B}_0 - K (\mathbf{n} \cdot \mathbf{e})^2
+\]</span></p>
+<p>其中 <span class="math inline">\(\mathbf{B}_0 = B_0 \hat{z}\)</span>
+为外磁场，<span class="math inline">\(\mathbf{e}\)</span>
+为易轴方向（固定在磁体上），<span class="math inline">\(K\)</span>
+为各向异性常数（很大）。平衡时，<span
+class="math inline">\(\mathbf{n}\)</span> 和 <span
+class="math inline">\(\mathbf{e}\)</span> 均沿 <span
+class="math inline">\(\hat{z}\)</span> 方向。</p>
+<p>考虑小振动，令：</p>
+<p><span class="math display">\[
+\mathbf{n} \approx (\delta n_x, \delta n_y, 1), \\
+\mathbf{e} \approx (\delta e_x, \delta e_y, 1)
+\]</span></p>
+<p>并定义 <span class="math inline">\(\boldsymbol{\delta} = \mathbf{n} -
+\mathbf{e}\)</span> 为小量。线性化后，势能为：</p>
+<p><span class="math display">\[
+U \approx \text{常数} + \frac{1}{2} m B_0 (\delta n_x^2 + \delta n_y^2)
++ \frac{1}{2} K (\delta_x^2 + \delta_y^2)
+\]</span></p>
+<p>运动方程来自角动量守恒和自旋进动：</p>
+<p><span class="math display">\[
+\frac{d\mathbf{J}}{dt} = \mathbf{m} \times \mathbf{B}_0, \\
+\frac{d\mathbf{S}}{dt} = \gamma \mathbf{S} \times
+\mathbf{B}_{\text{eff}}
+\]</span></p>
+<p>其中 <span class="math inline">\(\mathbf{B}_{\text{eff}} =
+\mathbf{B}_0 + (2K/m)(\mathbf{n} \cdot \mathbf{e})
+\mathbf{e}\)</span>。</p>
+<p>线性化后，得到关于横向分量 <span class="math inline">\(\delta n_x,
+\delta n_y, \delta e_x, \delta e_y\)</span> 的方程组。由于 <span
+class="math inline">\(K\)</span> 很大，可绝热消除 <span
+class="math inline">\(\boldsymbol{\delta}\)</span>，得到关于 <span
+class="math inline">\(\delta e_x, \delta e_y\)</span> 的方程。</p>
+<p>简化后，系统可视为两个耦合的振荡器：</p>
+<ul>
+<li><strong>磁矩进动模式</strong>：若机械转动固定（<span
+class="math inline">\(\boldsymbol{\omega} =
+0\)</span>），磁矩以拉莫尔频率进动： <span class="math display">\[
+\omega_L = \gamma B_0
+\]</span></li>
+<li><strong>机械转动模式</strong>：若磁矩固定（<span
+class="math inline">\(\mathbf{n}\)</span>
+不变），自旋角动量变化驱动机械转动，特征频率为爱因斯坦-德哈斯频率：
+<span class="math display">\[
+\omega_{\text{EH}} = \frac{\rho_\mu V_{\text{mag}}}{I_0 \gamma} =
+\frac{m}{\gamma I_0}
+\]</span> 其中 <span class="math inline">\(\rho_\mu\)</span>
+为自旋密度，<span class="math inline">\(V_{\text{mag}}\)</span>
+为磁体体积。</li>
+</ul>
+<p>耦合后的运动方程可写为：</p>
+<p><span class="math display">\[
+I_0 \ddot{\boldsymbol{\theta}} + \omega_{\text{EH}}
+\dot{\boldsymbol{\phi}} + \kappa \boldsymbol{\theta} = 0, \\
+\dot{\boldsymbol{\phi}} + \omega_L \boldsymbol{\theta} = 0
+\]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol{\theta}\)</span>
+为机械转动角度，<span class="math inline">\(\boldsymbol{\phi}\)</span>
+为磁矩方向角度，<span class="math inline">\(\kappa\)</span>
+为耦合常数。代入第二个方程至第一个，得到：</p>
+<p><span class="math display">\[
+I_0 \ddot{\boldsymbol{\theta}} - \omega_{\text{EH}} \omega_L
+\boldsymbol{\theta} + \kappa \boldsymbol{\theta} = 0
+\]</span></p>
+<p>若无额外扭转势（<span class="math inline">\(\kappa =
+0\)</span>），则本征频率为：</p>
+<p><span class="math display">\[
+\omega^2 = \omega_L \omega_{\text{EH}} \quad \Rightarrow \quad \omega =
+\sqrt{\omega_L \omega_{\text{EH}}}
+\]</span></p>
+<p>若有弱扭转势，频率会稍有修正，但强耦合下仍近似为几何平均。</p>
+<p>几何平均的出现表明： -
+系统的<strong>磁矩进动</strong>与<strong>自旋驱动的机械转动</strong>不是独立的，而是通过角动量交换强烈耦合。
+- 该混合模式的频率介于 <span class="math inline">\(\omega_L\)</span> 和
+<span class="math inline">\(\omega_{\text{EH}}\)</span>
+之间，反映了两种运动协同作用的“折中”。 - 在悬浮微磁体中，由于极高的
+<span class="math inline">\(Q\)</span>
+值和强耦合，该模式可用于实现<strong>量子磁力学</strong>和<strong>纳米机械传感</strong>等应用。</p>
+</blockquote>
+<p>由于摆动频率 <span class="math inline">\(\omega_{1}\)</span>
+依赖于磁场，它可以用来测量和减小磁场，直到进动主导动力学。对于自由悬浮的
+FG，当将磁场降低到方程 (3)
+定义的阈值场以下时，频率将在对数尺度上分裂（图 2），使得它们可以在 SQUID
+拾取环路测量的磁通谱中分辨出来。</p>
+<!-- 原文档中的图1和图2已被注释掉，这里保留注释
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure1.png}
+    \caption{铁磁体在外部磁场 $B$ 中的进动和章动运动，磁场方向垂直于平面。模拟的铁磁体半径为 30 $\mu$m，包含 $7\times 10^{15}$ 个电子自旋。描绘的是初始位置沿 x 轴的自旋矢量 $\bm{n}$，其在上行显示在 $x-y$ 平面上的投影。下行显示三维运动。随着 $B$ 增大，进动与章动交织，使得后者占主导，最终导致围绕 $B$ 方向的摆动模式。对于所描绘的铁磁体，低于该阈值时进动运动相对于摆动占主导的阈值磁场 $B^{*}$ [方程 (3)] 是 7e-11 T。最后一列描绘了“磁砖”的情况，这是一种假设的具有零自旋极化但等效磁化强度的铁磁体。}
+    \label{fig:1}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure2.png}
+    \caption{通过方程 (6) 和 (7) 模拟 FG 的动力学。在线性和对数尺度上，展示了 FG 动力学频谱中最大值的频率，这些频率可以作为拉莫尔频率 $\omega_{1}$ 的函数用 SQUID 拾取环路测量。外部磁场方向垂直于进动平面，如图 \ref{fig:1} 所示。SQUID 拾取环路测量 FG 在水平方向 $x$ 上的磁通。中间线（蓝色虚线）是在外部磁场中半径为 30 $\mu$m 的“磁砖”（假设的具有零自旋极化但等效磁化强度的铁磁体，见正文）频谱中出现的唯一频率。红色和绿色曲线是具有相同半径的完全自旋极化铁磁体的频率，分别对应于章动和进动频率。正如可能从方程 (8) 预期的那样，蓝线是红色和绿色线在阈值频率以上的几何像。橙色垂直线是阈值频率 $\Omega^{*}$。粉红色虚线是方程 (4) 的拉莫尔频率。黑色虚线 $\omega_{1}$ 对应于零磁场极限下的章动频率。}
+    \label{fig:2}
+\end{figure}
+-->
+<h2
+id="悬浮在i型超导上方的磁球动力学">悬浮在I型超导上方的磁球动力学</h2>
+<p>实现 FG
+实验的一个有前景的途径是光机械和磁机械系统，例如：通过磁场或电场悬浮的铁磁体。特别是，已经研究了磁悬浮铁磁体的运动、动力学和稳定性
+[45]，并且与关于进动和翻转状态的预期一致。在这里，我们考虑一个悬浮在 I
+类 SC 上方的铁磁微球（图 3）。在这种情况下，SC
+通过迈斯纳效应排斥磁场，在 SC
+上方的区域产生一个在数学上等效于来自像偶极子的场。像偶极子磁场将微球向上推，而重力将其向下拉。为了研究
+SC 对 FG 动力学的影响，我们在建模中包含了来自像偶极子的场。</p>
+<p>像场 <span class="math inline">\(\mathfrak{B}\)</span> 是来自位于悬浮
+FG 下方垂直距离 <span
+class="math inline">\(2z\)</span>（中心到中心）处的像偶极子的磁场，其中
+<span class="math inline">\(z\)</span> 是 FG 在 SC 平面上方的高度。在 SI
+单位中，</p>
+<p><span class="math display">\[
+\mathfrak{B}\,=\,-\frac{\mu_{0}}{4\pi}\frac{\mu}{r^{3}}\,\left\{3\bar{r}\,\left(\bar{\boldsymbol{r}}\cdot\bar{\boldsymbol{n}}\right)\,-\,\bar{\boldsymbol{m}}^{2}\right\},
+\tag{9}
+\]</span></p>
+<!-- 原文档中的图3已被注释掉
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figure3.png}
+    \caption{FG 悬浮在 I 类 SC 上方的示意图。球体和标记为 $\boldsymbol{n}$ 的箭头代表 FG，灰色平面代表 SC 的表面，标记为 $\bar{\boldsymbol{n}}$ 的蓝色箭头代表像偶极子，红色箭头表示沿垂直方向施加的外部磁场，$\boldsymbol{r}$ 是指向球体中心位置的矢量，$\boldsymbol{r}_{\text{image}}$ 是指向像偶极子位置的矢量。}
+    \label{fig:3}
+\end{figure}
+-->
+<p>其中 <span class="math inline">\(\mu_0\)</span> 是真空磁导率，<span
+class="math inline">\(\tilde{r}\)</span> 是相对于像偶极子位置的</p>
+<p><span class="math display">\[
+\tilde{r}=r-r_{\text{image}}, \tag{10a}
+\]</span></p>
+<p><span class="math display">\[
+r=\left(x,y,z\right), \tag{10b}
+\]</span></p>
+<p><span class="math display">\[
+r_{\text{image}}=\left(x,y,-z\right), \tag{10c}
+\]</span></p>
+<p><span class="math inline">\(\mu\tilde{n}\)</span>
+是像偶极子的磁矩，<span class="math inline">\(\mu n\)</span>
+是悬浮铁磁体的磁矩</p>
+<p><span class="math display">\[
+n=\left(n_x,n_y+n_z\right), \tag{11a}
+\]</span></p>
+<p><span class="math display">\[
+\tilde{n}=\left(n_x,n_y-n_z\right). \tag{11b}
+\]</span></p>
+<p>这里我们将坐标系的原点取在 SC 平面上。像偶极子具有与 FG
+相同的磁矩水平分量和相反的垂直分量。</p>
+<p>为了将 <span class="math inline">\(\mathfrak{B}\)</span> 纳入第 2
+节的运动方程，我们推导出与此像偶极子场相关的拉莫尔频率</p>
+<p><span class="math display">\[
+\omega_{\mathfrak{B}}=\gamma\mathfrak{B}, \tag{12}
+\]</span></p>
+<p>因此方程 (6) 包含项</p>
+<p><span class="math display">\[
+\omega_{\mathfrak{B}}\left(\boldsymbol{n}\times\hat{\mathfrak{B}}\right).
+\tag{13}
+\]</span></p>
+<p>此外，我们包含了铁磁体质心运动方程</p>
+<p><span class="math display">\[
+\frac{\partial\boldsymbol{p}}{\partial
+t}=\frac{\mu}{2}\nabla\left(\mathfrak{B}\cdot\boldsymbol{n}\right)+mg,
+\tag{14}
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial r}{\partial t}=\frac{\boldsymbol{p}}{m}, \tag{15}
+\]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol{p}\)</span> 是 FG
+质心动量，<span class="math inline">\(g\)</span> 是重力加速度，因子
+<span class="math inline">\(1/2\)</span> 是由于像偶极子在 I 类 SC
+中不是冻结的，即跟随悬浮偶极子的结果 [47,48,49]。</p>
+<p>模拟悬浮 FG 的自旋矢量 <span
+class="math inline">\(\boldsymbol{n}\)</span>
+和质心运动的动力学，我们恢复了参考文献 [30] 中实验观察到的频率 <span
+class="math inline">\(\omega_z\)</span> 和 <span
+class="math inline">\(\omega_\beta\)</span>，它们分别描述了质心在垂直方向的振荡和磁矩围绕垂直轴的摆动。悬浮铁磁体在频率
+<span class="math inline">\(\omega_\beta\)</span>
+下的摆动主要由像偶极子场引起。在引入额外的外部磁场以观察拉莫尔进动效应之前，让我们注意即使不引入外部磁场也存在的进动运动。我们在建模中观察到水平面上的进动，其频率为</p>
+<p><span class="math display">\[
+\omega_{xy}=\omega_1n_{x0}, \tag{16}
+\]</span></p>
+<p>其中 <span class="math inline">\(n_{x0}\)</span> 是 FG
+磁矩的初始垂直分量，它与倾斜角 <span
+class="math inline">\(\beta\)</span> 相关联</p>
+<p><span class="math display">\[
+\sin\beta=\frac{n_{x0}}{n_0}, \tag{17}
+\]</span></p>
+<p>其中 <span class="math inline">\(n_0\)</span> 是单位自旋矢量，<span
+class="math inline">\(n_z\)</span>
+是其在初始建模时刻的垂直分量长度。磁矩和自旋的这种垂直分量转化为总角动量的垂直分量，因为
+<span
+class="math inline">\(\boldsymbol{j}=\boldsymbol{n}+\boldsymbol{\ell}\)</span>。摆动模式
+<span class="math inline">\(\omega_\beta\)</span> 对应于 <span
+class="math inline">\(\boldsymbol{n}_z\)</span> 和 <span
+class="math inline">\(\boldsymbol{\ell}_z\)</span>
+之间的振荡。像场不改变 <span
+class="math inline">\(\boldsymbol{j}_z=n_z+\boldsymbol{\ell}_z\)</span>，因此只要
+<span class="math inline">\(\boldsymbol{\ell}_z\)</span>
+的平均值不为零，就会发生围绕垂直轴的进动，即 <span
+class="math inline">\(\boldsymbol{n}\)</span>
+在水平面上的旋转随之发生。在图 4
+中，我们展示了建模中这种进动的例子。我们在建模中还观察到，将 FG
+的初始角动量设置为 <span
+class="math inline">\(\boldsymbol{\ell}_z=-\sin\beta\)</span>
+可以抵消倾斜的影响，正如角动量守恒所预期的那样。</p>
+<p>我们可以用像偶极子来解释 <span
+class="math inline">\(\omega_{xy}\)</span> 的出现。像偶极子与 FG
+一起进动，因此在旋转坐标系中，作用在 FG 上的像场在水平 <span
+class="math inline">\(xy\)</span> 平面上的分量是恒定的。另一方面，FG
+相对于垂直轴的倾斜改变了由于像偶极子作用在 FG 上的场——摆动振荡引起沿
+<span class="math inline">\(z\)</span> 的振荡场，从而诱导 FG
+进动。由于摆动振荡频率比进动频率快，FG
+有效地对平均场敏感，因此更大的摆动振荡导致更大的有效场和更快的进动。注意，场的垂直分量是由于
+FG 磁化轴初始偏离水平面的倾斜角而产生的。</p>
+<p>这种进动在以前的实验中未被观察到，因为铁磁微球要么由于参考文献 [30]
+中 SC 偏离水平面的倾斜，要么由于参考文献 [28]
+中的冻结磁通，而无法在水平面上自由旋转。这种倾斜（或冻结磁通）为悬浮微球的磁矩引入了一个优选方向，使其处于能量最小值；因此铁磁体围绕这个方向振荡（频率为
+<span class="math inline">\(\omega_{\alpha}\)</span>
+[30]）而不是在水平面上进动。</p>
+<p>上述进动是由于像场发生的，而为了使用 FG
+来测量外部扭矩，我们寻求观察例如由于外部磁场引起的效应。因此我们引入一个外部磁场
+<span class="math inline">\(\bm{B}_{\text{ext}}\)</span>，从而将 <span
+class="math inline">\(\mu\nabla\left(\bm{B}_{\text{ext}}\cdot\bm{n}\right)\)</span>
+加到方程 (14) 的右侧；方程 (6) 被修改为</p>
+<p><span class="math display">\[
+\frac{\partial j}{\partial
+t}=\omega_{\text{L}}\left(\bm{n}\times\hat{\bm{B}}_{\text{ext}}\right)+\omega_{\mathfrak{B}}\left(\bm{n}\times\hat{\mathfrak{B}}\right).
+\tag{18}
+\]</span></p>
+<p>由于 <span class="math inline">\(j_{z}\)</span>
+是运动常数，如果倾斜角 <span class="math inline">\(\beta\)</span>
+初始为零（相对于 SC 表面水平放置 FG），使得 <span
+class="math inline">\(j_{z}(t=0)=0\)</span>，那么与进动相关的角动量
+<span class="math inline">\(\ell_{z}=I\Omega\)</span>
+必须大小相等且方向相反于 <span
+class="math inline">\(\bm{s}_{z}=N\hbar\sin\beta\)</span>。因此我们有</p>
+<p><span class="math display">\[
+\sin\,\beta=\frac{I\Omega}{N\hbar}. \tag{19}
+\]</span></p>
+<p>在 SC 表面上方距离 <span class="math inline">\(z_{0}\)</span>
+处的像偶极子场的大小为</p>
+<p><span class="math display">\[
+|\mathfrak{B}|=\frac{\mu\mu_{0}}{4\pi z_{0}^{3}}, \tag{20}
+\]</span></p>
+<p>其 <span class="math inline">\(z\)</span> 分量为</p>
+<p><span class="math display">\[
+\mathfrak{B}_{z}=\mathfrak{B}\,\sin\,\beta. \tag{21}
+\]</span></p>
+<p>FG 感受到的有效磁场是外部磁场 <span
+class="math inline">\(\bm{B}_{\text{ext}}\)</span>（取为沿 <span
+class="math inline">\(z\)</span> 轴）和 <span
+class="math inline">\(\mathfrak{B}_{z}\)</span> 的矢量和，所以进动频率
+<span class="math inline">\(\Omega\)</span> 现在由下式给出</p>
+<p><span class="math display">\[
+\Omega=\gamma\left(B_{\text{ext}}-\mathfrak{B}_{z}\right)=\gamma\left(B_{\text{ext}}-\mathfrak{B}\frac{I\Omega}{N\hbar}\right).
+\tag{22}
+\]</span></p>
+<p>求解 <span class="math inline">\(\Omega\)</span> 我们得到</p>
+<p><span class="math display">\[
+\Omega =\frac{\gamma
+B_{\text{ext}}}{1+\left(\gamma\mathfrak{B}/\omega_{I}\right)},
+\]</span></p>
+<p><span class="math display">\[
+=\frac{\gamma B_{\text{ext}}}{1+\frac{\gamma\mu\mu_{0}t}{2\pi
+z_{0}^{3}N\hbar}}. \tag{23}
+\]</span></p>
+<!-- 原文档中的图4已被注释掉
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure4.png}
+    \caption{FG 悬浮在 SC 上方的进动。模拟的铁磁体半径为 30 $\mu$m，由 $7\times 10^{15}$ 个电子自旋组成。描绘的是自旋矢量 $\bm{n}$，其在上行显示在 xy 平面上的投影。下行显示三维运动。列，从左到右，分别对应倾斜角 [方程 (17)] 为 1、2 和 3 度的情况。在建模中，时间运行约 75 秒，根据方程 (16)，这是最左列周期的四分之一。}
+    \label{fig:4}
+\end{figure}
+-->
+<p>因此，与自由悬浮的 FG 相比，悬浮在 SC 上方的 FG
+具有有效降低的旋磁比。由于像场导致的有效旋磁比的抑制可以通过类似于负反馈的机制来解释
+[50]。要求 <span class="math inline">\(\Omega\ll\Omega^{*}\)</span> 以使
+FG 处于进动状态，得到</p>
+<p><span class="math display">\[
+B_{\rm ext}\ll\mathfrak{B}+\frac{\omega_{I}}{\gamma}\approx\mathfrak{B}.
+\tag{24}
+\]</span></p>
+<p>像场通常远大于 <span
+class="math inline">\(B^{*}\)</span>；因此，与自由悬浮的 FG
+相比，可以在更高的磁场中观察到悬浮在 SC 上方的 FG
+的进动。然而，相应的进动频率比自由 FG 小。对于半径为 30 微米的球形
+FG，与参考文献 [30] 的实验条件匹配，自由 FG 进动频率与悬浮在 SC 上方的
+FG 的进动频率之比约为 <span class="math inline">\(4 \times
+10^{6}\)</span>。对于 1 微米半径，这个比率约为 340，因此在较小半径 FG
+的情况下，进动频率的抑制减小。基于方程 (23)，在图 5 中，我们绘制了作为
+FG 半径函数的悬浮在 SC 上方的 FG 的进动速率与自由悬浮 FG
+的进动速率之比。</p>
+<p>对 <span class="math inline">\(B_{\rm ext}\)</span>
+的这个约束可以看作是悬浮在 SC 上方的 FG 由于像场而产生的有效阈值场。在
+[30] 中悬浮铁磁体的条件下，但使用 1 微米半径而不是 30
+微米，对此系统进行建模，我们在时域中观察到陀螺行为，如图 6
+所示，一致地比自由悬浮 FG 的进动情况慢 340
+倍。作为负反馈解释的另一个检验，我们改变了像场 <span
+class="math inline">\(\mathfrak{B}\)</span>
+的大小（通过改变重力场大小）并在建模中观察到抑制的进动速率（与自由悬浮
+FG 相比）与方程 (23) 预期的速率匹配。在图 6
+中，我们解耦了质心运动与自旋矢量 <span
+class="math inline">\(\bm{n}\)</span> 的运动，以便清晰。在同时存在 <span
+class="math inline">\(B_{\text{ext}}\)</span> 和有限初始倾斜角 <span
+class="math inline">\(\beta\)</span> [方程 (17) 的那个]
+的情况下，产生的进动频率是初始倾斜角且 <span
+class="math inline">\(B_{\text{ext}}\)</span> 为零的情况下的进动频率与
+<span class="math inline">\(B_{\text{ext}}\)</span>
+存在且初始倾斜角为零的情况下的进动频率之差[根据方程 (22)]。</p>
+<p>为了观察 <span
+class="math inline">\(\omega_{1}\)</span>，然后观察进动，应该引入外部磁场，并且应该对
+[30]
+中使用的实验装置进行若干修改。一个挑战是外部扭矩可以有效地锁定铁磁体的方向并阻止进动。在先前对悬浮在
+II 类 SC 上方的铁磁体的研究中，铁磁体的方向被 SC 中 trapped flux
+产生的磁场锁定 [28]。然而，在 I 类 SC
+中，可以消除磁通俘获。但在最近一个悬浮微球的实验中，由于 SC
+中圆柱形“碗状”陷阱表面的相对倾斜导致的锁定，铁磁体无法在水平面上自由旋转
+[30]。为了允许微球在水平面上章动和进动，可以使用球形“碗状”陷阱，而不是圆柱形陷阱。在观察到由于像场引起的水平进动之后，可以在
+<span class="math inline">\(z\)</span> 方向引入外部磁场 <span
+class="math inline">\(B_{\text{ext}}\)</span>，很像在 [28]
+中所做的那样。预计该场将引起 FG 围绕它的摆动运动，其频率为 <span
+class="math inline">\(\omega_{1}\)</span>，可以用足够灵敏的磁场传感器（如
+SQUID）检测到。将 <span class="math inline">\(B_{\text{ext}}\)</span>
+降低到方程 (24) 中的阈值以下，将出现章动。进一步减小磁场将揭示 <span
+class="math inline">\(\omega_{1}\)</span>。注意，方程 (24)
+中的阈值相对于方程 (3) 更大，因此在技术上更容易控制。</p>
+<!-- 原文档中的图5和图6已被注释掉
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figure5.png}
+    \caption{悬浮在 SC 上方的 FG 的进动频率 [方程 (23)] 与自由悬浮 FG 的进动频率 [方程 (4)] 之比，作为 FG 半径的函数。在半径低于 $10^{-7}$ m 时，该比率饱和到 1，即旋磁比与自由落体时相同。}
+    \label{fig:5}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure6.png}
+    \caption{(a) 对于在 I 类 SC 上方的 FG，水平方向自旋分量 $n_{\rm o}$ 作为时间的函数，针对几个外部磁场。进动速率比自由悬浮 FG 的慢，其量由方程 (23) 预测。(b) 位于 $10^{-11}$ T 外部磁场中的自由悬浮 FG。注意时间尺度——对于 (a) 部分中的相同磁场，进动频率比在 SC 上方的 FG 大约 340 倍。}
+    \label{fig:6}
+\end{figure}
+-->
+<h2 id="对新物理的灵敏度">对新物理的灵敏度</h2>
+<p>FG 是一个由 <span class="math inline">\(N\)</span>
+个电子自旋组成的关联系统，它作为一个总自旋约为 <span
+class="math inline">\(N\hbar/2\)</span> 的陀螺仪。垂直于 FG
+磁化轴的自旋投影由于与晶格的相互作用而快速涨落，而除非受到外部扭矩作用，总自旋矢量
+<span class="math inline">\(\mathbf{S}\)</span>
+的期望值由于角动量守恒而保持固定。这种行为使得能够快速平均量子不确定性，开辟了以远超现有技术水平许多数量级的灵敏度测量电子自旋上扭矩的可能性
+[27,39]。因此，FG 可以是搜索标准模型之外物理的强大工具 [9]。</p>
+<p>参考文献 [27,39] 中进行的灵敏度估计假设自由悬浮的 FG 处于约 <span
+class="math inline">\(0.1\)</span> K 的超高 cryogenic 真空中（残余 He
+蒸气密度约 <span
+class="math inline">\(10^{3}\text{atoms}/\text{cm}^{3}\)</span>）。在这里，我们针对参考文献
+[30] 实验中实现的真空条件（残余氦压力约 <span
+class="math inline">\(10^{-5}\)</span> mbar，对应于 He 蒸气密度 <span
+class="math inline">\(n\approx 3\times
+10^{13}\text{atoms}/\text{cm}^{3}\)</span>）下悬浮在 I 类 SC 上方的 FG
+进行灵敏度估计，温度约 <span class="math inline">\(4\)</span>
+K。我们假设一个半径约 <span class="math inline">\(1\)</span> <span
+class="math inline">\(\mu\)</span>m 的球形
+FG。因此，以下讨论中假设的条件是可以通过对现有实验装置进行相对较小的修改来实现的。</p>
+<p>在参考文献 [30] 中，主要的噪声来源来自 He 原子与 FG
+的碰撞。这些碰撞将角动量传递给 FG，并导致进动角 <span
+class="math inline">\(\phi\)</span> 的随机游走 [27,39]。对于球形自由悬浮
+FG，由气体碰撞引起的进动频率不确定性由下式给出 [39]</p>
+<p><span class="math display">\[
+\Delta\Omega_{\text{col}}\approx\frac{m_{\text{g}}r^{2}}{6N\hbar}\sqrt{\frac{nv_{\text{th}}^{3}}{\pi
+t}}, \tag{25}
+\]</span></p>
+<p>其中 <span class="math inline">\(v_{\text{th}}\)</span>
+是残余气体原子的平均热速度，<span
+class="math inline">\(m_{\text{g}}\)</span> 是它们的质量。然而，在 FG
+悬浮在 SC 上方的情况下，来自像偶极子场 <span
+class="math inline">\(\mathfrak{B}\)</span> 的“负反馈”影响 FG
+对气体碰撞引起的随机扭矩的响应，其方式与它影响由方程 (23)
+描述的拉莫尔进动频率的方式非常相似。通常，任何作用在 FG 上的外部扭矩
+<span class="math inline">\(\bm{\tau}_{\text{ext}}\)</span>
+的效应都被这种“负反馈”机制修改。描述总角动量 <span
+class="math inline">\(\bm{J}\)</span> 变化率的方程，类似于方程
+(18)，是</p>
+<p><span class="math display">\[
+\frac{d\bm{J}}{dt}=\bm{\tau}_{\text{ext}}+\omega_{\mathfrak{B}}\left(\mathbf{S}\times\hat{\mathfrak{B}}\right).
+\tag{26}
+\]</span></p>
+<p>来自气体碰撞的外部扭矩产生进动频率的随机（随机）变化，并且，由于章动，产生倾斜角
+<span class="math inline">\(\beta\)</span> 以及因此 <span
+class="math inline">\(\mathfrak{B}\)</span> 的相关随机变化。正如方程
+(25) 是使用方程 (6) 作为起点推导出来的 [27,39]，我们可以从方程 (26)
+出发，并遵循用于推导方程 (23) 的相同逻辑，证明对于悬浮在 SC 上方的
+FG，由于气体碰撞引起的进动频率不确定性由下式给出</p>
+<p><span class="math display">\[
+\Delta \Omega_{col} \approx \frac{\Delta \Omega_{col}}{1 + (\gamma
+\mathfrak{B} / \omega_{I})}. \tag{27}
+\]</span></p>
+<p>因此，在此处考虑的条件下，气体碰撞对 FG 动力学的影响（与自由悬浮 FG
+相比）小 340 倍。这导致测量的 FG 进动频率的不确定性为</p>
+<p><span class="math display">\[
+\Delta \Omega_{col} \sim \frac{10^{-5}}{\sqrt{t}} \, \text{rad s}^{-1}.
+\tag{28}
+\]</span></p>
+<p>其他潜在的噪声源，如热电流和黑体辐射，在参考文献 [27,39]
+中已被考虑，并且在参考文献 [30]
+的实验条件下也被发现可以忽略不计。此外，参考文献 [30] 中对于 30
+微米半径悬浮铁磁体的实验结果表明涡流阻尼可以忽略不计，并且对于较小的 FG
+半径，涡流阻尼贡献更少：导电球体中的涡流功率耗散 <span
+class="math inline">\(\propto
+r^5\)</span>。一微米半径的铁磁体可以是单畴的，在这种情况下，基于磁滞的直接磁性损耗也应该被大大抑制。</p>
+<p>FG 的进动可以用 SQUID 测量。对于拾取环路半径约 <span
+class="math inline">\(1 \, \mu m\)</span>、位于距离 FG
+约一微米处（使得磁通捕获最大）的 SQUID，时变磁通的幅度为 <span
+class="math inline">\(\Phi \approx 10^{-12} \, T \cdot
+m^2\)</span>。低温 SQUID 具有 <span class="math inline">\(\delta \Phi
+\lesssim 10^{-21} \, T \cdot m^2 (\sqrt{\text{Hz}})^{-1}\)</span>
+的磁通灵敏度 [51,52,53,54]，这产生对进动角的相应灵敏度 <span
+class="math inline">\(\delta \phi \approx \delta \Phi / \Phi \approx
+10^{-9} \, \text{rad} (\sqrt{\text{Hz}})^{-1}\)</span>。因此，在积分时间
+<span class="math inline">\(t\)</span> 内，FG 进动频率 <span
+class="math inline">\(\Omega = d\phi / dt\)</span>
+测量的检测限制不确定性为 <span class="math inline">\(\Delta \Omega_{det}
+\sim 10^{-9} t^{-3/2} \, \text{rad
+s}^{-1}\)</span>。由于气体碰撞导致的进动测量不确定性远大于 <span
+class="math inline">\(\Delta
+\Omega_{det}\)</span>，因此对拾取环路几何形状和 SQUID
+灵敏度的要求相应放宽。例如，半径为 <span class="math inline">\(R \approx
+1 \, mm\)</span>、位于距离 FG 约 <span class="math inline">\(1 \,
+mm\)</span> 处的拾取环路将在 1
+秒积分时间内实现优于气体碰撞极限的检测限制灵敏度，</p>
+<p><span class="math display">\[
+\Delta \Omega_{det} \sim 10^{-6} \frac{1}{t^{3/2}} \, \text{rad s}^{-1}.
+\tag{29}
+\]</span></p>
+<p>振动是参考文献 [30] 中描述的实验中另一个重要的技术噪声源。FG 位置和
+SQUID
+拾取环路之间的相对运动导致通过环路的磁通变化，从而在进动测量中产生噪声。例如，在原子力显微镜实验中使用的商业振动隔离系统可以将振动幅度在频率
+<span class="math inline">\(\lesssim 1 \, Hz\)</span> 时降低到 <span
+class="math inline">\(\delta x \lesssim 10^{-5} \, mm\)</span>
+[55]。拾取环路中的分数磁通噪声 <span class="math inline">\(\delta \Phi /
+\Phi \sim \delta x / x\)</span>，其中 <span class="math inline">\(x
+\approx R \approx 1 \, mm\)</span> 是 FG
+和拾取环路之间的距离。这对应于与气体碰撞极限相似的进动测量不确定性，</p>
+<p><span class="math display">\[
+\Delta \Omega_{vib} \sim \frac{10^{-5}}{\sqrt{t}} \, \text{rad s}^{-1}.
+\tag{30}
+\]</span></p>
+<p>值得注意的是，<span class="math inline">\(\Delta
+\Omega_{det}\)</span> 似乎超过了“标准量子噪声极限”
+[27,56]。虽然现有磁力计的每带宽能量分辨率（<span
+class="math inline">\(E_R\)</span>）处于或高于量子极限 <span
+class="math inline">\(h\)</span>，但 FG
+原则上可以在外部误差源受控的条件下实现 <span class="math inline">\(E_R
+\ll h\)</span>，使得 FG 灵敏度受探测器噪声限制
+[33]。这种精确性之所以出现，是因为量子不确定性被内部铁磁自旋-晶格相互作用快速平均，而
+FG 由于总角动量（由内禀自旋主导）守恒而保持陀螺稳定性。理解 FG
+灵敏度的另一种方式是注意铁磁自旋-晶格相互作用将量子涨落散布在宽频带（<span
+class="math inline">\(\gtrsim 1-100 \,
+GHz\)</span>）上。由于陀螺稳定性，人们仍然可以测量 FG
+自旋平均方向的缓慢变化。长时间积分平均了量子涨落，充当量子噪声的“低通滤波器”。因此，可以实现对相对低频自旋进动的高灵敏度。</p>
+<p>作为 FG
+作为测试基础物理潜力的一个例子，我们考虑一项实验搜索由新玻色子介导的尚未发现的（奇异的）自旋依赖相互作用
+[57,58,59]。特别是，轴子和类轴子粒子（ALPs）介导电子之间的赝标量（<span
+class="math inline">\(P\)</span>）相互作用，由势描述</p>
+<p><span class="math display">\[
+V_{PP}(\mathcal{R}) = \frac{(g_{P}^{e})^{2}}{4 \pi \hbar c}
+\frac{\hbar^{3}}{4m_{e}^{2} c} \left[ \mathbf{S}_1 \cdot \mathbf{S}_2
+\left( \frac{m_{b} c}{\hbar \mathcal{R}^{2}} + \frac{1}{\mathcal{R}^{3}}
++ \frac{4 \pi}{3} \delta^{3} (\mathbf{\mathcal{R}}) \right) - \left(
+\mathbf{S}_1 \cdot \hat{\mathbf{\mathcal{R}}} \right) \left(
+\mathbf{S}_2 \cdot \hat{\mathbf{\mathcal{R}}} \right) \left(
+\frac{m_{b}^{2} c^{2}}{\hbar^{2} \mathcal{R}} + \frac{3 m_{b} c}{\hbar
+\mathcal{R}^{2}} + \frac{3}{\mathcal{R}^{3}} \right) \right] e^{-m_{b} c
+\mathcal{R} / \hbar}, \tag{31}
+\]</span></p>
+<p>其中 <span class="math inline">\((g_{P}^{e})^{2}/(4\pi\hbar
+c)\)</span> 是电子之间的无量纲赝标量耦合常数，<span
+class="math inline">\(m_{e}\)</span> 是电子质量，<span
+class="math inline">\(\mathbf{S}_{1,2}\)</span> 是电子自旋，<span
+class="math inline">\(m_{\textrm{b}}\)</span>
+是假设的赝标量玻色子的质量，<span class="math inline">\(c\)</span>
+是光速，<span
+class="math inline">\(\mathcal{R}=\mathcal{R}\hat{\mathcal{R}}\)</span>
+是电子之间的分离矢量。</p>
+<p>可以通过调制极化自旋源与悬浮 FG
+之间的距离来搜索由赝标量介导的偶极-偶极相互作用，方程
+(31)，引起的自旋进动。对此类奇异偶极-偶极相互作用的一些最严格的实验室约束是使用自旋极化扭摆
+[60,61] 实现的，其中 SmCo<span class="math inline">\({}_{5}\)</span>
+作为极化自旋源。在 SmCo<span class="math inline">\({}_{5}\)</span>
+中，Sm<span class="math inline">\({}^{3+}\)</span>
+电子的轨道磁矩几乎抵消了它们的自旋矩，因此 SmCo<span
+class="math inline">\({}_{5}\)</span>
+具有高自旋极化度，同时具有相对较小的磁矩，从而减少了与磁场相关的效应。此类实验中的自旋极化源可以放置在
+SC 下方，以进一步屏蔽 FG 免受自旋源磁场的影响。尽管 SC 将屏蔽 FG 免受
+SmCo<span class="math inline">\({}_{5}\)</span>
+自旋源的磁场影响，但事实证明，赝标量相互作用 (31) 不受 SC 屏蔽
+[62]。这是 SC
+屏蔽依赖于磁场与电流的耦合而不是与电子自旋的耦合的结果。因此，由于迈斯纳效应与电子自旋的相互作用无关，SC
+屏蔽对由方程 (31) 描述的赝标量介导的偶极-偶极相互作用没有影响
+[61,62]。注意，由于奇异相互作用引起的效应表现为方程 (26) 描述的外部扭矩
+<span
+class="math inline">\(\tau_{\textrm{ext}}\)</span>，因此它们对进动频率的影响受到与方程
+(23) 和 (27) 中出现的相同因子的抑制。</p>
+<p>使用悬浮在 SC 上方的一微米半径 FG
+的实验将对参数空间中由红色虚线限定的下方区域敏感。我们假设 SmCo<span
+class="math inline">\({}_{5}\)</span>
+自旋源是一个一毫米半径的球体，位于距离 FG 一毫米处，以便为 SC
+留出空间。一个一毫米半径的 SmCo<span
+class="math inline">\({}_{5}\)</span> 球体将包含约 <span
+class="math inline">\(5\times 10^{19}\)</span> 个极化电子自旋。FG
+对自旋进动的灵敏度由方程 (28) 给出。为了比较，图 7
+显示了该参数空间区域中最严格的实验室约束，这些约束基于自旋极化扭摆测量
+[60] 和 He 光谱学 [63,64]；相关实验在综述 [9] 和参考文献 [65-71]
+中讨论。与这些现有约束相比，我们提出的使用悬浮 FG
+的实验可以探索数十年未受约束的参数空间。这说明了 FG
+作为搜索奇异自旋依赖相互作用的工具的潜力，这可能为超越标准模型的物理打开一扇窗口。我们还注意到，新的玻色子如轴子和
+ALPs 是解释暗物质性质的候选者 [9]，并且与其他类型的精密机械传感器 [72]
+非常相似，FG 可以成为潜在探测玻色子、波状暗物质的有用工具。</p>
+<!-- 原文档中的图7已被注释掉
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figure7.png}
+    \caption{奇异自旋相互作用参数空间中的现有约束与 FG 实验的预期灵敏度对比。}
+    \label{fig:7}
+\end{figure}
+-->
+<p><strong>参考文献</strong></p>
+<p>（原文档中的参考文献列表未提供具体内容，这里仅注明有参考文献引用，但具体引用格式在转换为
+Markdown 时通常以 [数字]
+形式出现，若需要完整参考文献列表，需提供参考文献的具体内容。）</p>
+<!-- 原文档中的参考文献部分如下，但具体内容未在提供的代码中，所以这里只留一个注释
+\bibliographystyle{plain}
+\bibliography{references}
+-->
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>I型超导上方悬浮铁磁体动力学理论</div>
+      <div>https://oni-hui.github.io/2025/12/03/I型超导上方悬浮铁磁体动力学理论/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>oniiii</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年12月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/12/03/%E9%93%81%E7%A3%81%E6%89%AD%E7%9F%A9%E4%BC%A0%E6%84%9F%E5%99%A8%E7%AC%94%E8%AE%B0/" title="铁磁扭矩传感器笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">铁磁扭矩传感器笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/03/%E6%82%AC%E6%B5%AE%E9%93%81%E7%A3%81%E9%92%88%E5%8A%A8%E5%8A%9B%E5%AD%A6/" title="悬浮铁磁针动力学">
+                        <span class="hidden-mobile">悬浮铁磁针动力学</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -27,7 +27,7 @@
 <meta property="og:description" content="PHYSICAL REVIEW RESEARCH 7, 043120 (2025) 用于超灵敏磁强计的进动铁磁体的微观理论 薛琪倪¹,* 邹志兴¹, Ruvi Lecamwasam², Andrea Vinante³,⁴, Dmitry Budker⁵,⁶,⁷,⁸, 林平科²,⁹,¹⁰, 王涛²,† 与 龚江斌¹,¹⁰,‡ ¹新加坡国立大学物理系，新加坡 117542 ²新加坡科技研究">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-11-14T03:52:02.000Z">
-<meta property="article:modified_time" content="2025-11-14T07:58:11.777Z">
+<meta property="article:modified_time" content="2025-12-03T20:02:47.160Z">
 <meta property="article:author" content="oniiii">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          14k 字
+          20k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          121 分钟
+          168 分钟
         
       </span>
     
@@ -1271,6 +1271,1009 @@ Rev. A <strong>68</strong>, 022101 (2003).
 </ul>
 <p>===== 第 12 页 =====</p>
 <p>(参考文献列表结束)</p>
+<h1
+id="microscopic-theory-of-a-precessing-ferromagnet-for-ultrasensitive-magnetometry公式推导笔记">《Microscopic
+theory of a precessing ferromagnet for ultrasensitive
+magnetometry》公式推导笔记</h1>
+<h2 id="论文模型与符号总览">0. 论文模型与符号总览</h2>
+<p>论文的总哈密顿量（主文 Eq. (1)）为（此处使用算符加“帽子”）：</p>
+<p><span class="math display">\[
+H =
+- \sum_i \gamma \mathbf{B} \cdot \hat{\mathbf{S}}_i
+- J \sum_i \hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_{i+1}
+- C \sum_{ij} (\hat{\mathbf{S}}_i \cdot
+\hat{\mathbf{r}}_{ij})(\hat{\mathbf{r}}_{ij} \cdot \hat{\mathbf{S}}_j)
++ \sum_i \frac{\hat{\mathbf{p}}_i^{\,2}}{2m}
++ \sum_{ij} V (\hat{\mathbf{r}}_{ij} - \bar{\mathbf{r}}_{ij})^2 .
+\]</span></p>
+<h3 id="符号说明与论文一致">符号说明（与论文一致）</h3>
+<ul>
+<li><span
+class="math inline">\(H\)</span>：总哈密顿量（总能量算符）。</li>
+<li>下标 <span
+class="math inline">\(i,j,k,\ell\)</span>：标记不同原子。</li>
+<li><span class="math inline">\(\hat{\mathbf{S}}_i\)</span>：第 <span
+class="math inline">\(i\)</span>
+个原子的自旋角动量算符（三维向量）。</li>
+<li><span class="math inline">\(\gamma \approx 1.76\times
+10^{11}\,\text{rad} \cdotp
+\text{s}^{-1}\cdotp\text{T}^{-1}\)</span>：电子旋磁比。</li>
+<li><span
+class="math inline">\(\mathbf{B}\)</span>：外加磁场（待测磁场）。</li>
+<li><span class="math inline">\(J\)</span>：自旋–自旋交换作用强度。</li>
+<li><span
+class="math inline">\(C\)</span>：自旋–晶格“拟偶极”（pseudodipolar）耦合强度。</li>
+<li><span class="math inline">\(\hat{\mathbf{r}}_i\)</span>：第 <span
+class="math inline">\(i\)</span> 个原子的位置算符（三维向量）。</li>
+<li><span class="math inline">\(\hat{\mathbf{r}}_{ij} =
+\hat{\mathbf{r}}_i - \hat{\mathbf{r}}_j\)</span>：<span
+class="math inline">\(i\)</span> 与 <span
+class="math inline">\(j\)</span> 两原子间位移算符。</li>
+<li><span
+class="math inline">\(\bar{\mathbf{r}}_{ij}\)</span>：它们在平衡位置/晶格结构中的距离向量（常数）。</li>
+<li><span class="math inline">\(\hat{\mathbf{p}}_i\)</span>：第 <span
+class="math inline">\(i\)</span> 个原子的动量算符。</li>
+<li><span class="math inline">\(m\)</span>：原子质量。</li>
+<li><span class="math inline">\(V\)</span>：晶格简谐势的弹性常数。</li>
+</ul>
+<p>哈密顿量分为几部分：</p>
+<ul>
+<li>Zeeman 项：<span class="math inline">\(H_Z = -\sum_i \gamma
+\mathbf{B}\cdot \hat{\mathbf{S}}_i\)</span>；</li>
+<li>交换作用：<span class="math inline">\(H_J = -J \sum_i
+\hat{\mathbf{S}}_i\cdot\hat{\mathbf{S}}_{i+1}\)</span>；</li>
+<li>自旋–晶格（拟偶极）：<span class="math inline">\(H_C = -C \sum_{ij}
+(\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij})(\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_j)\)</span>；</li>
+<li>动能：<span class="math inline">\(H_{\text{kin}} = \sum_i
+\hat{\mathbf{p}}_i^2/(2m)\)</span>；</li>
+<li>晶格势能：<span class="math inline">\(H_{\text{lat}} = \sum_{ij}
+V(\hat{\mathbf{r}}_{ij}-\bar{\mathbf{r}}_{ij})^2\)</span>。</li>
+</ul>
+<hr />
+<h2 id="heisenberg-方程与自旋对易关系">1. Heisenberg
+方程与自旋对易关系</h2>
+<p>Appendix A 使用的 Heisenberg 方程是 (A3)：</p>
+<p><span class="math display">\[
+\frac{d\hat{A}}{dt} = \frac{i}{\hbar} [\hat{H}, \hat{A}] ,
+\]</span></p>
+<ul>
+<li><span class="math inline">\([\hat{H},\hat{A}] = \hat{H}\hat{A} -
+\hat{A}\hat{H}\)</span> 为对易子；</li>
+<li><span class="math inline">\(\hbar\)</span> 为约化普朗克常数。</li>
+</ul>
+<p>自旋的对易关系（Appendix A）：</p>
+<p><span class="math display">\[
+[\hat{S}_i^\alpha, \hat{S}_j^\beta]
+=
+i\hbar\,\varepsilon_{\alpha\beta\gamma}\,\delta_{ij}\,\hat{S}_i^\gamma,
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\alpha,\beta,\gamma\in\{x,y,z\}\)</span>
+为分量；</li>
+<li><span class="math inline">\(\varepsilon_{\alpha\beta\gamma}\)</span>
+为 Levi-Civita 反对称张量；</li>
+<li><span class="math inline">\(\delta_{ij}\)</span> 为 Kronecker
+delta：<span class="math inline">\(i=j\)</span> 时为 1，否则为 0。</li>
+</ul>
+<p>位置–动量对易关系：</p>
+<p><span class="math display">\[
+[\hat{x}_i^\alpha,\hat{p}_j^\beta] =
+i\hbar\,\delta_{ij}\,\delta_{\alpha\beta}.
+\]</span></p>
+<hr />
+<h2 id="自旋的运动方程从-eq.-1-到-eq.-2">2. 自旋的运动方程：从 Eq. (1)
+到 Eq. (2)</h2>
+<p>论文主文的自旋（经典）方程为 Eq. (2)：</p>
+<p><span class="math display">\[
+\frac{d\mathbf{S}_i}{dt}
+= \gamma \mathbf{S}_i \times \mathbf{B}
++ J\,\mathbf{S}_i \times (\mathbf{S}_{i+1} + \mathbf{S}_{i-1})
++ 2C\,\mathbf{S}_i \times \sum_j \mathbf{r}_{ij} (\mathbf{r}_{ij}\cdot
+\mathbf{S}_j).
+\]</span></p>
+<p>这里已经把算符“去帽子”处理成经典向量。推导步骤如下。</p>
+<h3 id="目标用-heisenberg-方程求-dhatmathbfs_idt">2.1 目标：用
+Heisenberg 方程求 <span
+class="math inline">\(d\hat{\mathbf{S}}_i/dt\)</span></h3>
+<p>从 Heisenberg 方程出发：</p>
+<p><span class="math display">\[
+\frac{d\hat{\mathbf{S}}_i}{dt}
+= \frac{i}{\hbar}[H, \hat{\mathbf{S}}_i].
+\]</span></p>
+<p>整体哈密顿量分项：</p>
+<p><span class="math display">\[
+H = H_Z + H_J + H_C + H_{\mathrm{kin}} + H_{\mathrm{lat}}.
+\]</span></p>
+<p>观察哪些项与自旋算符 <span
+class="math inline">\(\hat{\mathbf{S}}_i\)</span> 不对易：</p>
+<ul>
+<li><span class="math inline">\(H_{\mathrm{kin}}\)</span> 只含 <span
+class="math inline">\(\hat{\mathbf{p}}\)</span>，与 <span
+class="math inline">\(\hat{\mathbf{S}}_i\)</span> 对易；</li>
+<li><span class="math inline">\(H_{\mathrm{lat}}\)</span> 只含 <span
+class="math inline">\(\hat{\mathbf{r}}\)</span>，与 <span
+class="math inline">\(\hat{\mathbf{S}}_i\)</span> 对易；</li>
+<li>与自旋有关的是 <span
+class="math inline">\(H_Z,H_J,H_C\)</span>。</li>
+</ul>
+<p>所以：</p>
+<p><span class="math display">\[
+\frac{d\hat{\mathbf{S}}_i}{dt}
+= \frac{i}{\hbar}([H_Z,\hat{\mathbf{S}}_i]
++ [H_J,\hat{\mathbf{S}}_i]
++ [H_C,\hat{\mathbf{S}}_i]).
+\]</span></p>
+<p>分别计算三项。</p>
+<hr />
+<h3 id="zeeman-项自旋在外磁场中的-larmor-进动">2.2 Zeeman
+项：自旋在外磁场中的 Larmor 进动</h3>
+<p>Zeeman 项：</p>
+<p><span class="math display">\[
+H_Z = - \gamma \sum_k \mathbf{B}\cdot \hat{\mathbf{S}}_k.
+\]</span></p>
+<p>只有 <span class="math inline">\(k=i\)</span> 项不对易：</p>
+<p><span class="math display">\[
+[H_Z, \hat{\mathbf{S}}_i]
+= -\gamma [\mathbf{B}\cdot \hat{\mathbf{S}}_i, \hat{\mathbf{S}}_i].
+\]</span></p>
+<p>写成分量：</p>
+<p><span class="math display">\[
+\mathbf{B}\cdot \hat{\mathbf{S}}_i
+= \sum_{\alpha} B_\alpha \hat{S}_i^\alpha,
+\]</span></p>
+<p>于是对每个分量 <span
+class="math inline">\(\hat{S}_i^\beta\)</span>：</p>
+<p><span class="math display">\[
+\begin{aligned}
+[H_Z, \hat{S}_i^\beta]
+&amp;= -\gamma \sum_\alpha B_\alpha [\hat{S}_i^\alpha, \hat{S}_i^\beta]
+\\
+&amp;= -\gamma \sum_\alpha B_\alpha (i\hbar
+\varepsilon_{\alpha\beta\gamma} \hat{S}_i^\gamma) \\
+&amp;= -i\hbar\,\gamma \sum_{\alpha,\gamma}
+\varepsilon_{\alpha\beta\gamma} B_\alpha \hat{S}_i^\gamma.
+\end{aligned}
+\]</span></p>
+<p>代入 Heisenberg 方程：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d\hat{S}_i^\beta}{dt}
+&amp;= \frac{i}{\hbar}[H_Z, \hat{S}_i^\beta] \\
+&amp;= \frac{i}{\hbar}\left(-i\hbar \gamma \sum_{\alpha,\gamma}
+\varepsilon_{\alpha\beta\gamma} B_\alpha \hat{S}_i^\gamma\right) \\
+&amp;= \gamma \sum_{\alpha,\gamma} \varepsilon_{\alpha\beta\gamma}
+B_\alpha \hat{S}_i^\gamma,
+\end{aligned}
+\]</span></p>
+<p>对应向量形式：</p>
+<p><span class="math display">\[
+\frac{d\hat{\mathbf{S}}_i}{dt}\Big|_Z
+= \gamma \hat{\mathbf{S}}_i \times \mathbf{B}.
+\]</span></p>
+<blockquote>
+<p>物理解释：自旋在磁场中做陀螺式进动，频率为 Larmor 频率。</p>
+</blockquote>
+<hr />
+<h3 id="交换作用项自旋之间的有效场">2.3
+交换作用项：自旋之间的“有效场”</h3>
+<p>交换项：</p>
+<p><span class="math display">\[
+H_J = -J \sum_k \hat{\mathbf{S}}_k \cdot \hat{\mathbf{S}}_{k+1}.
+\]</span></p>
+<p>对第 <span class="math inline">\(i\)</span> 个自旋有贡献的只有含
+<span class="math inline">\(\hat{\mathbf{S}}_i\)</span> 的两项：</p>
+<ul>
+<li><span class="math inline">\(k=i\)</span>：<span
+class="math inline">\(-J
+\hat{\mathbf{S}}_i\cdot\hat{\mathbf{S}}_{i+1}\)</span>，</li>
+<li><span class="math inline">\(k=i-1\)</span>：<span
+class="math inline">\(-J
+\hat{\mathbf{S}}_{i-1}\cdot\hat{\mathbf{S}}_i\)</span>。</li>
+</ul>
+<p>所以对 <span class="math inline">\(i\)</span> 有效的部分：</p>
+<p><span class="math display">\[
+H_{J,i} = -J (\hat{\mathbf{S}}_i\cdot\hat{\mathbf{S}}_{i+1}
++ \hat{\mathbf{S}}_{i-1}\cdot\hat{\mathbf{S}}_i).
+\]</span></p>
+<p>计算：</p>
+<p><span class="math display">\[
+\frac{d\hat{\mathbf{S}}_i}{dt}\Big|_J
+= \frac{i}{\hbar}[H_{J,i}, \hat{\mathbf{S}}_i].
+\]</span></p>
+<p>先考虑一般对易子：</p>
+<p><span class="math display">\[
+[\hat{\mathbf{S}}_i\cdot \hat{\mathbf{S}}_{i+1}, \hat{S}_i^\beta].
+\]</span></p>
+<p>展开：</p>
+<p><span class="math display">\[
+\hat{\mathbf{S}}_i\cdot \hat{\mathbf{S}}_{i+1}
+= \sum_\alpha \hat{S}_i^\alpha \hat{S}_{i+1}^\alpha.
+\]</span></p>
+<p>注意 <span class="math inline">\(\hat{S}_{i+1}^\alpha\)</span> 与
+<span class="math inline">\(\hat{S}_i^\beta\)</span>
+对易（不同格点）：</p>
+<p><span class="math display">\[
+\begin{aligned}
+[\hat{S}_i^\alpha \hat{S}_{i+1}^\alpha, \hat{S}_i^\beta]
+&amp;= \hat{S}_i^\alpha [\hat{S}_{i+1}^\alpha, \hat{S}_i^\beta]
++ [\hat{S}_i^\alpha, \hat{S}_i^\beta]\hat{S}_{i+1}^\alpha \\
+&amp;= 0 + (i\hbar \varepsilon_{\alpha\beta\gamma}
+\hat{S}_i^\gamma)\hat{S}_{i+1}^\alpha.
+\end{aligned}
+\]</span></p>
+<p>因此：</p>
+<p><span class="math display">\[
+[\hat{\mathbf{S}}_i\cdot \hat{\mathbf{S}}_{i+1}, \hat{S}_i^\beta]
+= i\hbar \sum_{\alpha,\gamma} \varepsilon_{\alpha\beta\gamma}
+\hat{S}_i^\gamma \hat{S}_{i+1}^\alpha.
+\]</span></p>
+<p>这可以重写为向量形式：</p>
+<p><span class="math display">\[
+[\hat{\mathbf{S}}_i\cdot \hat{\mathbf{S}}_{i+1}, \hat{\mathbf{S}}_i]
+= i\hbar\,\hat{\mathbf{S}}_i \times \hat{\mathbf{S}}_{i+1}.
+\]</span></p>
+<p>同理：</p>
+<p><span class="math display">\[
+[\hat{\mathbf{S}}_{i-1}\cdot \hat{\mathbf{S}}_i, \hat{\mathbf{S}}_i]
+= i\hbar\,\hat{\mathbf{S}}_i \times \hat{\mathbf{S}}_{i-1}.
+\]</span></p>
+<p>所以：</p>
+<p><span class="math display">\[
+\begin{aligned}
+[H_{J,i}, \hat{\mathbf{S}}_i]
+&amp;= -J \big(
+[\hat{\mathbf{S}}_i\cdot \hat{\mathbf{S}}_{i+1}, \hat{\mathbf{S}}_i]
++ [\hat{\mathbf{S}}_{i-1}\cdot \hat{\mathbf{S}}_i, \hat{\mathbf{S}}_i]
+\big) \\
+&amp;= -J\, i\hbar\,\hat{\mathbf{S}}_i \times (\hat{\mathbf{S}}_{i+1} +
+\hat{\mathbf{S}}_{i-1}).
+\end{aligned}
+\]</span></p>
+<p>Heisenberg 方程：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d\hat{\mathbf{S}}_i}{dt}\Big|_J
+&amp;= \frac{i}{\hbar}[H_{J,i}, \hat{\mathbf{S}}_i] \\
+&amp;= \frac{i}{\hbar}\left(-J\, i\hbar\,\hat{\mathbf{S}}_i \times
+(\hat{\mathbf{S}}_{i+1} + \hat{\mathbf{S}}_{i-1})\right) \\
+&amp;= J\,\hat{\mathbf{S}}_i \times (\hat{\mathbf{S}}_{i+1} +
+\hat{\mathbf{S}}_{i-1}).
+\end{aligned}
+\]</span></p>
+<p>这就是 Eq. (2) 第二项的“算符版”。</p>
+<hr />
+<h3 id="自旋晶格项-h_c各向异性有效场">2.4 自旋–晶格项 <span
+class="math inline">\(H_C\)</span>：各向异性有效场</h3>
+<p>自旋–晶格项：</p>
+<p><span class="math display">\[
+H_C = - C \sum_{k\ell} (\hat{\mathbf{S}}_k\cdot
+\hat{\mathbf{r}}_{k\ell})(\hat{\mathbf{r}}_{k\ell}\cdot
+\hat{\mathbf{S}}_\ell).
+\]</span></p>
+<p>与 <span class="math inline">\(\hat{\mathbf{S}}_i\)</span>
+不对易的项，必须含有 <span
+class="math inline">\(\hat{\mathbf{S}}_i\)</span>。分两类：</p>
+<ol type="1">
+<li><span class="math inline">\(k = i\)</span>：<span
+class="math inline">\(\big(\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij}\big)\big(\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_j\big)\)</span>；</li>
+<li><span class="math inline">\(\ell = i\)</span>：<span
+class="math inline">\(\big(\hat{\mathbf{S}}_j\cdot\hat{\mathbf{r}}_{ji}\big)\big(\hat{\mathbf{r}}_{ji}\cdot\hat{\mathbf{S}}_i\big)\)</span>。</li>
+</ol>
+<p>对原子 <span class="math inline">\(i\)</span>，相关部分可写成：</p>
+<p><span class="math display">\[
+H_{C,i}
+= - C \sum_j \left[
+(\hat{\mathbf{S}}_i\cdot
+\hat{\mathbf{r}}_{ij})(\hat{\mathbf{r}}_{ij}\cdot \hat{\mathbf{S}}_j)
++ (\hat{\mathbf{S}}_j\cdot
+\hat{\mathbf{r}}_{ji})(\hat{\mathbf{r}}_{ji}\cdot \hat{\mathbf{S}}_i)
+\right].
+\]</span></p>
+<h4 id="第一类项的对易子">2.4.1 第一类项的对易子</h4>
+<p>记：</p>
+<p><span class="math display">\[
+A_{ij} = (\hat{\mathbf{S}}_i\cdot
+\hat{\mathbf{r}}_{ij})(\hat{\mathbf{r}}_{ij}\cdot \hat{\mathbf{S}}_j).
+\]</span></p>
+<p>计算 <span class="math inline">\([A_{ij},
+\hat{\mathbf{S}}_i]\)</span>：</p>
+<p><span class="math display">\[
+\begin{aligned}
+[A_{ij}, \hat{\mathbf{S}}_i]
+&amp;= (\hat{\mathbf{S}}_i\cdot
+\hat{\mathbf{r}}_{ij})[\hat{\mathbf{r}}_{ij}\cdot \hat{\mathbf{S}}_j,
+\hat{\mathbf{S}}_i]
++ [\hat{\mathbf{S}}_i\cdot \hat{\mathbf{r}}_{ij},
+\hat{\mathbf{S}}_i](\hat{\mathbf{r}}_{ij}\cdot \hat{\mathbf{S}}_j).
+\end{aligned}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\hat{\mathbf{r}}_{ij}\)</span>
+与自旋对易；</li>
+<li><span class="math inline">\(\hat{\mathbf{S}}_j\)</span> 与 <span
+class="math inline">\(\hat{\mathbf{S}}_i\)</span> 对易（<span
+class="math inline">\(j\neq i\)</span>）。</li>
+</ul>
+<p>所以第一项为 0，只剩：</p>
+<p><span class="math display">\[
+[A_{ij}, \hat{\mathbf{S}}_i]
+= [\hat{\mathbf{S}}_i\cdot \hat{\mathbf{r}}_{ij},
+\hat{\mathbf{S}}_i](\hat{\mathbf{r}}_{ij}\cdot \hat{\mathbf{S}}_j).
+\]</span></p>
+<p>记：</p>
+<p><span class="math display">\[
+B_{ij} = \hat{\mathbf{S}}_i\cdot \hat{\mathbf{r}}_{ij}
+= \sum_\alpha \hat{S}_i^\alpha r_{ij}^\alpha,
+\]</span></p>
+<p>其中 <span class="math inline">\(r_{ij}^\alpha\)</span> 可视为 <span
+class="math inline">\(c\)</span> 数。则：</p>
+<p><span class="math display">\[
+\begin{aligned}
+[B_{ij}, \hat{S}_i^\beta]
+&amp;= \sum_\alpha r_{ij}^\alpha [\hat{S}_i^\alpha, \hat{S}_i^\beta] \\
+&amp;= i\hbar \sum_{\alpha,\gamma} r_{ij}^\alpha
+\varepsilon_{\alpha\beta\gamma} \hat{S}_i^\gamma.
+\end{aligned}
+\]</span></p>
+<p>向量形式：</p>
+<p><span class="math display">\[
+[B_{ij}, \hat{\mathbf{S}}_i]
+= i\hbar\, \hat{\mathbf{S}}_i \times \hat{\mathbf{r}}_{ij}.
+\]</span></p>
+<p>于是：</p>
+<p><span class="math display">\[
+[A_{ij}, \hat{\mathbf{S}}_i]
+= i\hbar (\hat{\mathbf{S}}_i \times
+\hat{\mathbf{r}}_{ij})(\hat{\mathbf{r}}_{ij}\cdot \hat{\mathbf{S}}_j).
+\]</span></p>
+<h4 id="第二类项的对易子">2.4.2 第二类项的对易子</h4>
+<p>第二类项：</p>
+<p><span class="math display">\[
+A&#39;_{ij} = (\hat{\mathbf{S}}_j\cdot
+\hat{\mathbf{r}}_{ji})(\hat{\mathbf{r}}_{ji}\cdot \hat{\mathbf{S}}_i).
+\]</span></p>
+<p>类似计算，可得：</p>
+<p><span class="math display">\[
+[A&#39;_{ij}, \hat{\mathbf{S}}_i]
+= i\hbar (\hat{\mathbf{S}}_i \times
+\hat{\mathbf{r}}_{ji})(\hat{\mathbf{S}}_j\cdot \hat{\mathbf{r}}_{ji}).
+\]</span></p>
+<p>利用 <span class="math inline">\(\hat{\mathbf{r}}_{ji} =
+-\hat{\mathbf{r}}_{ij}\)</span>，以及 <span
+class="math inline">\(\hat{\mathbf{S}}_j\cdot \hat{\mathbf{r}}_{ji} =
+-\hat{\mathbf{S}}_j\cdot
+\hat{\mathbf{r}}_{ij}\)</span>，两个负号相互抵消，得到与第一类类似的结构。两类项合并后，出现一个因子
+<span class="math inline">\(2\)</span>。</p>
+<h4 id="自旋晶格对-hatmathbfs_i-的总贡献">2.4.3 自旋–晶格对 <span
+class="math inline">\(\hat{\mathbf{S}}_i\)</span> 的总贡献</h4>
+<p>合并上述结果并乘上 <span class="math inline">\(-C\)</span>：</p>
+<p><span class="math display">\[
+[H_{C,i}, \hat{\mathbf{S}}_i]
+= -C \sum_j \big( [A_{ij},\hat{\mathbf{S}}_i] +
+[A&#39;_{ij},\hat{\mathbf{S}}_i]\big)
+\approx -\,i\hbar\,2C\, \hat{\mathbf{S}}_i \times \sum_j
+\hat{\mathbf{r}}_{ij} (\hat{\mathbf{r}}_{ij}\cdot \hat{\mathbf{S}}_j).
+\]</span></p>
+<p>Heisenberg 方程：</p>
+<p><span class="math display">\[
+\frac{d\hat{\mathbf{S}}_i}{dt}\Big|_C
+= \frac{i}{\hbar}[H_{C,i}, \hat{\mathbf{S}}_i]
+= 2C\, \hat{\mathbf{S}}_i \times
+\sum_j \hat{\mathbf{r}}_{ij} (\hat{\mathbf{r}}_{ij}\cdot
+\hat{\mathbf{S}}_j).
+\]</span></p>
+<p>这就是 Eq. (2) 的第三项（算符形式）。</p>
+<hr />
+<h3 id="合并并去帽子得到主文-eq.-2">2.5 合并并“去帽子”：得到主文 Eq.
+(2)</h3>
+<p>把三部分相加：</p>
+<p><span class="math display">\[
+\frac{d\hat{\mathbf{S}}_i}{dt}
+= \gamma \hat{\mathbf{S}}_i \times \mathbf{B}
++ J \hat{\mathbf{S}}_i \times (\hat{\mathbf{S}}_{i+1} +
+\hat{\mathbf{S}}_{i-1})
++ 2C \hat{\mathbf{S}}_i \times \sum_j \hat{\mathbf{r}}_{ij}
+(\hat{\mathbf{r}}_{ij}\cdot \hat{\mathbf{S}}_j).
+\]</span></p>
+<p>论文论证自旋之间几乎保持完全一致、纠缠弱，可将自旋算符的期望值视为经典矢量（宏观自旋）：</p>
+<ul>
+<li><span class="math inline">\(\hat{\mathbf{S}}_i \rightarrow
+\mathbf{S}_i\)</span>，</li>
+<li><span class="math inline">\(\hat{\mathbf{r}}_{ij} \rightarrow
+\mathbf{r}_{ij}\)</span>。</li>
+</ul>
+<p>于是得到主文 Eq. (2)：</p>
+<p><span class="math display">\[
+\boxed{
+\frac{d\mathbf{S}_i}{dt}
+= \gamma \mathbf{S}_i \times \mathbf{B}
++ J\,\mathbf{S}_i \times (\mathbf{S}_{i+1} + \mathbf{S}_{i-1})
++ 2C\,\mathbf{S}_i \times \sum_j \mathbf{r}_{ij} (\mathbf{r}_{ij}\cdot
+\mathbf{S}_j).
+}
+\]</span></p>
+<hr />
+<h2 id="位置与动量的运动方程appendix-a-eq.-a1a2">3.
+位置与动量的运动方程：Appendix A Eq. (A1)–(A2)</h2>
+<p>Appendix A 给出了位置和动量的方程：</p>
+<p><span class="math display">\[
+\frac{d\hat{\mathbf{r}}_i}{dt}
+= \frac{d\hat{\mathbf{p}}_i}{m}, \quad \text{(A1)}
+\]</span></p>
+<p><span class="math display">\[
+\frac{d\hat{\mathbf{p}}_i}{dt} =
+2C \sum_j \big[ \hat{\mathbf{S}}_i
+(\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_j)
++ \hat{\mathbf{S}}_j (\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij})
+\big]
+- 4V \sum_j
+\big(\hat{\mathbf{r}}_{ij}-\bar{\mathbf{r}}_{ij}\big)\,\hat{\mathbf{r}}_{ij}
+\hat{\mathbf{r}}_{ij}.
+\quad \text{(A2)}
+\]</span></p>
+<p>( A1 ) 中明显有轻微排版/笔误，按力学应为：</p>
+<p><span class="math display">\[
+\boxed{\displaystyle
+\frac{d\hat{\mathbf{r}}_i}{dt} = \frac{\hat{\mathbf{p}}_i}{m}
+}
+\]</span></p>
+<p>下面用 Heisenberg 方程逐步推导 (A1)、(A2)。</p>
+<hr />
+<h3 id="位置方程-a1-的推导">3.1 位置方程 (A1) 的推导</h3>
+<p>对每个分量：</p>
+<p><span class="math display">\[
+\frac{d\hat{r}_i^\alpha}{dt}
+= \frac{i}{\hbar}[H,\hat{r}_i^\alpha].
+\]</span></p>
+<p>只含 <span class="math inline">\(\hat{\mathbf{p}}\)</span> 的部分是
+<span class="math inline">\(H_{\text{kin}}\)</span>，其它含 <span
+class="math inline">\(\hat{\mathbf{r}}\)</span> 或自旋的部分与 <span
+class="math inline">\(\hat{\mathbf{r}}_i\)</span> 对易：</p>
+<ul>
+<li><span class="math inline">\([H_Z,\hat{r}_i^\alpha]=0\)</span>，</li>
+<li><span class="math inline">\([H_J,\hat{r}_i^\alpha]=0\)</span>，</li>
+<li><span
+class="math inline">\([H_C,\hat{r}_i^\alpha]=0\)</span>（自旋与位置对易）,</li>
+<li><span
+class="math inline">\([H_{\text{lat}},\hat{r}_i^\alpha]=0\)</span>（位置间对易）。</li>
+</ul>
+<p>因此：</p>
+<p><span class="math display">\[
+\frac{d\hat{r}_i^\alpha}{dt}
+= \frac{i}{\hbar}[H_{\text{kin}},\hat{r}_i^\alpha].
+\]</span></p>
+<p>展开动能：</p>
+<p><span class="math display">\[
+H_{\text{kin}} = \sum_k \frac{\hat{\mathbf{p}}_k^{\,2}}{2m}
+= \sum_k \sum_\beta \frac{(\hat{p}_k^\beta)^2}{2m}.
+\]</span></p>
+<p>只有 <span class="math inline">\(k=i\)</span> 不对易：</p>
+<p><span class="math display">\[
+[H_{\text{kin}},\hat{r}_i^\alpha]
+= \sum_\beta \frac{1}{2m}[(\hat{p}_i^\beta)^2,\hat{r}_i^\alpha].
+\]</span></p>
+<p>计算：</p>
+<p><span class="math display">\[
+\begin{aligned}
+[(\hat{p}_i^\beta)^2,\hat{r}_i^\alpha]
+&amp;= \hat{p}_i^\beta[\hat{p}_i^\beta,\hat{r}_i^\alpha]
++ [\hat{p}_i^\beta,\hat{r}_i^\alpha]\hat{p}_i^\beta \\
+&amp;= \hat{p}_i^\beta(-i\hbar\delta_{\alpha\beta})
++ (-i\hbar\delta_{\alpha\beta})\hat{p}_i^\beta \\
+&amp;= -2i\hbar\,\delta_{\alpha\beta}\hat{p}_i^\beta.
+\end{aligned}
+\]</span></p>
+<p>所以：</p>
+<p><span class="math display">\[
+\begin{aligned}
+[H_{\text{kin}},\hat{r}_i^\alpha]
+&amp;= \sum_\beta
+\frac{1}{2m}(-2i\hbar\,\delta_{\alpha\beta}\hat{p}_i^\beta) \\
+&amp;= -\frac{i\hbar}{m}\hat{p}_i^\alpha.
+\end{aligned}
+\]</span></p>
+<p>Heisenberg 方程：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d\hat{r}_i^\alpha}{dt}
+&amp;= \frac{i}{\hbar}[H_{\text{kin}},\hat{r}_i^\alpha] \\
+&amp;= \frac{i}{\hbar}\left(-\frac{i\hbar}{m}\hat{p}_i^\alpha\right) \\
+&amp;= \frac{\hat{p}_i^\alpha}{m}.
+\end{aligned}
+\]</span></p>
+<p>向量形式：</p>
+<p><span class="math display">\[
+\boxed{
+\frac{d\hat{\mathbf{r}}_i}{dt} = \frac{\hat{\mathbf{p}}_i}{m}
+}
+\]</span></p>
+<hr />
+<h3 id="动量方程-a2-的整体结构">3.2 动量方程 (A2) 的整体结构</h3>
+<p>动量方程：</p>
+<p><span class="math display">\[
+\frac{d\hat{p}_i^\alpha}{dt}
+= \frac{i}{\hbar}[H,\hat{p}_i^\alpha]
+= \frac{i}{\hbar}\left([H_C,\hat{p}_i^\alpha] +
+[H_{\text{lat}},\hat{p}_i^\alpha]\right),
+\]</span></p>
+<p>因为：</p>
+<ul>
+<li><span class="math inline">\(H_Z,H_J\)</span> 只含自旋，与 <span
+class="math inline">\(\hat{p}_i\)</span> 对易；</li>
+<li><span class="math inline">\(H_{\text{kin}}\)</span> 只含 <span
+class="math inline">\(\hat{p}\)</span>，但 <span
+class="math inline">\([\hat{p}_k^2,\hat{p}_i]=0\)</span>。</li>
+</ul>
+<p>所以有关的只有自旋–晶格项 <span class="math inline">\(H_C\)</span>
+和晶格势能 <span class="math inline">\(H_{\text{lat}}\)</span>。</p>
+<p>最后的结果 (A2) 是：</p>
+<p><span class="math display">\[
+\boxed{
+\frac{d\hat{\mathbf{p}}_i}{dt}
+=2C\sum_j \big[ \hat{\mathbf{S}}_i
+(\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_j)
++ \hat{\mathbf{S}}_j (\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij})
+\big]
+- 4V\sum_j
+(\hat{\mathbf{r}}_{ij}-\bar{\mathbf{r}}_{ij})\hat{\mathbf{r}}_{ij}\hat{\mathbf{r}}_{ij}.
+}
+\]</span></p>
+<p>下面分别推两部分。</p>
+<hr />
+<h3 id="晶格势能-h_textlat-对-hatmathbfp_i-的贡献a2-中第二项">3.3
+晶格势能 <span class="math inline">\(H_{\text{lat}}\)</span> 对 <span
+class="math inline">\(\hat{\mathbf{p}}_i\)</span> 的贡献（(A2)
+中第二项）</h3>
+<p>晶格势能：</p>
+<p><span class="math display">\[
+H_{\text{lat}} = \sum_{k\ell}
+V(\hat{\mathbf{r}}_{k\ell}-\bar{\mathbf{r}}_{k\ell})^2.
+\]</span></p>
+<p>与 <span class="math inline">\(\hat{p}_i^\alpha\)</span>
+不对易的项必须含 <span
+class="math inline">\(\hat{\mathbf{r}}_i\)</span>。对一对 <span
+class="math inline">\((i,j)\)</span>，考虑：</p>
+<p><span class="math display">\[
+A_{ij} = V(\hat{\mathbf{r}}_{ij}-\bar{\mathbf{r}}_{ij})^2.
+\]</span></p>
+<p>写成分量：</p>
+<p><span class="math display">\[
+(\hat{\mathbf{r}}_{ij}-\bar{\mathbf{r}}_{ij})^2
+= \sum_\beta (\hat{r}_{ij}^\beta - \bar{r}_{ij}^\beta)^2.
+\]</span></p>
+<p>我们要计算 <span
+class="math inline">\([A_{ij},\hat{p}_i^\alpha]\)</span>。先用之前的对易：</p>
+<p><span class="math display">\[
+[\hat{r}_{ij}^\beta,\hat{p}_i^\alpha]
+= [\hat{r}_i^\beta-\hat{r}_j^\beta,\hat{p}_i^\alpha]
+= i\hbar\delta_{\alpha\beta}.
+\]</span></p>
+<p>于是：</p>
+<p><span class="math display">\[
+\begin{aligned}
+[A_{ij},\hat{p}_i^\alpha]
+&amp;= V \sum_\beta
+[(\hat{r}_{ij}^\beta-\bar{r}_{ij}^\beta)^2,\hat{p}_i^\alpha] \\
+&amp;= V \sum_\beta \left[
+\hat{r}_{ij}^\beta \hat{r}_{ij}^\beta,\hat{p}_i^\alpha
+- 2\bar{r}_{ij}^\beta \hat{r}_{ij}^\beta,\hat{p}_i^\alpha
+\right] \\
+&amp;= V\sum_\beta \Big(
+\hat{r}_{ij}^\beta [\hat{r}_{ij}^\beta,\hat{p}_i^\alpha]
++ [\hat{r}_{ij}^\beta,\hat{p}_i^\alpha]\hat{r}_{ij}^\beta
+-2\bar{r}_{ij}^\beta [\hat{r}_{ij}^\beta,\hat{p}_i^\alpha]
+\Big) \\
+&amp;= V\sum_\beta \Big(
+\hat{r}_{ij}^\beta (i\hbar\delta_{\alpha\beta})
++ (i\hbar\delta_{\alpha\beta})\hat{r}_{ij}^\beta
+-2\bar{r}_{ij}^\beta (i\hbar\delta_{\alpha\beta})
+\Big) \\
+&amp;= i\hbar V\sum_\beta \delta_{\alpha\beta}
+(2\hat{r}_{ij}^\beta - 2\bar{r}_{ij}^\beta) \\
+&amp;= 2i\hbar V(\hat{r}_{ij}^\alpha - \bar{r}_{ij}^\alpha).
+\end{aligned}
+\]</span></p>
+<p>Heisenberg 方程给出：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d\hat{p}_i^\alpha}{dt}\Big|_{\text{lat},ij}
+&amp;= \frac{i}{\hbar}[A_{ij},\hat{p}_i^\alpha] \\
+&amp;= \frac{i}{\hbar}(2i\hbar V(\hat{r}_{ij}^\alpha -
+\bar{r}_{ij}^\alpha)) \\
+&amp;= -2V(\hat{r}_{ij}^\alpha - \bar{r}_{ij}^\alpha).
+\end{aligned}
+\]</span></p>
+<p>注意：对一对 <span
+class="math inline">\(i,j\)</span>，由于哈密顿量中同一对 <span
+class="math inline">\((i,j)\)</span> 结构会出现两次（<span
+class="math inline">\(r_{ij}\)</span> 和 <span
+class="math inline">\(r_{ji}\)</span>），总贡献会有 <span
+class="math inline">\(-4V(\hat{r}_{ij}^\alpha -
+\bar{r}_{ij}^\alpha)\)</span> 的因子，这就是 (A2) 中 <span
+class="math inline">\(-4V\)</span> 的来源。</p>
+<p>用论文的张量写法表达：<span
+class="math inline">\((\hat{\mathbf{r}}_{ij}-\bar{\mathbf{r}}_{ij})\hat{\mathbf{r}}_{ij}\hat{\mathbf{r}}_{ij}\)</span>
+表示方向由键向量 <span
+class="math inline">\(\hat{\mathbf{r}}_{ij}\)</span>
+决定的弹性力，因此：</p>
+<p><span class="math display">\[
+\boxed{
+\frac{d\hat{\mathbf{p}}_i}{dt}\Big|_{\text{lat}}
+= -4V\sum_j
+(\hat{\mathbf{r}}_{ij}-\bar{\mathbf{r}}_{ij})\,\hat{\mathbf{r}}_{ij}\hat{\mathbf{r}}_{ij}.
+}
+\]</span></p>
+<hr />
+<h3 id="自旋晶格-h_c-对-hatmathbfp_i-的贡献a2-中第一项">3.4 自旋–晶格
+<span class="math inline">\(H_C\)</span> 对 <span
+class="math inline">\(\hat{\mathbf{p}}_i\)</span> 的贡献（(A2)
+中第一项）</h3>
+<p>自旋–晶格项：</p>
+<p><span class="math display">\[
+H_C = - C \sum_{k\ell} (\hat{\mathbf{S}}_k\cdot
+\hat{\mathbf{r}}_{k\ell})(\hat{\mathbf{r}}_{k\ell}\cdot
+\hat{\mathbf{S}}_\ell).
+\]</span></p>
+<p>与 <span class="math inline">\(\hat{p}_i\)</span> 不对易的项必须含
+<span
+class="math inline">\(\hat{\mathbf{r}}_i\)</span>。同样可分两类（<span
+class="math inline">\(k=i\)</span> 或 <span
+class="math inline">\(\ell=i\)</span>）。对 <span
+class="math inline">\(i\)</span> 有效部分：</p>
+<p><span class="math display">\[
+H_{C,i} = -C\sum_j\Big[
+(\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij})(\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_j)
++(\hat{\mathbf{S}}_j\cdot\hat{\mathbf{r}}_{ji})(\hat{\mathbf{r}}_{ji}\cdot\hat{\mathbf{S}}_i)
+\Big].
+\]</span></p>
+<p>代表性计算第一类项：</p>
+<p><span class="math display">\[
+A_{ij} =
+(\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij})(\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_j).
+\]</span></p>
+<p>对 <span class="math inline">\(\hat{p}_i^\alpha\)</span> 的对易：</p>
+<p><span class="math display">\[
+\begin{aligned}
+[A_{ij},\hat{p}_i^\alpha]
+&amp;=
+(\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij})[\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_j,\hat{p}_i^\alpha]
++
+[\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij},\hat{p}_i^\alpha](\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_j).
+\end{aligned}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\hat{\mathbf{S}}_j\)</span> 与 <span
+class="math inline">\(\hat{p}_i\)</span> 对易；</li>
+<li><span class="math inline">\(\hat{\mathbf{S}}_i\)</span> 与 <span
+class="math inline">\(\hat{p}_i\)</span> 对易；</li>
+<li>只有 <span class="math inline">\(\hat{\mathbf{r}}_{ij}\)</span> 与
+<span class="math inline">\(\hat{p}_i\)</span> 不对易。</li>
+</ul>
+<p>我们先算第二项：</p>
+<p><span class="math display">\[
+\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij}
+= \sum_\beta \hat{S}_i^\beta \hat{r}_{ij}^\beta,
+\]</span></p>
+<p>因此：</p>
+<p><span class="math display">\[
+\begin{aligned}
+[\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij},\hat{p}_i^\alpha]
+&amp;= \sum_\beta \hat{S}_i^\beta [\hat{r}_{ij}^\beta,\hat{p}_i^\alpha]
+\\
+&amp;= \sum_\beta \hat{S}_i^\beta i\hbar \delta_{\alpha\beta} \\
+&amp;= i\hbar \hat{S}_i^\alpha.
+\end{aligned}
+\]</span></p>
+<p>代入：</p>
+<p><span class="math display">\[
+[A_{ij},\hat{p}_i^\alpha]
+= (\text{第一项}) + i\hbar \hat{S}_i^\alpha
+(\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_j).
+\]</span></p>
+<p>第一项也会给出类似的结构，只是对应 <span
+class="math inline">\(\hat{S}_j^\alpha
+(\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij})\)</span>。合起来：</p>
+<p><span class="math display">\[
+[A_{ij},\hat{p}_i^\alpha]
+\propto i\hbar\Big[
+\hat{S}_i^\alpha (\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_j)
++ \hat{S}_j^\alpha (\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij})
+\Big].
+\]</span></p>
+<p>再加上 <span class="math inline">\(A&#39;_{ij}\)</span>（包含 <span
+class="math inline">\(\hat{\mathbf{r}}_{ji}\)</span>）的贡献，恰好增加一个因子
+2，最终得到：</p>
+<p><span class="math display">\[
+\frac{d\hat{\mathbf{p}}_i}{dt}\Big|_{C}
+= 2C \sum_j \Big[
+\hat{\mathbf{S}}_i (\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_j)
++ \hat{\mathbf{S}}_j (\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij})
+\Big].
+\]</span></p>
+<p>因此 (A2)
+的第一项来源于自旋–晶格拟偶极作用，是自旋方向对晶格施加的各向异性力。</p>
+<hr />
+<h3 id="汇总-a2动量方程的最终形式">3.5 汇总
+(A2)：动量方程的最终形式</h3>
+<p>合并 <span class="math inline">\(H_C\)</span> 和 <span
+class="math inline">\(H_{\text{lat}}\)</span> 的贡献：</p>
+<p><span class="math display">\[
+\boxed{
+\frac{d\hat{\mathbf{p}}_i}{dt}
+=2C\sum_j \big[ \hat{\mathbf{S}}_i
+(\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_j)
++ \hat{\mathbf{S}}_j (\hat{\mathbf{S}}_i\cdot\hat{\mathbf{r}}_{ij})
+\big]
+- 4V\sum_j
+(\hat{\mathbf{r}}_{ij}-\bar{\mathbf{r}}_{ij})\hat{\mathbf{r}}_{ij}\hat{\mathbf{r}}_{ij}.
+}
+\]</span></p>
+<p>这就是 Appendix A Eq. (A2)。</p>
+<hr />
+<h2
+id="appendix-h从-h1-到-h6wienerkhinchin-与-brownian-噪声-1omega2-标度">4.
+Appendix H：从 (H1) 到 (H6)：Wiener–Khinchin 与 Brownian 噪声 <span
+class="math inline">\(1/\omega^2\)</span> 标度</h2>
+<p>Appendix H 的目的是：从时间序列 <span
+class="math inline">\(\phi(t)\)</span>（比如预cession
+angle）计算功率谱密度（PSD）<span
+class="math inline">\(S(\omega)\)</span>。</p>
+<h3 id="wienerkhinchin-定理-h1h3">4.1 Wiener–Khinchin 定理
+(H1)–(H3)</h3>
+<p>论文给出：</p>
+<p><span class="math display">\[
+S(\omega)= \int_{-\infty}^{\infty} \phi(t)\phi(t+\tau)e^{-i\omega\tau}
+d\tau, \quad \text{(H1)}
+\]</span></p>
+<p>其中自相关函数定义为：</p>
+<p><span class="math display">\[
+\phi(t)\phi(t+\tau)
+= \lim_{T\to\infty} \frac{1}{T}\int_{-T/2}^{T/2}
+\phi^*(t)\phi(t+\tau)\,dt.
+\quad \text{(H2)}
+\]</span></p>
+<p>同时，他们通过傅里叶变换模平方写出：</p>
+<p><span class="math display">\[
+|F(\omega)|^2
+= \lim_{T\to\infty}\left|
+\int_{-T/2}^{T/2} \phi(t)e^{-i\omega t}dt
+\right|^2.
+\]</span></p>
+<p>展开模平方 (H3 中间步骤)：</p>
+<p><span class="math display">\[
+\begin{aligned}
+|F(\omega)|^2
+&amp;= \lim_{T\to\infty}
+\left(\int_{-T/2}^{T/2} \phi^*(t)e^{i\omega t}dt\right)
+\left(\int_{-T/2}^{T/2} \phi(t&#39;)e^{-i\omega t&#39;}dt&#39;\right) \\
+&amp;= \lim_{T\to\infty}
+\int_{-T/2}^{T/2}\!\!\int_{-T/2}^{T/2}
+\phi^*(t)\phi(t&#39;) e^{i\omega(t-t&#39;)}dt\,dt&#39;.
+\end{aligned}
+\]</span></p>
+<p>变换变量 <span class="math inline">\(u = t,\ \tau = t&#39;-t\)</span>
+得：</p>
+<p><span class="math display">\[
+|F(\omega)|^2
+= \lim_{T\to\infty}
+\int_{-T/2}^{T/2} du
+\int_{-(T-|u|)}^{T-|u|}
+\phi^*(u)\phi(u+\tau) e^{-i\omega\tau}d\tau.
+\]</span></p>
+<p>当 <span class="math inline">\(T\to\infty\)</span>
+时，可以近似将内层积分上下限扩展为 <span
+class="math inline">\((-\infty,\infty)\)</span>，并记住有限 <span
+class="math inline">\(T\)</span> 带来的 <span
+class="math inline">\(1/T\)</span> 因子，最终获得 (H3) 所写形式：</p>
+<p><span class="math display">\[
+S(\omega)
+= \lim_{T\to\infty}
+\frac{|F(\omega)|^2}{T}.
+\]</span></p>
+<p>也就是：</p>
+<p><span class="math display">\[
+\boxed{
+S(\omega) = \lim_{T\to\infty}\frac{|F(\omega)|^2}{T}
+}
+\]</span></p>
+<p>这就是 Wiener–Khinchin 定理：PSD
+等于自相关函数的傅里叶变换，同时也等于傅里叶变换的模平方除以总时间。</p>
+<hr />
+<h3 id="白噪声与-brownian-噪声1omega2-标度-h4h6">4.2 白噪声与 Brownian
+噪声：<span class="math inline">\(1/\omega^2\)</span> 标度
+(H4)–(H6)</h3>
+<p>Appendix H 接着分析白噪声与 Brownian 噪声的 PSD：</p>
+<ul>
+<li>白噪声 <span class="math inline">\(w(t)\)</span>：PSD 平坦，即 <span
+class="math inline">\(S_w(\omega) = \text{const}\)</span>；</li>
+<li>Brownian 噪声 <span class="math inline">\(b(t)\)</span>：满足</li>
+</ul>
+<p><span class="math display">\[
+\frac{db(t)}{dt} = w(t). \quad \text{(H4)}
+\]</span></p>
+<p>对 <span class="math inline">\(b(t)\)</span> 做 Fourier 变换：</p>
+<p><span class="math display">\[
+F_b(\omega) = \int b(t)e^{-i\omega t} dt,\quad
+F_w(\omega) = \int w(t)e^{-i\omega t} dt.
+\]</span></p>
+<p>由 (H4) 以及积分的 Fourier 性质：</p>
+<p><span class="math display">\[
+\frac{db(t)}{dt} \xleftrightarrow{\mathcal{F}} i\omega F_b(\omega),
+\]</span></p>
+<p>所以：</p>
+<p><span class="math display">\[
+i\omega F_b(\omega) = F_w(\omega)\quad\Rightarrow\quad
+F_b(\omega) = \frac{F_w(\omega)}{i\omega}. \quad \text{(H5)}
+\]</span></p>
+<p>PSD 为模平方：</p>
+<p><span class="math display">\[
+S_b(\omega) = |F_b(\omega)|^2
+= \frac{|F_w(\omega)|^2}{\omega^2}.
+\]</span></p>
+<p>但白噪声的谱为常数：<span class="math inline">\(|F_w(\omega)|^2
+\propto \text{const}\)</span>，于是得到：</p>
+<p><span class="math display">\[
+\boxed{
+S_b(\omega)\propto \frac{\text{const}}{\omega^2}.
+}
+\quad \text{(H6)}
+\]</span></p>
+<p>这说明 Brownian 噪声（积分白噪声）的 PSD 按 <span
+class="math inline">\(1/\omega^2\)</span> 衰减。</p>
+<hr />
+<h2 id="appendix-icramérrao-与-deltaomega-propto-t-32-标度">5. Appendix
+I：Cramér–Rao 与 <span class="math inline">\(\delta\omega \propto
+t^{-3/2}\)</span> 标度</h2>
+<p>Appendix I 分析利用 nutation
+信号测量一个缓慢振荡磁场频率时的灵敏度。结论是：频率估计的不确定度随测量时间
+<span class="math inline">\(t\)</span> 的缩放为 <span
+class="math inline">\(t^{-3/2}\)</span>，优于标准量子极限（SQL）的 <span
+class="math inline">\(t^{-1/2}\)</span>。</p>
+<h3 id="模型含白噪声的-nutation-信号-i1i2">5.1 模型：含白噪声的 nutation
+信号 (I1)–(I2)</h3>
+<p>论文中的模型（I1）：</p>
+<p><span class="math display">\[
+M_z(t_n)
+= A\cos (\omega t_n +\phi)\cos (\omega_0 t_n +\phi_0) + w[n], \quad
+\text{(I1)}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(M_z(t_n)\)</span>：在时刻 <span
+class="math inline">\(t_n = n\Delta t\)</span> 的测量值（nutation
+振幅）。</li>
+<li><span
+class="math inline">\(A\)</span>：信号幅度（与针的转动惯量相关）。</li>
+<li><span
+class="math inline">\(\omega\)</span>：欲测量的磁场振荡频率。</li>
+<li><span class="math inline">\(\omega_0\)</span>：在静磁场下 nutation
+的本征频率。</li>
+<li><span class="math inline">\(\phi,\phi_0\)</span>：初相位。</li>
+<li><span class="math inline">\(w[n]\)</span>：高斯白噪声，零均值、方差
+<span class="math inline">\(\sigma^2\)</span>。</li>
+</ul>
+<p>假设得到长度为 <span class="math inline">\(N\)</span> 的时间序列
+<span
+class="math inline">\(M_z(t_n)\)</span>，其似然函数（噪声独立同分布高斯）为：</p>
+<p><span class="math display">\[
+p(\{M_z(t_n)\}|\omega) =
+\frac{1}{(2\pi\sigma^2)^{N/2}}
+\exp\left\{
+-\frac{1}{2\sigma^2}
+\sum_{n=0}^{N-1}
+\left[
+M_z(t_n) - A\cos (\omega t_n +\phi)\cos (\omega_0 t_n +\phi_0)
+\right]^2
+\right\}. \quad \text{(I2)}
+\]</span></p>
+<hr />
+<h3 id="fisher-信息的计算-i3">5.2 Fisher 信息的计算 (I3)</h3>
+<p>Fisher 信息定义为：</p>
+<p><span class="math display">\[
+I(\omega)
+= \mathbb{E}\left[
+-\frac{\partial^2 \ln p}{\partial\omega^2}
+\right]
+= \frac{1}{\sigma^2}
+\sum_{n=0}^{N-1}
+\left[
+\frac{\partial}{\partial\omega}
+A\cos (\omega t_n +\phi)\cos (\omega_0 t_n +\phi_0)
+\right]^2.
+\]</span></p>
+<p>对 <span class="math inline">\(\omega\)</span> 求导：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial}{\partial\omega}
+\big[A\cos (\omega t_n +\phi)\cos (\omega_0 t_n +\phi_0)\big]
+&amp;= A(-t_n)\sin (\omega t_n +\phi)\cos (\omega_0 t_n +\phi_0).
+\end{aligned}
+\]</span></p>
+<p>代回 Fisher 信息：</p>
+<p><span class="math display">\[
+\begin{aligned}
+I(\omega)
+&amp;= \frac{1}{\sigma^2}\sum_{n=0}^{N-1}
+A^2 t_n^2 \sin^2 (\omega t_n +\phi)\cos^2(\omega_0 t_n +\phi_0).
+\end{aligned}
+\]</span></p>
+<p>由于 <span class="math inline">\(\sin^2\)</span> 与 <span
+class="math inline">\(\cos^2\)</span> 在多个周期上时间平均分别为 <span
+class="math inline">\(1/2\)</span>，整体平均因子约为 <span
+class="math inline">\(1/4\)</span>，所以近似：</p>
+<p><span class="math display">\[
+I(\omega)
+\approx \frac{A^2}{4\sigma^2}\sum_{n=0}^{N-1} t_n^2.
+\]</span></p>
+<p>把 <span class="math inline">\(t_n = n\Delta t\)</span>，<span
+class="math inline">\(\Delta t = 1/f_{\text{BW}}\)</span>（<span
+class="math inline">\(f_{\text{BW}}\)</span> 为带宽）：</p>
+<p><span class="math display">\[
+I(\omega)
+\approx \frac{A^2}{4\sigma^2}\sum_{n=0}^{N-1} (n\Delta t)^2
+= \frac{A^2}{4\sigma^2}\Delta t^2 \sum_{n=0}^{N-1} n^2.
+\]</span></p>
+<p>标准求和公式：</p>
+<p><span class="math display">\[
+\sum_{n=0}^{N-1} n^2 = \frac{(N-1)N(2N-1)}{6}
+\approx \frac{N^3}{3} \quad (N\gg 1).
+\]</span></p>
+<p>于是：</p>
+<p><span class="math display">\[
+I(\omega)
+\approx \frac{A^2}{4\sigma^2}\Delta t^2 \cdot \frac{N^3}{3}
+= \frac{A^2 N^3 \Delta t^2}{12\sigma^2}.
+\]</span></p>
+<p>但总测量时间 <span class="math inline">\(t_N = N\Delta t\)</span>，即
+<span class="math inline">\(N = t_N/\Delta t\)</span>。代入：</p>
+<p><span class="math display">\[
+N^3\Delta t^2 = \frac{t_N^3}{\Delta t}.
+\]</span></p>
+<p>因此：</p>
+<p><span class="math display">\[
+I(\omega)
+\approx \frac{A^2}{12\sigma^2}
+\frac{t_N^3}{\Delta t}
+= \frac{A^2 f_{\text{BW}} t_N^3}{12\sigma^2}. \quad \text{(I3)}
+\]</span></p>
+<p>这就是 Appendix I 中 (I3) 的结果形式。</p>
+<hr />
+<h3 id="cramérrao-下界与-deltaomega-propto-t-32-i4i5">5.3 Cramér–Rao
+下界与 <span class="math inline">\(\delta\omega \propto
+t^{-3/2}\)</span> (I4)–(I5)</h3>
+<p>Cramér–Rao 下界（CRLB）给出任意无偏估计量的方差下界：</p>
+<p><span class="math display">\[
+\mathrm{var}(\hat{\omega}) \ge \frac{1}{I(\omega)}.
+\]</span></p>
+<p>因此频率标准差（不确定度）满足：</p>
+<p><span class="math display">\[
+\delta\omega = \sqrt{\mathrm{var}(\hat{\omega})}
+\ge \frac{1}{\sqrt{I(\omega)}}.
+\]</span></p>
+<p>代入 (I3)：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\delta\omega
+&amp;\ge \sqrt{\frac{12\sigma^2}{A^2 f_{\text{BW}} t_N^3}} \\
+&amp;= \sqrt{12}\,\frac{\sigma}{A}\,\frac{1}{\sqrt{f_{\text{BW}}}\,
+t_N^{3/2}}.
+\end{aligned}
+\]</span></p>
+<p>论文中记 $ = A<sup>2/(2</sup>2)$，于是：</p>
+<p><span class="math display">\[
+\frac{\sigma}{A} = \sqrt{\frac{1}{2\,\text{SNR}}}.
+\]</span></p>
+<p>代入上式，整体常数可以整理，最终得到论文 (I5) 的标度形式：</p>
+<p><span class="math display">\[
+\boxed{
+\delta\omega
+\sim \sqrt{\frac{12}{\text{SNR}\,f_{\text{BW}}\,t^3}}
+\propto t^{-3/2}.
+}
+\]</span></p>
+<p>这说明在白噪声极限下，用 nutation 测量频率时，不确定度随测量时间
+<span class="math inline">\(t\)</span> 以 <span
+class="math inline">\(t^{-3/2}\)</span> 缩放，显著优于 SQL 的 <span
+class="math inline">\(t^{-1/2}\)</span>。</p>
 
                 
               </div>
@@ -1355,8 +2358,8 @@ Rev. A <strong>68</strong>, 022101 (2003).
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/11/14/%E8%AE%A1%E7%AE%97%E9%98%BB%E5%B0%BC%E7%B3%BB%E6%95%B0/" title="计算阻尼系数">
-                        <span class="hidden-mobile">计算阻尼系数</span>
+                      <a href="/2025/07/25/%E6%8A%97%E7%A3%81%E6%82%AC%E6%B5%AE%E7%A3%81%E5%9C%BA%E5%88%86%E6%9E%90/" title="抗磁悬浮磁场分析">
+                        <span class="hidden-mobile">抗磁悬浮磁场分析</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

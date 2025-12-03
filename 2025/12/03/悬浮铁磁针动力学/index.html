@@ -1,0 +1,1556 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/my_head.jpg">
+  <link rel="icon" href="/img/my_head.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="oniiii">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="《Dynamics of a Magnetic Needle Magnetometer》物理模型与关键公式推导笔记  说明：本笔记在之前公式推导的基础上，补充了详细的物理模型描述和直观图景，帮助你从“这到底是个什么装置、在干什么”角度理解论文。   0. 物理模型总览：这是什么装置？ 0.1 磁针磁力计（MNM）的基本想法 论文研究的是一个单畴磁性针（magnetic needle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="悬浮铁磁针动力学">
+<meta property="og:url" content="https://oni-hui.github.io/2025/12/03/%E6%82%AC%E6%B5%AE%E9%93%81%E7%A3%81%E9%92%88%E5%8A%A8%E5%8A%9B%E5%AD%A6/index.html">
+<meta property="og:site_name" content="oniiii的站点">
+<meta property="og:description" content="《Dynamics of a Magnetic Needle Magnetometer》物理模型与关键公式推导笔记  说明：本笔记在之前公式推导的基础上，补充了详细的物理模型描述和直观图景，帮助你从“这到底是个什么装置、在干什么”角度理解论文。   0. 物理模型总览：这是什么装置？ 0.1 磁针磁力计（MNM）的基本想法 论文研究的是一个单畴磁性针（magnetic needle">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-03T13:48:11.000Z">
+<meta property="article:modified_time" content="2025-12-03T19:40:36.249Z">
+<meta property="article:author" content="oniiii">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>悬浮铁磁针动力学 - oniiii的站点</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/iconfont_rednote/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"oni-hui.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 80vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>oniiii的站点</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="悬浮铁磁针动力学"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-12-03 21:48" pubdate>
+          2025年12月3日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          41 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">悬浮铁磁针动力学</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1
+id="dynamics-of-a-magnetic-needle-magnetometer物理模型与关键公式推导笔记">《Dynamics
+of a Magnetic Needle Magnetometer》物理模型与关键公式推导笔记</h1>
+<blockquote>
+<p>说明：本笔记在之前公式推导的基础上，补充了<strong>详细的物理模型描述和直观图景</strong>，帮助你从“这到底是个什么装置、在干什么”角度理解论文。</p>
+</blockquote>
+<hr />
+<h2 id="物理模型总览这是什么装置">0. 物理模型总览：这是什么装置？</h2>
+<h3 id="磁针磁力计mnm的基本想法">0.1 磁针磁力计（MNM）的基本想法</h3>
+<p>论文研究的是一个<strong>单畴磁性针</strong>（magnetic needle,
+MN），把它当作一个“小小的刚体陀螺 +
+巨大自旋磁矩”的系统，用来当磁力计（测磁场的仪器）。</p>
+<ul>
+<li>这根针是铁磁材料（比如钴），体积不大，但里面对齐的自旋很多，总自旋大小大约
+<span class="math inline">\(S \sim 10^{12}\hbar\)</span>（相当于 <span
+class="math inline">\(10^{12}\)</span>
+个电子自旋整齐指向同一方向）。</li>
+<li>这根针作为刚体，有一个<strong>易磁化轴</strong>（easy
+axis）：材料内部晶体各向异性使得自旋倾向沿某个固定方向排列，这个方向就是
+<span class="math inline">\(n\)</span>。</li>
+<li>针放在一个<strong>均匀的外磁场</strong> <span
+class="math inline">\(B\)</span> 中，自旋会绕着 <span
+class="math inline">\(B\)</span>
+进动（拉莫尔进动），这就是测量磁场的“信号”：进动频率 <span
+class="math inline">\(\omega_B = \gamma B\)</span>。</li>
+</ul>
+<p>核心问题：<br />
+这根针在真实环境中会有<strong>内部阻尼（Gilbert
+damping）</strong>和伴随的<strong>随机涨落（噪声 <span
+class="math inline">\(\xi\)</span>）</strong>。这些噪声会让针的指向发生随机抖动，从而限制磁力计的分辨率（<span
+class="math inline">\(\Delta B\)</span> 有下限）。论文的目标就是：</p>
+<blockquote>
+<p>在给定材料参数（<span
+class="math inline">\(S,\omega_0,\alpha,T,\dots\)</span>）下，计算<strong>仅由
+Gilbert 阻尼及其噪声</strong>导致的磁场测量不确定度 <span
+class="math inline">\(\Delta B\)</span>。</p>
+</blockquote>
+<hr />
+<h3 id="模型里的几个角色">0.2 模型里的几个“角色”</h3>
+<ol type="1">
+<li><strong>刚体针的姿态：</strong>
+<ul>
+<li><span
+class="math inline">\(n(t)\)</span>：易轴方向的单位矢量，表示针在空间中朝向哪边。</li>
+<li>针作为刚体，有转动惯量张量 <span class="math inline">\(I =
+\text{diag}(I_X,I_Y,I_Z)\)</span>（在体轴系中），这里假设是对称陀螺：<span
+class="math inline">\(I_X=I_Y\equiv I\)</span>, <span
+class="math inline">\(I_Z\neq I\)</span>。</li>
+</ul></li>
+<li><strong>磁性：</strong>
+<ul>
+<li>自旋算符 <span class="math inline">\(\hat
+S\)</span>（总自旋角动量），对应的磁矩算符 <span
+class="math inline">\(\hat\mu = g\mu_B \hat S\)</span>。</li>
+<li>有一个强的各向异性能量，使得 <span class="math inline">\(\hat
+S\)</span> 喜欢沿着 <span class="math inline">\(\hat
+n\)</span>（易轴）排列。</li>
+<li>大自旋 <span class="math inline">\(S\)</span>
+可以<strong>半经典地</strong>当作一个经典向量 <span
+class="math inline">\(S = S m\)</span>，<span
+class="math inline">\(|m|\approx 1\)</span>。</li>
+</ul></li>
+<li><strong>角动量与运动：</strong>
+<ul>
+<li>轨道角动量（刚体旋转）：<span
+class="math inline">\(L\)</span>。</li>
+<li>总角动量：<span class="math inline">\(J = L+S\)</span>。</li>
+<li>由于磁矩在外磁场中受力矩，<span class="math inline">\(J\)</span>
+会随时间变化：
+<ul>
+<li>自旋部分直接受 Zeeman 力矩；</li>
+<li>轨道部分通过各向异性耦合获得反作用力矩。</li>
+</ul></li>
+</ul></li>
+<li><strong>阻尼与噪声：</strong>
+<ul>
+<li>Gilbert
+阻尼：自旋偏离易轴的分量会被内部自由度吸收（声子、磁振子等），表现为一个阻尼项，趋向于让
+<span class="math inline">\(m\)</span> 对齐 <span
+class="math inline">\(n\)</span>。</li>
+<li>涨落-耗散定理：既然有阻尼（能量流向环境），就必然有相应的<strong>随机力矩</strong>
+<span class="math inline">\(\xi(t)\)</span> 把能量“噪声”地送回来。</li>
+<li><span class="math inline">\(\xi(t)\)</span>
+表现为一个附加“噪声磁场”，加在自旋方程上。</li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="物理运动图景陀螺-罗盘-带粘性-抖动">0.3 物理运动图景：陀螺 + 罗盘
++ 带粘性 + 抖动</h3>
+<p>你可以把这个系统形象地看成：</p>
+<ol type="1">
+<li>一个<strong>陀螺</strong>，陀螺轴是 <span
+class="math inline">\(n\)</span>，有转动惯量和角速度 <span
+class="math inline">\(\Omega\)</span>。</li>
+<li>陀螺内部有一根看不见的“磁针” <span
+class="math inline">\(m\)</span>，通过强弹簧（各向异性）绑在陀螺轴上：<span
+class="math inline">\(m\)</span> 偏离 <span
+class="math inline">\(n\)</span> 会导致很大的恢复力矩（频率 <span
+class="math inline">\(\omega_0\)</span>）。</li>
+<li>外面有一个<strong>均匀磁场</strong> <span
+class="math inline">\(B\)</span>，对“磁针”施加 Zeeman 力矩，使 <span
+class="math inline">\(m\)</span>（也几乎是 <span
+class="math inline">\(n\)</span>）绕 <span
+class="math inline">\(B\)</span> 进动。</li>
+<li>系统内部有“粘性”（Gilbert 阻尼 <span
+class="math inline">\(\alpha\)</span>），使 <span
+class="math inline">\(m\)</span> 在很短时间内紧紧贴在 <span
+class="math inline">\(n\)</span> 上；同时也有热噪声 <span
+class="math inline">\(\xi(t)\)</span> 搅动，使 <span
+class="math inline">\(n\)</span> 在长时间内缓慢随机扩散。</li>
+</ol>
+<p>对磁力计来说：<br />
+我们观测的是 <span class="math inline">\(n\)</span>（或 <span
+class="math inline">\(m\)</span>）绕 <span class="math inline">\(b =
+B/|B|\)</span> 的进动角度 <span
+class="math inline">\(\phi(t)\)</span>。<br />
+理想情况下，<span class="math inline">\(\phi(t)\approx \omega_B
+t\)</span>，我们凭这个反算出 <span
+class="math inline">\(B\)</span>；<br />
+但现实中有随机扰动，<span class="math inline">\(\phi(t)\)</span>
+会出现扩散 <span class="math inline">\(\langle
+(\Delta\phi)^2\rangle\)</span>，从而限制精度。</p>
+<hr />
+<h2 id="量子模型与半经典极限-15">1. 量子模型与半经典极限 (1)–(5)</h2>
+<h3 id="哈密顿量刚体-各向异性-zeeman">1.1 哈密顿量：刚体 + 各向异性 +
+Zeeman</h3>
+<p>针被视为一个<strong>对称刚体</strong>（symmetric
+top）加上一个大自旋。哈密顿量：</p>
+<p><span class="math display">\[
+H = \underbrace{\frac{1}{2I}\hat L^2 +
+\left(\frac{1}{2I_Z}-\frac{1}{2I}\right)\hat L_Z^2}_{H_R}
+\;-\;\underbrace{\frac{\omega_0}{\hbar}(\hat S\cdot\hat n)^2}_{H_A}
+\;-\;\underbrace{\hat\mu\cdot B}_{H_B}.
+\tag{1}
+\]</span></p>
+<p>物理意义：</p>
+<ul>
+<li><span class="math inline">\(H_R\)</span>：刚体的转动能量，<span
+class="math inline">\(\hat L\)</span> 是绕质心的轨道角动量算符，<span
+class="math inline">\(\hat L_Z\)</span> 是沿体轴 <span
+class="math inline">\(Z\)</span> 的分量。当 <span
+class="math inline">\(I_X = I_Y = I \neq
+I_Z\)</span>，就是对称陀螺。</li>
+<li><span class="math inline">\(H_A\)</span>：各向异性能量，倾向于让
+<span class="math inline">\(\hat S\)</span> 对齐 <span
+class="math inline">\(\hat n\)</span>（能量最低）；<span
+class="math inline">\(\omega_0\)</span> 与材料参数 <span
+class="math inline">\(K\)</span>（各向异性强度）、体积 <span
+class="math inline">\(V\)</span> 等有关： <span class="math display">\[
+\omega_0 = 2\gamma^2 K S/V.
+\]</span></li>
+<li><span class="math inline">\(H_B\)</span>：Zeeman 能量，<span
+class="math inline">\(\hat\mu = g\mu_B\hat S\)</span>，所以 <span
+class="math inline">\(H_B = -g\mu_B\hat S\cdot B\)</span>。</li>
+</ul>
+<h3 id="heisenberg-方程与自旋轨道方程">1.2 Heisenberg
+方程与自旋/轨道方程</h3>
+<p>对算符 <span class="math inline">\(\hat A\)</span>： <span
+class="math display">\[
+\frac{d\hat A}{dt} = \frac{i}{\hbar}[H,\hat A].
+\]</span></p>
+<p>利用角动量对易关系，可以推得：</p>
+<ul>
+<li><p>对自旋： <span class="math display">\[
+\boxed{
+\dot{\hat S}
+= -g\mu_B B\times \hat S
++ 2\frac{\omega_0}{\hbar}(\hat S\times\hat n)(\hat S\cdot\hat n)
+}
+\tag{2}
+\]</span> 物理解释：</p>
+<ul>
+<li>第一项：Zeeman 力矩，使自旋绕 <span class="math inline">\(B\)</span>
+进动。</li>
+<li>第二项：各向异性力矩，当自旋偏离易轴 <span
+class="math inline">\(n\)</span> 时，有恢复力矩把它拉回去。</li>
+</ul></li>
+<li><p>对轨道角动量： <span class="math display">\[
+\boxed{
+\dot{\hat L} = -2\frac{\omega_0}{\hbar}(\hat S\times\hat n)(\hat
+S\cdot\hat n)
+}
+\tag{3}
+\]</span>
+这恰好是自旋各向异性项的反向力矩，表示<strong>自旋偏离易轴时，会把角动量传给刚体转动</strong>（反作用）。</p></li>
+<li><p>对总角动量 <span class="math inline">\(\hat J = \hat L + \hat
+S\)</span>： <span class="math display">\[
+\boxed{
+\dot{\hat J} = -g\mu_B B\times \hat S
+}
+\tag{4}
+\]</span>
+只有外磁场提供的力矩改变总角动量，内部自旋-晶格耦合不改变总角动量。</p></li>
+<li><p>对易轴方向 <span class="math inline">\(\hat n\)</span>： <span
+class="math display">\[
+\boxed{
+\dot{\hat n}
+= I^{-1}\hbar^{-1}\left(\hat L\times \hat n + i\hbar\hat n\right)
+}
+\tag{5}
+\]</span> 半经典极限下可以理解成 <span class="math inline">\(\dot n =
+\Omega\times n\)</span>，其中 <span
+class="math inline">\(\Omega\)</span> 是刚体角速度。</p></li>
+</ul>
+<hr />
+<h2 id="半经典与无量纲化从算符到-mljn-610">2. 半经典与无量纲化：从算符到
+<span class="math inline">\((m,l,j,n)\)</span> (6)–(10)</h2>
+<h3 id="自旋很大从量子到经典">2.1 自旋很大：从量子到经典</h3>
+<p>因为 <span class="math inline">\(S\sim 10^{12}\hbar\)</span>
+非常大，系统很接近经典。取期望值： <span class="math display">\[
+S = \langle\hat S\rangle,\quad L = \langle\hat L\rangle,\quad n =
+\langle\hat n\rangle,
+\]</span> 并假设涨落相对很小： <span class="math display">\[
+\sqrt{\langle\hat A^2\rangle - \langle\hat A\rangle^2} \ll |\langle\hat
+A\rangle|,
+\]</span> 则可以把算符乘积视为平均值的乘积（mean-field
+approximation）。</p>
+<h3 id="无量纲向量与频率">2.2 无量纲向量与频率</h3>
+<p>定义无量纲向量： <span class="math display">\[
+m = \frac{S}{S},\quad l = \frac{L}{S},\quad j = \frac{J}{S} = m +
+l,\quad b = \frac{B}{|B|}.
+\]</span></p>
+<p>定义频率： - 拉莫尔频率：<span class="math inline">\(\omega_B =
+\gamma |B|\)</span>。 - 各向异性频率：<span
+class="math inline">\(\omega_0 = 2\gamma^2 K S/V\)</span>。 - 刚体频率：
+<span class="math display">\[
+  \omega_1 = \frac{S}{I_X},\quad \omega_3 = \frac{S}{I_Z}.
+  \]</span></p>
+<p>物理量级：论文中使用参数（类似钴）： - <span
+class="math inline">\(\omega_0 \sim 10^8\
+\text{s}^{-1}\)</span>（非常大） - <span class="math inline">\(\omega_1
+\sim 10^2\ \text{s}^{-1}\)</span>，<span class="math inline">\(\omega_3
+\sim 7\times 10^3\ \text{s}^{-1}\)</span>； - <span
+class="math inline">\(\alpha \sim 0.01\)</span>，<span
+class="math inline">\(T\sim 300\ \text{K}\)</span>，<span
+class="math inline">\(N = S/\hbar\sim 10^{12}\)</span>。</p>
+<h3 id="半经典运动方程-610">2.3 半经典运动方程 (6)–(10)</h3>
+<p>经过无量纲化后，得到：</p>
+<p><span class="math display">\[
+\boxed{
+\dot m = \omega_B m\times b
++ \omega_0 (m\times n)(m\cdot n)
+-\alpha\, m\times(\dot m - \Omega\times m)
+}
+\tag{6}
+\]</span></p>
+<p><span class="math display">\[
+\boxed{
+\dot l = -\omega_0 (m\times n)(m\cdot n)
++ \alpha\, m\times(\dot m - \Omega\times m)
+}
+\tag{7}
+\]</span></p>
+<p><span class="math display">\[
+\boxed{
+\dot n = \Omega\times n
+}
+\tag{8}
+\]</span></p>
+<p><span class="math display">\[
+\boxed{
+\dot j = \omega_B m\times b
+}
+\tag{9}
+\]</span></p>
+<p><span class="math display">\[
+\boxed{
+\Omega
+= (\omega_3-\omega_1)\big((j-m)\cdot n\big)n + \omega_1 (j-m).
+}
+\tag{10}
+\]</span></p>
+<p>物理解读：</p>
+<ul>
+<li><p>(6)：自旋单位矢量 <span class="math inline">\(m\)</span>
+的运动：</p>
+<ul>
+<li><span class="math inline">\(\omega_B m\times
+b\)</span>：自旋绕磁场方向 <span class="math inline">\(b\)</span>
+的拉莫尔进动。</li>
+<li><span class="math inline">\(\omega_0(m\times n)(m\cdot
+n)\)</span>：各向异性力矩，当 <span class="math inline">\(m\)</span>
+不沿 <span class="math inline">\(n\)</span> 时，有强恢复力矩，频率 <span
+class="math inline">\(\omega_0\)</span> 很大。</li>
+<li><span class="math inline">\(-\alpha m\times(\dot m - \Omega\times
+m)\)</span>：Gilbert 阻尼，倾向于消除 <span
+class="math inline">\(m\)</span> 在体轴系中的时间变化，使 <span
+class="math inline">\(m\)</span> 慢慢贴着 <span
+class="math inline">\(n\)</span> 旋转。</li>
+</ul></li>
+<li><p>(7)：轨道角动量 <span class="math inline">\(l\)</span>
+的演化：</p>
+<ul>
+<li>与 (6)
+中各向异性项和阻尼项正好相反，表示自旋-晶格耦合下的角动量交换。</li>
+</ul></li>
+<li><p>(8)：刚体姿态 <span class="math inline">\(n\)</span>
+的演化，典型刚体公式 <span class="math inline">\(\dot n = \Omega\times
+n\)</span>。</p></li>
+<li><p>(9)：总角动量 <span class="math inline">\(j\)</span> 仅由外
+Zeeman 力矩改变。</p></li>
+<li><p>(10)：角速度 <span class="math inline">\(\Omega\)</span> 与 <span
+class="math inline">\(j-m\)</span> 的关系：</p>
+<ul>
+<li><span class="math inline">\(j-m = l\)</span> 是纯刚体角动量；</li>
+<li>与 <span class="math inline">\(n\)</span>
+的平行/垂直部分对应不同的惯量 <span
+class="math inline">\(I_Z,I_X\)</span>，从而得到不同的转动频率 <span
+class="math inline">\(\omega_3,\omega_1\)</span>。</li>
+</ul></li>
+</ul>
+<p><strong>重要物理结论</strong>：因为 <span
+class="math inline">\(\omega_0\gg\omega_{1,3,B}\)</span> 且 <span
+class="math inline">\(\alpha\)</span> 不小，<span
+class="math inline">\(m\)</span> 很快被锁定在 <span
+class="math inline">\(n\)</span> 上：<br />
+<span class="math display">\[m(t)\approx n(t).\]</span></p>
+<p>数值模拟（论文图 1–3）也验证了这一点：在短时间内 <span
+class="math inline">\(m\cdot n \to 1\)</span>，之后 <span
+class="math inline">\(m\)</span> 与 <span
+class="math inline">\(n\)</span> 几乎重合。</p>
+<hr />
+<h2 id="加入-gilbert-噪声随机-llg-方程-1112">3. 加入 Gilbert 噪声：随机
+LLG 方程 (11)(12)</h2>
+<h3 id="自旋阻尼与噪声随机-gilbert-模型">3.1 自旋阻尼与噪声：随机
+Gilbert 模型</h3>
+<p>论文把 Brownian 运动的思路借到磁系统：<br />
+- 有粘性阻力（Gilbert 阻尼 <span
+class="math inline">\(\alpha\)</span>）；<br />
+- 就必须有噪声力（内在磁场波动 <span
+class="math inline">\(\xi(t)\)</span>）。</p>
+<p>在 (6) 的磁场项中加入噪声： <span class="math display">\[
+\boxed{
+\dot m = m\times(\omega_B b+\xi)
++ \omega_0 (m\times n)(m\cdot n)
+- \alpha\,m\times(\dot m - \Omega\times m).
+}
+\tag{11}
+\]</span></p>
+<p>这里 <span class="math inline">\(\xi(t)\)</span>
+可以理解为一个<strong>随机的附加磁场</strong>（频谱与温度和阻尼相关），来自于：
+- 晶格振动（声子） - 磁振子（magnons） - 电流涨落 等内部自由度。</p>
+<p>由于 <span class="math inline">\(\xi(t)\)</span>
+是内部噪声，对总角动量 <span class="math inline">\(j\)</span>
+的影响必须通过自旋-轨道耦合传递。因此在 <span
+class="math inline">\(l\)</span> 的方程里加了 <span
+class="math inline">\(-m\times\xi\)</span>，使得 (9) 仍无显式噪声：</p>
+<p><span class="math display">\[
+\dot j = \dot m + \dot l = \omega_B m\times b.
+\]</span></p>
+<p>物理图景：<br />
+- 内部噪声直接扰动自旋（<span
+class="math inline">\(m\)</span>），也间接扰动刚体（<span
+class="math inline">\(l\)</span>）；<br />
+- 总角动量 <span class="math inline">\(j\)</span> 只有通过 Zeeman
+力矩间接感受到这些扰动。</p>
+<h3 id="噪声强度涨落-耗散定理-12">3.2 噪声强度：涨落-耗散定理 (12)</h3>
+<p>涨落-耗散定理给出噪声 <span class="math inline">\(\xi\)</span>
+的频域相关函数： <span class="math display">\[
+\boxed{
+\langle \xi_\alpha \xi_\beta\rangle_\omega
+\equiv \int dt\, e^{i\omega t}\langle\xi_\alpha(t)\xi_\beta(0)\rangle
+= \delta_{\alpha\beta}\,\frac{\alpha\omega}{N}
+\coth\left(\frac{\hbar\omega}{2k_B T}\right)
+\approx \delta_{\alpha\beta}\,
+\frac{2\alpha k_BT}{\hbar N}
+}
+\tag{12}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\alpha\)</span>
+越大，阻尼越强，噪声也越大。</li>
+<li><span class="math inline">\(N=S/\hbar\)</span>
+越大，总自旋越大，噪声越小（平均效果更好）。</li>
+<li>在室温下，<span class="math inline">\(\hbar\omega\ll k_B
+T\)</span>，可用 <span class="math inline">\(\coth(x)\approx
+1/x\)</span> 近似，把频率依赖消除，噪声在低频近似为白噪声。</li>
+</ul>
+<hr />
+<h2 id="消去快频率-omega_0慢变量的扰动展开-1317">4. 消去快频率 <span
+class="math inline">\(\omega_0\)</span>：慢变量的扰动展开 (13)–(17)</h2>
+<h3 id="小参数-lambda-与-adiabatic-approximation">4.1 小参数 <span
+class="math inline">\(\lambda\)</span> 与 adiabatic approximation</h3>
+<p>由于 <span class="math inline">\(\omega_0\)</span> 最大，定义小参数：
+<span class="math display">\[
+\lambda \equiv \frac{\omega_1}{\omega_0}\ll 1.
+\]</span></p>
+<p>直觉：</p>
+<ul>
+<li><span class="math inline">\(\omega_0\)</span> 描述 <span
+class="math inline">\(m\)</span> 被各向异性“弹簧”拉回 <span
+class="math inline">\(n\)</span> 的频率，非常快。</li>
+<li><span class="math inline">\(\omega_1,\omega_3,\omega_B\)</span>
+描述刚体和进动的慢动力学。</li>
+<li>因此可将 <span class="math inline">\(m,n,j\)</span> 等变量按 <span
+class="math inline">\(\lambda\)</span>
+展开，把超快过程消掉，只留慢变量的有效随机动力学。</li>
+</ul>
+<p>展开： <span class="math display">\[
+m(t) = n_0(t) + \lambda\delta m(t) + \dots,
+\]</span> <span class="math display">\[
+n(t) = n_0(t) + \lambda\delta n(t) + \dots,
+\]</span> <span class="math display">\[
+j(t) = j_0(t) + \lambda\delta j(t) + \dots,
+\]</span></p>
+<p>其中 <span class="math inline">\(n_0,j_0\)</span>
+是零阶解（一阶校正由 <span class="math inline">\(\delta m,\delta
+n,\delta j\)</span> 给出）。因为阻尼足以让 <span
+class="math inline">\(m\)</span> 快速对齐 <span
+class="math inline">\(n\)</span>，零阶取： <span class="math display">\[
+m_0(t)\equiv n_0(t).
+\]</span></p>
+<p>这意味着：在长时间尺度上（磁力计测量时间），可以认为 <span
+class="math inline">\(m\)</span> 几乎总是贴着刚体轴 <span
+class="math inline">\(n\)</span> 运动。</p>
+<h3 id="零阶动力学对称陀螺方程-13">4.2 零阶动力学：对称陀螺方程
+(13)</h3>
+<p>把展开代入 (8)(9)(10)，并用 adiabatic 条件消去 <span
+class="math inline">\(\Omega\)</span> 的快变化，得到零阶方程：</p>
+<p><span class="math display">\[
+\boxed{
+\dot j_0 = \omega_B n_0\times b,\qquad
+\dot n_0 = \omega_1 j_0\times n_0.
+}
+\tag{13}
+\]</span></p>
+<p><strong>物理解释：</strong></p>
+<ul>
+<li><span class="math inline">\(\dot j_0 = \omega_B n_0\times
+b\)</span>：
+<ul>
+<li>磁矩基本沿 <span class="math inline">\(n_0\)</span>，外磁场对 <span
+class="math inline">\(n_0\)</span> 施加 Zeeman 力矩，使总角动量 <span
+class="math inline">\(j_0\)</span> 在垂直于 <span
+class="math inline">\(n_0\)</span> 的方向变化。</li>
+</ul></li>
+<li><span class="math inline">\(\dot n_0 = \omega_1 j_0\times
+n_0\)</span>：
+<ul>
+<li>针轴 <span class="math inline">\(n_0\)</span> 在总角动量 <span
+class="math inline">\(j_0\)</span> 周围以频率 <span
+class="math inline">\(\omega_1\)</span> 进动（经典陀螺行为）。</li>
+</ul></li>
+</ul>
+<p>论文指出 (13)
+与<strong>对称陀螺在重力场中的运动方程</strong>等价（参见文中注
+[12]），只不过这里“重力”被换成“磁场”，“重力中心距”被换成磁参数。</p>
+<hr />
+<h3 id="一阶扰动展开导出-14151617">4.3 一阶扰动展开：导出
+(14)(15)(16)(17)</h3>
+<p>目标：得到一阶方程，描述慢变量上因噪声 <span
+class="math inline">\(\xi\)</span> 导致的随机扰动。这是用来计算扩散和
+<span class="math inline">\(\Delta B\)</span> 的关键。</p>
+<p>用 <span class="math inline">\(\delta\eta\equiv\delta m-\delta
+n\)</span> 表示“自旋方向 <span class="math inline">\(m\)</span>
+相对于针轴 <span class="math inline">\(n\)</span>
+的一阶偏离”，这是被各向异性弹簧锁住的快变量。最终我们会把 <span
+class="math inline">\(\delta\eta\)</span> 消去，只留下 <span
+class="math inline">\(\delta n,\delta j\)</span> 的有效方程。</p>
+<h4 id="从-11-到-14deltaetatimes-n_0-的关系">4.3.1 从 (11) 到
+(14)：<span class="math inline">\(\delta\eta\times n_0\)</span>
+的关系</h4>
+<p>将 <span class="math inline">\(m,n,j,\Omega\)</span> 展开到 <span
+class="math inline">\(O(\lambda)\)</span>，并利用零阶方程 (13)
+把零阶项消去，论文得到：</p>
+<p><span class="math display">\[
+\omega_1(\delta m - \delta n)\times n_0
+=
+\dot n_0 - \omega_B n_0\times b
++ \alpha n_0\times(\dot n_0 - \Omega_0\times n_0)
+- n_0\times\xi.
+\]</span></p>
+<p>用 <span class="math inline">\(\dot n_0 = \omega_1 j_0\times
+n_0\)</span> 和 <span class="math inline">\(\delta\eta\equiv\delta
+m-\delta n\)</span>，得：</p>
+<p><span class="math display">\[
+\boxed{
+\delta\eta\times n_0
+= j_0\times n_0
+- (\omega_B/\omega_1)\,n_0\times b
+- (1/\omega_1)\,n_0\times\xi.
+}
+\tag{14}
+\]</span></p>
+<ol start="14" type="1">
+<li>告诉你：<br />
+</li>
+</ol>
+<ul>
+<li><span class="math inline">\(\delta\eta\)</span>（<span
+class="math inline">\(m\)</span> 与 <span
+class="math inline">\(n\)</span> 的偏差）是如何被 <span
+class="math inline">\(j_0, b, \xi\)</span> 共同驱动的。<br />
+</li>
+<li>由于 <span class="math inline">\(\omega_0\)</span>
+很大，这个偏差最终会表现为一个小的、与噪声强度成比例的快速变量。</li>
+</ul>
+<h4 id="从-9-到-15delta-j-的一阶方程">4.3.2 从 (9) 到 (15)：<span
+class="math inline">\(\delta j\)</span> 的一阶方程</h4>
+<p>(9)：<span class="math inline">\(\dot j = \omega_B m\times
+b\)</span>。展开到一阶：</p>
+<p><span class="math display">\[
+\dot j_0 + \lambda\dot{\delta j}
+= \omega_B (n_0+\lambda\delta m)\times b.
+\]</span></p>
+<p>零阶匹配后，一阶部分为： <span class="math display">\[
+\dot{\delta j} = \omega_B\delta m\times b
+= \omega_B(\delta n + \delta\eta)\times b.
+\]</span></p>
+<p>即：</p>
+<p><span class="math display">\[
+\boxed{
+\frac{d}{dt}\delta j
+= \omega_B(\delta n + \delta\eta)\times b.
+}
+\tag{15}
+\]</span></p>
+<p>含义：总角动量一阶扰动来自于针轴扰动 <span
+class="math inline">\(\delta n\)</span> 与自旋-轴偏差 <span
+class="math inline">\(\delta\eta\)</span>。</p>
+<h4 id="从-810-到-16delta-n-的一阶方程">4.3.3 从 (8)(10) 到 (16)：<span
+class="math inline">\(\delta n\)</span> 的一阶方程</h4>
+<p>(8)：<span class="math inline">\(\dot n = \Omega\times n\)</span>，用
+<span class="math inline">\(\Omega\)</span> 的展开得到：</p>
+<p><span class="math display">\[
+\boxed{
+\frac{d}{dt}\delta n
+= \omega_1 j_0\times\delta n + \omega_1(\delta j - \delta\eta)\times
+n_0.
+}
+\tag{16}
+\]</span></p>
+<p>解释：</p>
+<ul>
+<li><span class="math inline">\(\omega_1 j_0\times\delta
+n\)</span>：在零阶进动背景下，小扰动 <span class="math inline">\(\delta
+n\)</span> 也绕 <span class="math inline">\(j_0\)</span> 进动。</li>
+<li><span class="math inline">\(\omega_1(\delta j-\delta\eta)\times
+n_0\)</span>：总角动量和自旋-轴偏差的扰动对针轴施加附加力矩。</li>
+</ul>
+<h4 id="正交条件与-17整理-delta-j-的方程">4.3.4 正交条件与 (17)：整理
+<span class="math inline">\(\delta j\)</span> 的方程</h4>
+<p>由于 <span class="math inline">\(m,n\)</span> 是单位矢量，一阶时有：
+<span class="math display">\[
+n_0\cdot\delta n = 0,\quad
+n_0\cdot\delta m = 0
+\quad\Rightarrow\quad
+\delta\eta = \delta m-\delta n\perp n_0.
+\]</span></p>
+<p>利用向量恒等式： <span class="math display">\[
+v\perp n_0\Rightarrow v = n_0\times(v\times n_0),
+\]</span> 可以从 (14) 得到 <span
+class="math inline">\(\delta\eta\)</span> 的显式表达，然后代入
+(15)，论文最终整理为：</p>
+<p><span class="math display">\[
+\boxed{
+\frac{d}{dt}\delta j
+= \omega_B\delta n\times b
++ \omega_B\big[j_0 - (j_0\cdot n_0)n_0\big]\times b
+- \frac{\omega_B^2}{\omega_1}(b\cdot n_0)n_0\times b
++ \frac{\omega_B}{\omega_1}\big[\xi - (\xi\cdot n_0)n_0\big]\times b.
+}
+\tag{17}
+\]</span></p>
+<p>这条式子 + (13)(16)(14) 就构成了消去 <span
+class="math inline">\(\omega_0\)</span> 后的慢变量随机动力学方程：<br />
+<strong>针轴 <span class="math inline">\(n_0\)</span> 和总角动量 <span
+class="math inline">\(j_0\)</span> 的运动中，包含了 Gilbert
+噪声过滤后的有效扰动。</strong></p>
+<hr />
+<h2 id="旋转到绕-b-的坐标系简化零阶解-1819">5. 旋转到绕 <span
+class="math inline">\(B\)</span> 的坐标系：简化零阶解 (18)(19)</h2>
+<p>为了更容易处理 (13) 的零阶动力学，我们转到绕 <span
+class="math inline">\(b\)</span> 以角速度 <span
+class="math inline">\(\omega_B\)</span> 旋转的坐标系。</p>
+<h3 id="旋转系导数定义">5.1 旋转系导数定义</h3>
+<p>对任意矢量 <span
+class="math inline">\(v\)</span>，旋转系中的导数定义为： <span
+class="math display">\[
+\boxed{
+\frac{d}{d\tau}v
+= \frac{dv}{dt} + \omega_B b\times v.
+}
+\]</span></p>
+<p>这里 <span class="math inline">\(d/d\tau\)</span>
+表示在旋转参考系中的导数，<span class="math inline">\(\omega_B b\times
+v\)</span> 是由参考系本身旋转引入的伪力项。</p>
+<h3 id="对-n_0j_0-使用旋转导数">5.2 对 <span
+class="math inline">\(n_0,j_0\)</span> 使用旋转导数</h3>
+<p>用 (13)： - 对 <span class="math inline">\(n_0\)</span>： <span
+class="math display">\[
+  \frac{d}{d\tau}n_0
+  = \dot n_0 + \omega_B b\times n_0
+  = \omega_1 j_0\times n_0 + \omega_B b\times n_0.
+  \]</span> 改写为 <span class="math inline">\(-\omega_1
+n_0\times(\cdots)\)</span> 形式： <span class="math display">\[
+  \frac{d}{d\tau}n_0
+  = -\omega_1 n_0\times\left(n_0 - j_0 +
+\frac{\omega_B}{\omega_1}b\right).
+  \]</span> 即： <span class="math display">\[
+  \boxed{
+  \frac{d}{d\tau} n_0
+  = -\omega_1 n_0\times\left(n_0 - j_0 + \frac{\omega_B}{\omega_1}
+b\right).
+  }
+  \tag{18}
+  \]</span></p>
+<ul>
+<li>对 <span class="math inline">\(j_0\)</span>： <span
+class="math display">\[
+\frac{d}{d\tau}j_0
+= \dot j_0 + \omega_B b\times j_0
+= \omega_B n_0\times b + \omega_B b\times j_0
+= \omega_B b\times\left(n_0 - j_0 + \frac{\omega_B}{\omega_1} b\right),
+\]</span> 即： <span class="math display">\[
+\boxed{
+\frac{d}{d\tau} j_0
+= \omega_B b\times\left(n_0 - j_0 + \frac{\omega_B}{\omega_1} b\right).
+}
+\tag{19}
+\]</span></li>
+</ul>
+<h3 id="特殊初始条件与零阶常量解">5.3 特殊初始条件与零阶常量解</h3>
+<p>如果初始时刻满足： <span class="math display">\[
+n_0(0) - j_0(0) + \frac{\omega_B}{\omega_1}b = 0,
+\]</span> 那么在旋转系中 (18)(19) 中的括号恒为 0，因此： <span
+class="math display">\[
+\frac{d}{d\tau}n_0 = 0,\quad
+\frac{d}{d\tau}j_0 = 0,
+\]</span> 即 <span class="math inline">\(n_0,j_0\)</span>
+在旋转系中是常向量。这样一来，一阶扰动方程中的系数矩阵就是常数矩阵，极大简化了分析。</p>
+<hr />
+<h2 id="常系数随机线性系统与矩阵指数解-2022">6.
+常系数随机线性系统与矩阵指数解 (20)–(22)</h2>
+<p>在上述特殊初始条件下，旋转系中 <span
+class="math inline">\(n_0,j_0,b\)</span> 是常量。一阶扰动方程 (20)(21)
+为：</p>
+<p><span class="math display">\[
+\frac{d}{d\tau}\delta n = \omega_1 n_0\times(\delta n - \delta j +
+\delta\eta),
+\tag{20}
+\]</span> <span class="math display">\[
+\frac{d}{d\tau}\delta j = -\omega_B b\times(\delta n - \delta j +
+\delta\eta).
+\tag{21}
+\]</span></p>
+<p>配合简化后的 (14)： <span class="math display">\[
+\delta\eta\times n_0 = -\frac{1}{\omega_1}n_0\times\xi,
+\]</span> 可以把 <span class="math inline">\(\delta\eta\)</span>
+视为一个线性噪声源。</p>
+<h3 id="写成矩阵形式">6.1 写成矩阵形式</h3>
+<p>定义 6 维向量： <span class="math display">\[
+X(\tau) \equiv
+\begin{pmatrix}
+\delta n(\tau)\\[3pt]\delta j(\tau)
+\end{pmatrix},
+\]</span> 定义 3×3 矩阵： <span class="math display">\[
+A_{ij} = -\omega_1\epsilon_{ijk}n_{0k},\quad
+B_{ij} = -\omega_B\epsilon_{ijk}b_k.
+\]</span></p>
+<p>则 (20)(21) 可写成： <span class="math display">\[
+\frac{d}{d\tau}
+\begin{pmatrix}
+\delta n\\ \delta j
+\end{pmatrix}
+=
+\begin{pmatrix}
+-A &amp; A\\ B &amp; -B
+\end{pmatrix}
+\begin{pmatrix}
+\delta n\\ \delta j
+\end{pmatrix}
++
+\begin{pmatrix}
+-A\\ B
+\end{pmatrix}\delta\eta.
+\]</span></p>
+<p>论文定义一个 6×6 常矩阵： <span class="math display">\[
+\boxed{
+C =
+\begin{pmatrix}
+A &amp; -B\\
+-A &amp; B
+\end{pmatrix},
+}
+\]</span></p>
+<p>并把噪声源写成： <span class="math display">\[
+f(t) =
+\begin{pmatrix}
+\delta\eta(t)\\[3pt]0
+\end{pmatrix}.
+\]</span></p>
+<p>于是线性系统一般形式为： <span class="math display">\[
+\frac{d}{d\tau}X(\tau) = C X(\tau) + f(\tau).
+\]</span></p>
+<h3 id="矩阵指数解式-22">6.2 矩阵指数解：式 (22)</h3>
+<p>线性常系数微分方程： <span class="math display">\[
+\frac{d}{dt}X(t) = C X(t) + f(t),\quad X(0) = X_0.
+\]</span></p>
+<p>通解： <span class="math display">\[
+X(t) = e^{Ct}X_0 + \int_0^t ds\, e^{C(t-s)} f(s).
+\]</span></p>
+<p>这里初始条件为 <span class="math inline">\(\delta n(0)=0,\delta
+j(0)=0\)</span>，即 <span
+class="math inline">\(X(0)=0\)</span>，故：</p>
+<p><span class="math display">\[
+\boxed{
+\begin{pmatrix}
+\delta n(t)\\[3pt]
+\delta j(t)
+\end{pmatrix}
+=
+\int_0^t dt_1\,
+\exp\big[C(t-t_1)\big]
+\begin{pmatrix}
+\delta\eta(t_1)\\[3pt]0
+\end{pmatrix}.
+}
+\tag{22}
+\]</span></p>
+<p>这是论文用来计算针轴扰动的核心公式。</p>
+<hr />
+<h2 id="角度扩散与磁场灵敏度-23物理含义">7. 角度扩散与磁场灵敏度
+(23)：物理含义</h2>
+<h3 id="关心的量langledelta-n_y2trangle-与进动角度">7.1 关心的量：<span
+class="math inline">\(\langle\delta n_y^2(t)\rangle\)</span>
+与进动角度</h3>
+<p>选坐标系： - <span class="math inline">\(n_0\)</span> 沿 <span
+class="math inline">\(\hat z\)</span>：<span class="math inline">\(n_0 =
+\hat z\)</span>； - <span class="math inline">\(b\)</span> 在 <span
+class="math inline">\(xz\)</span> 平面，与 <span
+class="math inline">\(\hat z\)</span> 夹角 <span
+class="math inline">\(\theta\)</span>： <span class="math display">\[
+  b = \cos\theta\,\hat z + \sin\theta\,\hat x.
+  \]</span></p>
+<p>在这个基底下，<span class="math inline">\(y\)</span> 方向就是 <span
+class="math inline">\(n_0\)</span> 绕 <span
+class="math inline">\(b\)</span> 进动的主要摆动方向。因此：</p>
+<ul>
+<li><span class="math inline">\(\delta n_y(t)\)</span>
+对应针轴在垂直于进动的方向上的随机偏移；</li>
+<li>对小角度近似下，<span class="math inline">\(\delta\phi \sim \delta
+n_y\)</span>，于是 <span class="math display">\[
+\langle(\Delta\phi)^2\rangle \approx \langle\delta n_y^2(t)\rangle.
+\]</span></li>
+</ul>
+<p>利用 (22)
+和噪声相关（经过一系列频域计算，论文在检索片段中有详细说明），得到：</p>
+<p><span class="math display">\[
+\langle\delta n_y^2(t)\rangle
+\approx t\,\omega_1^2 S_a(\omega\sim\omega_1),
+\]</span> 其中 <span class="math inline">\(S_a(\omega)\)</span> 是 <span
+class="math inline">\(\delta\eta\)</span> 的有效谱密度，满足（由 (12)
+与几何关系推得）：</p>
+<p><span class="math display">\[
+S_a(\omega)
+\approx \frac{\alpha\omega}{\omega_0^2 N}
+\coth\left(\frac{\hbar\omega}{2k_B T}\right)
+\approx \frac{2\alpha k_B T}{\hbar N\omega_0^2}.
+\]</span></p>
+<p>于是角度扩散： <span class="math display">\[
+\langle(\Delta\phi)^2\rangle
+\approx t\,\omega_1^2 \frac{2\alpha k_BT}{\hbar N\omega_0^2}.
+\]</span></p>
+<h3 id="频率与磁场的不确定度">7.2 频率与磁场的不确定度</h3>
+<p>我们用时间 <span class="math inline">\(t\)</span> 来估计拉莫尔频率
+<span
+class="math inline">\(\omega_B\)</span>，角度上的不确定度转化为频率不确定度：
+<span class="math display">\[
+\Delta\omega_B
+\approx \frac{\sqrt{\langle(\Delta\phi)^2\rangle}}{t}
+= \left(\frac{\omega_1}{\omega_0}\right)
+\sqrt{\frac{2\alpha k_BT}{\hbar N}}\cdot \frac{1}{\sqrt{t}}.
+\]</span></p>
+<p>磁场与频率关系：<span class="math inline">\(\omega_B = \gamma
+B\)</span>，因此： <span class="math display">\[
+\Delta B = \frac{\Delta\omega_B}{\gamma}.
+\]</span></p>
+<p>因为 <span class="math inline">\(\gamma = g\mu_B/\hbar\)</span>，得
+<span class="math inline">\(1/\gamma =
+\hbar/(g\mu_B)\)</span>，代入得到论文的中心结果：</p>
+<p><span class="math display">\[
+\boxed{
+\Delta B
+= \frac{\Delta\omega_B}{\gamma}
+\approx
+\frac{\hbar}{g\mu_B}
+\cdot\frac{\omega_1}{\omega_0}
+\sqrt{\frac{2\alpha k_BT}{\hbar N}}\cdot\frac{1}{\sqrt{t}}.
+}
+\tag{23}
+\]</span></p>
+<p><strong>物理解读：</strong></p>
+<ul>
+<li><span class="math inline">\(\Delta B \propto
+t^{-1/2}\)</span>：典型的扩散极限（随测量时间开方改善）。</li>
+<li><span class="math inline">\(\Delta B\)</span> 随：
+<ul>
+<li><span class="math inline">\(\alpha\)</span>
+增大而变差（阻尼越大，噪声越大）；</li>
+<li><span class="math inline">\(T\)</span>
+增大而变差（温度越高，热噪声越大）；</li>
+<li><span class="math inline">\(N\)</span>
+增大而变好（更多自旋平均噪声）；</li>
+<li><span class="math inline">\(\omega_0\)</span>
+增大而变好（易轴越硬，自旋偏离越小）；</li>
+<li><span class="math inline">\(\omega_1/\omega_0\)</span>
+比率越小越好（陀螺进动越慢、各向异性越快）。</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="总结把数学与物理图景对上号">8. 总结：把数学与物理图景对上号</h2>
+<ol type="1">
+<li><strong>物理模型：</strong>
+<ul>
+<li>单畴磁针 = 刚体陀螺 + 巨大自旋 + 强易轴各向异性；</li>
+<li>外磁场 <span class="math inline">\(B\)</span> 使针轴绕 <span
+class="math inline">\(B\)</span> 进动；</li>
+<li>内部 Gilbert 阻尼 + 相应噪声 <span
+class="math inline">\(\xi\)</span> 导致针轴方向 <span
+class="math inline">\(n\)</span> 的随机扩散。</li>
+</ul></li>
+<li><strong>数学结构：</strong>
+<ul>
+<li>由量子哈密顿量 (1) 得到 Heisenberg 方程 (2)–(5)；</li>
+<li>取半经典平均并无量纲化，得到 LLG 型方程 (6)–(10)；</li>
+<li>加入噪声，得到随机 LLG 方程 (11) 和噪声谱 (12)；</li>
+<li>利用 <span class="math inline">\(\omega_0\gg\omega_{1,3,B}\)</span>
+做 adiabatic 展开：
+<ul>
+<li>零阶：<span class="math inline">\(m\approx
+n_0\)</span>，满足陀螺方程 (13)；</li>
+<li>一阶：得到 <span class="math inline">\(\delta\eta,\delta n,\delta
+j\)</span> 的随机线性方程 (14)(15)(16)(17)；</li>
+</ul></li>
+<li>在绕 <span class="math inline">\(B\)</span>
+的旋转系中，零阶解变为常量 (18)(19)；</li>
+<li>一阶扰动形成常系数随机线性系统，矩阵指数解为 (22)。</li>
+</ul></li>
+<li><strong>物理输出：</strong>
+<ul>
+<li>通过 (22)+噪声谱计算 <span class="math inline">\(\langle\delta
+n_y^2(t)\rangle\)</span>；</li>
+<li>进动角度扩散 <span
+class="math inline">\(\langle(\Delta\phi)^2\rangle\approx t\omega_1^2
+S_a\)</span>；</li>
+<li>频率/磁场不确定度 <span class="math inline">\(\Delta\omega_B,\Delta
+B\)</span> 给出 Gilbert 噪声的极限敏感度 (23)。</li>
+</ul></li>
+</ol>
+<p>从磁力计应用角度看，这篇论文的结论非常乐观：<br />
+<strong>在内部 Gilbert
+噪声的限制下，磁针磁力计的理论极限灵敏度极高</strong>，实际实验中更可能是外部噪声（如环境磁场波动、器件噪声）占主导。</p>
+<hr />
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>悬浮铁磁针动力学</div>
+      <div>https://oni-hui.github.io/2025/12/03/悬浮铁磁针动力学/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>oniiii</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年12月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/12/03/I%E5%9E%8B%E8%B6%85%E5%AF%BC%E4%B8%8A%E6%96%B9%E6%82%AC%E6%B5%AE%E9%93%81%E7%A3%81%E4%BD%93%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%90%86%E8%AE%BA/" title="I型超导上方悬浮铁磁体动力学理论">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">I型超导上方悬浮铁磁体动力学理论</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/01/%E8%BF%9B%E5%8A%A8%E9%93%81%E7%A3%81%E9%92%88%E7%AC%94%E8%AE%B0/" title="进动铁磁针笔记">
+                        <span class="hidden-mobile">进动铁磁针笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

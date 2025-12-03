@@ -19,23 +19,21 @@
   <meta name="author" content="oniiii">
   <meta name="keywords" content="">
   
-    <meta name="description" content="微分方程 \[ I \frac{d^2 \theta}{dt^2} &#x3D; -\theta M B_z - c \frac{d\theta}{dt} + Mb \]  \(I\)是圆柱绕直径转动惯量 \(\theta\)是偏转角 \(M\)是磁矩 \(B_z\)是\(Z\)轴磁场强度 \(c\)是系统阻尼系数 \(b\)是横向磁场输入（待测磁场）  通过实验测量得到的半高全宽计">
+    <meta name="description" content="基于实验现象的动力学模型建模 前文考虑I型超导体微倾斜悬浮动力学模型得到的模拟结果仍然与实际实验现象相去甚远。 分析了一个更常见且易于实现的场景：I型超导体产生的悬浮势阱对称性破缺情况下，悬浮铁磁体呈倾斜状态，悬浮磁体做纯摆动运动的动力学模型 考虑一个悬浮的硬铁磁体；为简单起见，我们采用如参考文献 [8, 9, 10] 中的球体。设 \(\mu&#x3D;-\gamma_{0}S\) 为磁偶极矩，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算阻尼系数">
-<meta property="og:url" content="https://oni-hui.github.io/2025/11/14/%E8%AE%A1%E7%AE%97%E9%98%BB%E5%B0%BC%E7%B3%BB%E6%95%B0/index.html">
+<meta property="og:title" content="铁磁扭矩传感器笔记">
+<meta property="og:url" content="https://oni-hui.github.io/2025/12/03/%E9%93%81%E7%A3%81%E6%89%AD%E7%9F%A9%E4%BC%A0%E6%84%9F%E5%99%A8%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="oniiii的站点">
-<meta property="og:description" content="微分方程 \[ I \frac{d^2 \theta}{dt^2} &#x3D; -\theta M B_z - c \frac{d\theta}{dt} + Mb \]  \(I\)是圆柱绕直径转动惯量 \(\theta\)是偏转角 \(M\)是磁矩 \(B_z\)是\(Z\)轴磁场强度 \(c\)是系统阻尼系数 \(b\)是横向磁场输入（待测磁场）  通过实验测量得到的半高全宽计">
+<meta property="og:description" content="基于实验现象的动力学模型建模 前文考虑I型超导体微倾斜悬浮动力学模型得到的模拟结果仍然与实际实验现象相去甚远。 分析了一个更常见且易于实现的场景：I型超导体产生的悬浮势阱对称性破缺情况下，悬浮铁磁体呈倾斜状态，悬浮磁体做纯摆动运动的动力学模型 考虑一个悬浮的硬铁磁体；为简单起见，我们采用如参考文献 [8, 9, 10] 中的球体。设 \(\mu&#x3D;-\gamma_{0}S\) 为磁偶极矩，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://oni-hui.github.io/images/ban-gao-kuan.png">
-<meta property="article:published_time" content="2025-11-14T00:38:09.000Z">
-<meta property="article:modified_time" content="2025-11-14T00:45:47.880Z">
+<meta property="article:published_time" content="2025-12-03T14:07:31.000Z">
+<meta property="article:modified_time" content="2025-12-03T14:07:46.484Z">
 <meta property="article:author" content="oniiii">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://oni-hui.github.io/images/ban-gao-kuan.png">
   
   
   
-  <title>计算阻尼系数 - oniiii的站点</title>
+  <title>铁磁扭矩传感器笔记 - oniiii的站点</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -205,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="计算阻尼系数"></span>
+            <span id="subtitle" data-typed-text="铁磁扭矩传感器笔记"></span>
           
         </div>
 
@@ -216,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-14 08:38" pubdate>
-          2025年11月14日 早上
+        <time datetime="2025-12-03 22:07" pubdate>
+          2025年12月3日 晚上
         </time>
       </span>
     
@@ -228,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          2.5k 字
         
       </span>
     
@@ -239,7 +237,7 @@
         
         
         
-          13 分钟
+          21 分钟
         
       </span>
     
@@ -280,233 +278,206 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">计算阻尼系数</h1>
+            <h1 id="seo-header">铁磁扭矩传感器笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="微分方程">微分方程</h1>
-<p><span class="math display">\[
-I \frac{d^2 \theta}{dt^2} = -\theta M B_z - c \frac{d\theta}{dt} + Mb
-\]</span></p>
-<ul>
-<li><span class="math inline">\(I\)</span>是圆柱绕直径转动惯量</li>
-<li><span class="math inline">\(\theta\)</span>是偏转角</li>
-<li><span class="math inline">\(M\)</span>是磁矩</li>
-<li><span class="math inline">\(B_z\)</span>是<span
-class="math inline">\(Z\)</span>轴磁场强度</li>
-<li><span class="math inline">\(c\)</span>是系统阻尼系数</li>
-<li><span
-class="math inline">\(b\)</span>是横向磁场输入（待测磁场）</li>
-</ul>
-<h1
-id="通过实验测量得到的半高全宽计算系统的总阻尼系数">通过实验测量得到的半高全宽计算系统的总阻尼系数</h1>
+                <h1 id="基于实验现象的动力学模型建模">基于实验现象的动力学模型建模</h1>
+<p>前文考虑I型超导体微倾斜悬浮动力学模型得到的模拟结果仍然与实际实验现象相去甚远。</p>
+<p>分析了一个更常见且易于实现的场景：I型超导体产生的悬浮势阱对称性破缺情况下，悬浮铁磁体呈倾斜状态，悬浮磁体做纯摆动运动的动力学模型</p>
+<p>考虑一个悬浮的硬铁磁体；为简单起见，我们采用如参考文献 [8, 9, 10]
+中的球体。设 <span class="math inline">\(\mu=-\gamma_{0}S\)</span>
+为磁偶极矩，其中 <span class="math inline">\(S\)</span>
+是总自旋角动量，<span class="math inline">\(\gamma_{0}\)</span>
+是旋磁比。我们假设，由于悬浮机制的性质，磁矩被束缚在 <span
+class="math inline">\(x\)</span> 方向 [图 1(a)]，对于绕 <span
+class="math inline">\(z\)</span> (<span
+class="math inline">\(\alpha\)</span> 角) 和 <span
+class="math inline">\(y\)</span> (<span
+class="math inline">\(\beta\)</span> 角)
+的小幅度振动，具有简谐恢复扭矩，由 <span
+class="math inline">\(\tau_{z}=-I\omega_{\alpha}^{2}\alpha\)</span> 和
+<span class="math inline">\(\tau_{y}=I\omega_{\beta}^{2}\beta\)</span>
+给出。这里，<span class="math inline">\(I\)</span>
+是各向同性转动惯量，<span
+class="math inline">\(\omega_{\alpha}\)</span>、<span
+class="math inline">\(\omega_{\beta}\)</span> 是振动模式的共振频率。</p>
+<p>对于小角度 <span class="math inline">\(\alpha\)</span>、<span
+class="math inline">\(\beta\)</span>，在线性近似中，我们可以将总自旋写为
+<span class="math inline">\(S\simeq
+S(1,\alpha,\beta)\)</span>，角速度矢量写为 <span
+class="math inline">\(\Omega\simeq(\dot{\gamma},-\dot{\beta},\dot{\alpha})\)</span>，其中我们引入了对应于绕
+<span class="math inline">\(S\)</span> 旋转的角度 <span
+class="math inline">\(\gamma\)</span>。最后，我们假设磁体质心处于稳定平衡位置，并忽略平移和振动自由度之间的交叉耦合。</p>
+<p>该模型描述的情况近似于最近的实验实现，其中磁性微球体悬浮在 II 型 [8,
+9] 或 I 型 [10]
+超导体上方。在前一种情况下，平移和振动束缚是由钉扎到涡旋产生的。在后一种情况下，它们由陷阱的几何形状决定。例如，对于在没有涡旋的情况下放置在超导平面上方的磁偶极子，发现水平位置
+<span class="math inline">\(\beta=0\)</span> 是稳定的 [图
+1(b)]。恢复扭矩由迈斯纳场提供，这等效于由镜像偶极子产生的场。解析计算
+[10] 表明迈斯纳场由下式给出：</p>
+<p><span class="math display">\[B_{i}=-\frac{\mu_{0}}{32\pi
+z_{0}^{3}}(\mu_{x},\mu_{y},2\mu_{z}),\]</span></p>
+<p>其中 <span class="math inline">\(z_{0}\)</span>
+是超导体上方的平衡高度。对于小 <span
+class="math inline">\(\beta\)</span>，场的大小为 <span
+class="math inline">\(B_{i}\simeq \mu_{0}\mu/(32\pi
+z_{0}^{3})\)</span>，恢复频率可以写为：</p>
+<p><span
+class="math display">\[\omega_{\beta}^{2}=\omega_{L}\omega_{I},\]</span></p>
+<p>其中 <span class="math inline">\(\omega_{L}=\gamma_{0}B_{i}\)</span>
+是在场 <span class="math inline">\(B_{i}\)</span> 中的拉莫尔频率，<span
+class="math inline">\(\omega_{I}=S/I\)</span> 是与自旋角动量 <span
+class="math inline">\(S\)</span> 相关的爱因斯坦-德哈斯频率。对于 <span
+class="math inline">\(\alpha\)</span>
+自由度，束缚可能源于不同的原因。例如，在参考文献 [10]
+中，尽管陷阱具有圆柱对称性，但由于倾斜效应引起的微小对称性破缺，发现
+<span class="math inline">\(\alpha\)</span> 运动是被束缚的。</p>
+<p>遵循参考文献 [5]，我们将偶极子的角运动方程写为：</p>
+<p><span
+class="math display">\[\dot{\bm{J}}=\bm{\tau}_{i}+\bm{\tau},\]</span></p>
+<p><span class="math display">\[\dot{\bm{S}}=\Omega\times
+S,\]</span></p>
+<p>其中 <span class="math inline">\(\bm{J}=\bm{L}+\bm{S}\)</span>
+是总角动量，<span class="math inline">\(\bm{L}=I\Omega\)</span>
+是动力学角动量；<span class="math inline">\(\bm{\tau}_{i}=\mu\times
+B_{i}\)</span> 是迈斯纳场 <span class="math inline">\(B_{i}\)</span>
+的恢复扭矩；<span class="math inline">\(\bm{\tau}\)</span>
+是外部扭矩。后者可能由额外的场 <span
+class="math inline">\(\bm{B}\)</span> 引起。方程 (6)
+严格适用于硬铁磁体，即假设自旋始终锁定在各向异性轴上，因此刚性地附着在磁体晶体上
+[11, 5]。</p>
+<p>在线性化极限下，运动方程可以用角度 <span
+class="math inline">\(\alpha\)</span> 和 <span
+class="math inline">\(\beta\)</span> 表示为：</p>
+<p><span
+class="math display">\[\ddot{\alpha}=-\omega_{\alpha}^{2}\alpha-\frac{\omega_{\alpha}}{Q_{\alpha}}\dot{\alpha}-(\omega_{I}+\dot{\gamma})\dot{\beta}+\frac{\tau_{z}}{I},\]</span></p>
+<p><span class="math display">\[\ddot{\beta} = -\omega_{\beta}^2 \beta -
+\frac{\omega_{\beta}}{Q_{\beta}} \dot{\beta} + (\omega_I + \dot{\gamma})
+\dot{\alpha} - \frac{\tau_y}{I},\]</span></p>
+<p>这是一个两个动力学耦合的谐振子系统。这里，通过定义唯象品质因数 <span
+class="math inline">\(Q_a\)</span> 和 <span
+class="math inline">\(Q_\beta\)</span>
+手动添加了阻尼。交叉耦合的动力学项是陀螺行为的特征。它们包含一个与 <span
+class="math inline">\(\dot{\gamma}\)</span> 成正比的经典陀螺项和一个与
+<span class="math inline">\(\omega_I\)</span>
+成正比的爱因斯坦-德哈斯项，后者表达了量子自旋是真正的角动量这一事实
+[12]。实际上，在没有恢复力的情况下，系统预计会表现为一个陀螺仪，展示出进动和章动
+[1,5]。</p>
+<p>从现在开始，我们假设系统参数使得交叉耦合项可以忽略。假设固有旋转
+<span class="math inline">\(\dot{\gamma}\)</span> 可忽略，一个充分条件是
+<span class="math inline">\(\omega_I \ll
+\omega_{a,\beta}\)</span>。如果与 <span
+class="math inline">\(\omega_I\)</span>
+成正比的陀螺项显著但相对较小，方程 (7) 和 (8)
+的线性系统仍然可以通过适当的坐标变化进行对角化。另一方面，当 <span
+class="math inline">\(\omega_I \gg \omega_{a,\beta}\)</span>
+时，陀螺项变得优于恢复项，线性化近似失效，需要像其他地方所做的那样分析完整的非线性陀螺动力学
+[1]。在参考文献 [6] 中分析了一种中间情况，其中 <span
+class="math inline">\(\beta\)</span> 角是振动束缚的，而 <span
+class="math inline">\(\alpha\)</span>
+角是自由的，导致了一种有趣的混合振动-进动状态。</p>
+<p>接下来，我们评估悬浮磁体对外部扭矩 <span
+class="math inline">\(\tau_z\)</span> 的灵敏度，特别是在这由外部磁场
+<span class="math inline">\(B\)</span>
+引起的情况下。对于可忽略的陀螺效应，方程是简单的解耦谐振子。不失一般性，我们关注
+<span class="math inline">\(\alpha\)</span>
+自由度，并假设一个最优定向的磁场 <span class="math inline">\(B = B(0, 1,
+0)\)</span> 沿 y 轴施加，如图 1(a) 所示，导致沿 z 方向的扭矩 <span
+class="math inline">\(\tau = \mu \times
+B\)</span>。转到傅里叶空间，运动方程 (7) 变为：</p>
+<p><span class="math display">\[\alpha(\omega) = \chi(\omega)
+\tau_z(\omega),\]</span></p>
+<p>其中我们定义了振动敏感性：</p>
+<p><span class="math display">\[\chi(\omega) = \frac{1}{I(-\omega^2 +
+\omega_a^2 + \frac{i\omega_a \omega_a}{Q_a})},\]</span></p>
+<p>并且</p>
+<p><span class="math display">\[\tau_z(\omega) = -\mu
+B(\omega)\]</span></p>
+<p>是扭矩的 z 分量。通过监测振动运动，我们可以推断出扭矩，并通过方程
+(11) 推断出施加的场 <span
+class="math inline">\(B\)</span>。因此，我们可以通过纯粹的机械测量来测量
+<span class="math inline">\(B\)</span>。</p>
+<h1 id="纯摆动模式下灵敏度分析">纯摆动模式下灵敏度分析</h1>
+<p>机械测量中唯一的基本噪声源是热机械噪声和量子探测噪声
+[7]。根据涨落-耗散定理 [13]，热噪声可以通过单边谱密度建模：</p>
+<p><span class="math display">\[S_{\tau_y} = 4k_B T
+\text{Im}[\chi(\omega)^{-1}]/\omega = 4k_B T I
+\frac{\omega_a}{Q_a},\]</span></p>
+<p>其中 <span class="math inline">\(k_B\)</span> 是玻尔兹曼常数，<span
+class="math inline">\(T\)</span> 是环境温度，Im 表示虚部。由 <span
+class="math inline">\(\chi(\omega)\)</span>
+的虚部表示的耗散包括所有机械耗散源，例如，由悬浮磁体中的畴磁损耗和磁振子引起的耗散，这可能为这类传感器设定了最终极限
+[10]。</p>
+<p>对于扭矩量子噪声，我们采用通常应用于线性相位不敏感力检测的方法
+[14]（详细推导见补充材料 [15]），得到扭矩的标准量子极限：</p>
+<p><span class="math display">\[S_{\tau_s \omega} \geq
+2\hbar|\chi(\omega)|^{-1} = 2\hbar I \left[(-\omega^2 + \omega_a^2)^2 +
+\left(\frac{\omega_a \omega_a}{Q_a}\right)^2\right]^{1/2}.\]</span></p>
+<p>SQL
+通常对任何海森堡极限的线性运动探测器都有效，无论其实现方式如何。可能的探测方案可以是基于
+SQUID 的 [10]、光学的 [8,9,16] 或微波的 [17]。在所有情况下，SQL
+在原则上都是可以实现的。对于 SQUID，已经证明了噪声因子小于 10 倍 SQL
+的情况 [18,19]。值得注意的是，与 ERL 类似，机械测量的 SQL
+也不是一个基本极限，并且在原则上可以被超越
+[20]。然而，在这里它仍然可以被视为一个有用的基准，因为我们有兴趣评估机械探测的
+SQL 是否意味着铁磁扭矩磁力计中的 ERL。如下所示，我们发现 SQL 可以远低于
+ERL。</p>
+<p>从方程 (11) 中，我们可以将热噪声和 SQL
+扭矩噪声转换为等效的磁场噪声。就功率谱密度而言，关系很简单 <span
+class="math inline">\(S_B = S_\tau /
+\mu^2\)</span>，这里我们仍然假设场是最优定向的。在图 2(a) 中，我们绘制了
+SQL、热噪声和 ERL 噪声 [方程 (2)]，所有噪声都表示为磁场幅度谱密度 <span
+class="math inline">\(\sqrt{S_B}\)</span>，参数采用参考文献 [10]
+中展示的现实参数，即一个铁磁 NdFeB 球体，<span class="math inline">\(R =
+30  \, \mu m\)</span>，通过迈斯纳效应在 <span class="math inline">\(T =
+4.2  \, K\)</span> 下悬浮，振动品质因数 <span class="math inline">\(Q =
+10^7\)</span>。对于此设置，我们估计爱因斯坦-德哈斯频率 <span
+class="math inline">\(f_I = \omega_I / 2\pi = 0.188  \, Hz\)</span> [图
+2(a) 中的垂直线]。振动频率设置为 <span class="math inline">\(f_a =
+\omega_a / 2\pi = 10 f_I = 1.88  \,
+Hz\)</span>。这个值比当前实验低一个数量级，预计可以通过适当控制</p>
+<p>070801-3</p>
 <figure>
-<img src="/images/ban-gao-kuan.png" srcset="/img/loading.gif" lazyload title="响应曲线" alt="响应曲线" />
-<figcaption aria-hidden="true">响应曲线</figcaption>
+<img src="" srcset="/img/loading.gif" lazyload alt="图1" />
+<figcaption aria-hidden="true">图1</figcaption>
 </figure>
-<p>半高全宽0.2835Hz</p>
-<h1
-id="从系统频谱共振峰的半高全宽推导系统阻尼系数">从系统频谱共振峰的半高全宽推导系统阻尼系数</h1>
-<h2 id="系统传递函数">1. 系统传递函数</h2>
-<p>对于给定的微分方程： <span class="math display">\[ I \frac{d^2
-\theta}{dt^2} + c \frac{d\theta}{dt} + M B_z \theta = M b \]</span></p>
-<p>在频域中，传递函数为： <span class="math display">\[ H(j\omega) =
-\frac{\Theta(j\omega)}{B(j\omega)} = \frac{M}{I(j\omega)^2 + c(j\omega)
-+ M B_z} \]</span></p>
-<p>整理得： <span class="math display">\[ H(j\omega) =
-\frac{M/I}{(j\omega)^2 + \frac{c}{I}(j\omega) + \frac{M B_z}{I}}
-\]</span></p>
-<h2 id="标准二阶系统形式">2. 标准二阶系统形式</h2>
-<p>定义： - 自然频率：<span class="math inline">\(\omega_n =
-\sqrt{\frac{M B_z}{I}}\)</span> - 阻尼比：<span
-class="math inline">\(\zeta = \frac{c}{2\sqrt{I M B_z}}\)</span></p>
-<p>传递函数变为标准形式： <span class="math display">\[ H(j\omega) =
-\frac{M/I}{(j\omega)^2 + 2\zeta\omega_n(j\omega) + \omega_n^2}
-\]</span></p>
-<h2 id="幅频特性">3. 幅频特性</h2>
-<p>幅频响应为： <span class="math display">\[ |H(j\omega)| =
-\frac{M/I}{\sqrt{(\omega_n^2 - \omega^2)^2 + (2\zeta\omega_n\omega)^2}}
-\]</span></p>
-<p>在共振频率 <span class="math inline">\(\omega_r =
-\omega_n\sqrt{1-2\zeta^2}\)</span>（对于小阻尼 <span
-class="math inline">\(\zeta \ll 1\)</span>，<span
-class="math inline">\(\omega_r \approx \omega_n\)</span>）处，幅值最大：
-<span class="math display">\[ |H|_{\text{max}} =
-\frac{M/I}{2\zeta\omega_n^2\sqrt{1-\zeta^2}} \approx \frac{M}{2\zeta I
-\omega_n^2} \]</span></p>
-<h2 id="半高全宽推导">4. 半高全宽推导</h2>
-<p>半功率点（-3dB点）对应幅值下降为最大值的 <span
-class="math inline">\(1/\sqrt{2}\)</span>： <span
-class="math display">\[ \frac{|H(j\omega)|}{|H|_{\text{max}}} =
-\frac{1}{\sqrt{2}} \]</span></p>
-<p>代入幅频表达式： <span class="math display">\[
-\frac{\frac{M/I}{\sqrt{(\omega_n^2 - \omega^2)^2 +
-(2\zeta\omega_n\omega)^2}}}{\frac{M/I}{2\zeta\omega_n^2}} =
-\frac{1}{\sqrt{2}} \]</span></p>
-<p>化简得： <span class="math display">\[
-\frac{2\zeta\omega_n^2}{\sqrt{(\omega_n^2 - \omega^2)^2 +
-(2\zeta\omega_n\omega)^2}} = \frac{1}{\sqrt{2}} \]</span></p>
-<p>两边平方： <span class="math display">\[
-\frac{4\zeta^2\omega_n^4}{(\omega_n^2 - \omega^2)^2 +
-4\zeta^2\omega_n^2\omega^2} = \frac{1}{2} \]</span></p>
-<p>整理： <span class="math display">\[ (\omega_n^2 - \omega^2)^2 +
-4\zeta^2\omega_n^2\omega^2 = 8\zeta^2\omega_n^4 \]</span></p>
-<p>令 <span class="math inline">\(x = \omega/\omega_n\)</span>，则：
-<span class="math display">\[ (1 - x^2)^2 + 4\zeta^2 x^2 = 8\zeta^2
-\]</span></p>
-<p>展开： <span class="math display">\[ 1 - 2x^2 + x^4 + 4\zeta^2 x^2 =
-8\zeta^2 \]</span></p>
-<p><span class="math display">\[ x^4 - 2(1 - 2\zeta^2)x^2 + (1 -
-8\zeta^2) = 0 \]</span></p>
-<p>对于小阻尼（<span class="math inline">\(\zeta \ll
-1\)</span>），近似解为： <span class="math display">\[ x^2 \approx 1 \pm
-2\zeta \]</span></p>
-<p>因此两个半功率点频率为： <span class="math display">\[ \omega_{1,2}
-\approx \omega_n(1 \mp \zeta) \]</span></p>
-<h2 id="半高全宽与阻尼系数">5. 半高全宽与阻尼系数</h2>
-<p>半高全宽： <span class="math display">\[ \Delta \omega = \omega_2 -
-\omega_1 \approx 2\zeta\omega_n \]</span></p>
-<p>因此阻尼比为： <span class="math display">\[ \zeta = \frac{\Delta
-\omega}{2\omega_n} \]</span></p>
-<p>阻尼系数为： <span class="math display">\[ c = 2\zeta\sqrt{I M B_z} =
-2\cdot \frac{\Delta \omega}{2\omega_n} \cdot \sqrt{I M B_z} =
-\frac{\Delta \omega}{\omega_n} \cdot \sqrt{I M B_z} \]</span></p>
-<p>由于 <span class="math inline">\(\omega_n = \sqrt{\frac{M
-B_z}{I}}\)</span>，代入得： <span class="math display">\[ c = \Delta
-\omega \cdot \frac{\sqrt{I M B_z}}{\sqrt{\frac{M B_z}{I}}} = \Delta
-\omega \cdot I \]</span></p>
-<h2 id="最终结果">6. 最终结果</h2>
-<p><strong>从系统频谱共振峰的半高全宽推导阻尼系数：</strong> <span
-class="math display">\[ \boxed{c = I \cdot \Delta \omega = 1.5591 \times
-10^{-13} \text{ N}\cdot \text{m}\cdot s/rad} \]</span></p>
-<p>其中： - <span class="math inline">\(\Delta \omega\)</span>
-是共振峰的角频率半高全宽（rad/s） - <span
-class="math inline">\(I\)</span> 是转动惯量（kg·m²）</p>
-<p>这个结果表明，<strong>阻尼系数直接正比于转动惯量和共振峰的带宽</strong>，与磁场强度
-<span class="math inline">\(B_z\)</span> 和磁矩 <span
-class="math inline">\(M\)</span> 无关。</p>
-<h1
-id="斯托克斯层理论计算圆柱空气阻尼">斯托克斯层理论计算圆柱空气阻尼</h1>
-<p>以下基于斯托克斯层理论，详细推导直径1mm、高0.5mm的圆柱以127Hz频率绕直径振动（振幅0.01rad）时受到的空气阻尼。</p>
-<h2 id="给定参数">1. 给定参数</h2>
-<ul>
-<li>圆柱直径 <span class="math inline">\(D = 1 \text{ mm} = 0.001 \text{
-m}\)</span>，半径 <span class="math inline">\(R = 0.0005 \text{
-m}\)</span></li>
-<li>圆柱高度 <span class="math inline">\(H = 0.5 \text{ mm} = 0.0005
-\text{ m}\)</span></li>
-<li>振动频率 <span class="math inline">\(f = 127 \text{
-Hz}\)</span></li>
-<li>角振幅 <span class="math inline">\(\theta_0 = 0.01 \text{
-rad}\)</span></li>
-<li>空气密度 <span class="math inline">\(\rho = 1.2 \text{
-kg/m}^3\)</span></li>
-<li>空气运动黏度 <span class="math inline">\(\nu = 1.5 \times 10^{-5}
-\text{ m}^2/\text{s}\)</span></li>
-</ul>
-<h2 id="计算角频率">2. 计算角频率</h2>
-<p>角频率 <span class="math inline">\(\omega\)</span> 与频率 <span
-class="math inline">\(f\)</span> 的关系为：</p>
-<p><span class="math display">\[
-\omega = 2\pi f = 2\pi \times 127 \approx 798 \text{ rad/s}
-\]</span></p>
-<h2 id="计算斯托克斯层厚度">3. 计算斯托克斯层厚度</h2>
-<p>斯托克斯层厚度 <span class="math inline">\(\delta\)</span>
-由下式给出：</p>
-<p><span class="math display">\[
-\delta = \sqrt{\frac{2\nu}{\omega}} = \sqrt{\frac{2 \times 1.5 \times
-10^{-5}}{798}} \approx \sqrt{3.7594 \times 10^{-8}} \approx 1.94 \times
-10^{-4} \text{ m}
-\]</span></p>
-<h2 id="确定有效速度和面积">4. 确定有效速度和面积</h2>
-<p>圆柱绕直径振动，表面点的线速度振幅为 <span class="math inline">\(v_0
-= \omega \theta_0 R\)</span>。</p>
-<p>假设主要耗散发生在圆柱的底面上。两个底面的总面积为：</p>
-<p><span class="math display">\[
-A = 2 \pi R^2 = 2 \pi (0.0005)^2 = 2 \pi \times 2.5 \times 10^{-7} =
-5\pi \times 10^{-7} \text{ m}^2
-\]</span></p>
-<p>数值计算得 <span class="math inline">\(A \approx 1.57 \times 10^{-6}
-\text{ m}^2\)</span>。</p>
-<h2 id="计算耗散功率">5. 计算耗散功率</h2>
-<p>根据斯托克斯层理论，振荡表面单位面积的耗散功率为：</p>
-<p><span class="math display">\[
-P_{\text{area}} = \frac{1}{2} \rho \omega v_0^2 \delta
-\]</span></p>
-<p>总耗散功率为：</p>
-<p><span class="math display">\[
-P_{\text{diss}} = P_{\text{area}} \times A = \frac{1}{2} \rho \omega
-v_0^2 \delta A
-\]</span></p>
-<p>代入 <span class="math inline">\(v_0 = \omega \theta_0
-R\)</span>：</p>
-<p><span class="math display">\[
-P_{\text{diss}} = \frac{1}{2} \rho \omega (\omega \theta_0 R)^2 \delta A
-= \frac{1}{2} \rho \omega^3 \theta_0^2 R^2 \delta A
-\]</span></p>
-<p>现在进行数值计算：</p>
-<ul>
-<li><span class="math inline">\(\omega = 798 \text{ rad/s}\)</span></li>
-<li><span class="math inline">\(\omega^3 = 798^3 = 5.0817 \times 10^8
-\text{ rad}^3/\text{s}^3\)</span></li>
-<li><span class="math inline">\(\theta_0^2 = (0.01)^2 =
-10^{-4}\)</span></li>
-<li><span class="math inline">\(\rho = 1.2 \text{ kg/m}^3\)</span></li>
-<li><span class="math inline">\(R = 0.0005 \text{ m}\)</span></li>
-<li><span class="math inline">\(\delta = 1.94 \times 10^{-4} \text{
-m}\)</span></li>
-<li><span class="math inline">\(A = 1.57 \times 10^{-6} \text{
-m}^2\)</span></li>
-</ul>
-<p>首先计算：</p>
-<p><span class="math display">\[
-\rho \omega^3 \theta_0^2 = 1.2 \times 5.0817 \times 10^8 \times 10^{-4}
-= 6.098 \times 10^4
-\]</span></p>
-<p><span class="math display">\[
-\rho \omega^3 \theta_0^2 \delta = 6.098 \times 10^4 \times 1.94 \times
-10^{-4} = 11.83
-\]</span></p>
-<p>然后：</p>
-<p><span class="math display">\[
-R^2 = (0.0005)^2 = 2.5 \times 10^{-7}
-\]</span></p>
-<p><span class="math display">\[
-R^2 A = 2.5 \times 10^{-7} \times 1.57 \times 10^{-6} = 3.925 \times
-10^{-13}
-\]</span></p>
-<p><span class="math display">\[
-P_{\text{diss}} = \frac{1}{2} \times 11.83 \times 3.925 \times 10^{-13}
-= \frac{1}{2} \times 4.64 \times 10^{-12} = 2.32 \times 10^{-12} \text{
-W}
-\]</span></p>
-<h2 id="计算阻尼常数">6. 计算阻尼常数</h2>
-<p>阻尼常数 <span class="math inline">\(b\)</span>
-与耗散功率的关系为：</p>
-<p><span class="math display">\[
-P_{\text{diss}} = b \cdot \frac{1}{2} \omega^2 \theta_0^2
-\]</span></p>
-<p>解得：</p>
-<p><span class="math display">\[
-b = \frac{2 P_{\text{diss}}}{\omega^2 \theta_0^2}
-\]</span></p>
-<p>其中：</p>
-<p><span class="math display">\[
-\omega^2 \theta_0^2 = (798)^2 \times (0.01)^2 = 636804 \times 0.0001 =
-63.6804
-\]</span></p>
-<p><span class="math display">\[
-b = \frac{2 \times 2.32 \times 10^{-12}}{63.6804} = \frac{4.64 \times
-10^{-12}}{63.6804} \approx 7.286 \times 10^{-14} \text{ N}\cdot
-\text{m}\cdot s/rad
-\]</span></p>
-<h2 id="最终结果-1">7. 最终结果</h2>
-<p>圆柱受到的空气阻尼对应阻尼常数为：</p>
-<p><span class="math display">\[
-\boxed{7.286 \times 10^{-14}} \text{ N}\cdot \text{m}\cdot s/rad
-\]</span></p>
-<p>此推导基于斯托克斯层理论，假设主要耗散发生在圆柱底面，并使用给定参数计算。实际应用中，几何形状和流动条件可能影响结果，但本推导提供了合理的估计。</p>
+<p><strong>图 1</strong>: (a) 采用的模型和约定。一个具有自旋 <span
+class="math inline">\(\bm{S}\)</span> 和磁矩 <span
+class="math inline">\(\mu=-\gamma_0 S\)</span> 的铁磁体被束缚在 <span
+class="math inline">\(x\)</span> 轴上。它可以绕 <span
+class="math inline">\(z\)</span> 以角度 <span
+class="math inline">\(\alpha\)</span> 和绕 <span
+class="math inline">\(y\)</span> 以角度 <span
+class="math inline">\(\beta\)</span> 进行简谐振动。沿 <span
+class="math inline">\(y\)</span> 施加振荡磁场 <span
+class="math inline">\(\bm{B}\)</span> 将产生沿 <span
+class="math inline">\(z\)</span> 的扭矩 <span
+class="math inline">\(\bm{\tau}=\mu\times\bm{B}\)</span>，驱动 <span
+class="math inline">\(\alpha\)</span> 自由度的振动运动。(b)
+处于迈斯纳状态下的超导平面（灰色区域）上方铁磁体的示意图。在此实现中，<span
+class="math inline">\(\beta\)</span> 角的简谐束缚自然源于与镜像偶极子
+<span class="math inline">\(\mu^{\prime}\)</span> 的相互作用。</p>
+<figure>
+<img src="" srcset="/img/loading.gif" lazyload alt="图2" />
+<figcaption aria-hidden="true">图2</figcaption>
+</figure>
+<p><strong>图 2</strong>: (a) 半径为 <span
+class="math inline">\(R=30~{}\mu\)</span>m、<span
+class="math inline">\(f_{a}=1.88\)</span> Hz 的悬浮 NdFeB
+磁球体磁场灵敏度随频率的变化：ERL（蓝色点线），<span
+class="math inline">\(Q=10^{7}\)</span>、<span
+class="math inline">\(T=4.2\)</span> K 时的热噪声（红色点划线）以及
+<span class="math inline">\(T=50\)</span> mK、<span
+class="math inline">\(Q=10^{9}\)</span>
+时的热噪声（红色虚线），机械扭矩的
+SQL（绿色实线），独立自旋的自旋投影噪声（黑色细点线）。垂直线代表爱因斯坦-德哈斯频率
+<span class="math inline">\(f_{I}=0.1f_{a}\)</span>。(b) 作为半径 <span
+class="math inline">\(R\)</span> 函数的亚共振磁场灵敏度，其中 <span
+class="math inline">\(f_{a}=10f_{I}\)</span>。线条对应 (a) 中的
+ERL、热噪声、SQL 和自旋投影噪声。垂直线标记了 (a)
+中使用的半径。水平线对应于参考文献 [5]
+中讨论的相对论框架拖拽效应的有效磁场：德西特效应（紫色虚线），兰斯-蒂林效应（橙色实线）。</p>
 
                 
               </div>
@@ -524,8 +495,8 @@ b = \frac{2 \times 2.32 \times 10^{-12}}{63.6804} = \frac{4.64 \times
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>计算阻尼系数</div>
-      <div>https://oni-hui.github.io/2025/11/14/计算阻尼系数/</div>
+      <div>铁磁扭矩传感器笔记</div>
+      <div>https://oni-hui.github.io/2025/12/03/铁磁扭矩传感器笔记/</div>
     </div>
     <div class="license-meta">
       
@@ -537,7 +508,7 @@ b = \frac{2 \times 2.32 \times 10^{-12}}{63.6804} = \frac{4.64 \times
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年11月14日</div>
+          <div>2025年12月3日</div>
         </div>
       
       
@@ -581,9 +552,9 @@ b = \frac{2 \times 2.32 \times 10^{-12}}{63.6804} = \frac{4.64 \times
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/11/14/%E4%BB%8E%E5%8E%9F%E5%AD%90%E5%B0%BA%E5%BA%A6%E8%A7%A3%E9%87%8A%E8%BF%9B%E5%8A%A8%E5%8A%A8%E5%8A%9B%E5%AD%A6-%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/" title="从原子尺度解释进动动力学-论文翻译">
+                      <a href="/2025/12/03/%E6%82%AC%E6%B5%AE%E9%93%81%E7%A3%81%E9%92%88%E5%BE%AE%E8%A7%82%E5%8A%A8%E5%8A%9B%E5%AD%A6/" title="悬浮铁磁针微观动力学">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">从原子尺度解释进动动力学-论文翻译</span>
+                        <span class="hidden-mobile">悬浮铁磁针微观动力学</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -591,8 +562,8 @@ b = \frac{2 \times 2.32 \times 10^{-12}}{63.6804} = \frac{4.64 \times
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/07/25/%E6%8A%97%E7%A3%81%E6%82%AC%E6%B5%AE%E7%A3%81%E5%9C%BA%E5%88%86%E6%9E%90/" title="抗磁悬浮磁场分析">
-                        <span class="hidden-mobile">抗磁悬浮磁场分析</span>
+                      <a href="/2025/12/03/I%E5%9E%8B%E8%B6%85%E5%AF%BC%E4%B8%8A%E6%96%B9%E6%82%AC%E6%B5%AE%E9%93%81%E7%A3%81%E4%BD%93%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%90%86%E8%AE%BA/" title="I型超导上方悬浮铁磁体动力学理论">
+                        <span class="hidden-mobile">I型超导上方悬浮铁磁体动力学理论</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

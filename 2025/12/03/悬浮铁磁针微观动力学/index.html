@@ -1,0 +1,1019 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/my_head.jpg">
+  <link rel="icon" href="/img/my_head.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="oniiii">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="引言 在可扩展平台上观察、控制和利用量子力学现象是未来技术发展的一个关键方向。量子传感是最成熟的量子技术之一，它融合了基础物理和先进应用 [1–5]。依赖于量子系统对外部参数的响应，量子传感的精度和灵敏度随着我们增加测量时间 \(t\) 和涉及的粒子数（记为 \(N\)）而提高。例如，基于碱金属原子气的无自旋交换弛豫磁强计可以实现低至 \(0.16\,\mathrm{fT}&#x2F;\sqrt{\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="悬浮铁磁针微观动力学">
+<meta property="og:url" content="https://oni-hui.github.io/2025/12/03/%E6%82%AC%E6%B5%AE%E9%93%81%E7%A3%81%E9%92%88%E5%BE%AE%E8%A7%82%E5%8A%A8%E5%8A%9B%E5%AD%A6/index.html">
+<meta property="og:site_name" content="oniiii的站点">
+<meta property="og:description" content="引言 在可扩展平台上观察、控制和利用量子力学现象是未来技术发展的一个关键方向。量子传感是最成熟的量子技术之一，它融合了基础物理和先进应用 [1–5]。依赖于量子系统对外部参数的响应，量子传感的精度和灵敏度随着我们增加测量时间 \(t\) 和涉及的粒子数（记为 \(N\)）而提高。例如，基于碱金属原子气的无自旋交换弛豫磁强计可以实现低至 \(0.16\,\mathrm{fT}&#x2F;\sqrt{\">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-03T14:09:37.000Z">
+<meta property="article:modified_time" content="2025-12-03T14:09:54.016Z">
+<meta property="article:author" content="oniiii">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>悬浮铁磁针微观动力学 - oniiii的站点</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/iconfont_rednote/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"oni-hui.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 80vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>oniiii的站点</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="悬浮铁磁针微观动力学"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-12-03 22:09" pubdate>
+          2025年12月3日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          35 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">悬浮铁磁针微观动力学</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="引言">引言</h1>
+<p>在可扩展平台上观察、控制和利用量子力学现象是未来技术发展的一个关键方向。量子传感是最成熟的量子技术之一，它融合了基础物理和先进应用
+[1–5]。依赖于量子系统对外部参数的响应，量子传感的精度和灵敏度随着我们增加测量时间
+<span class="math inline">\(t\)</span> 和涉及的粒子数（记为 <span
+class="math inline">\(N\)</span>）而提高。例如，基于碱金属原子气的无自旋交换弛豫磁强计可以实现低至
+<span
+class="math inline">\(0.16\,\mathrm{fT}/\sqrt{\mathrm{Hz}}\)</span>
+的磁场灵敏度
+[6,7]。然而，对于独立同分布的粒子，频率估计的不确定性受到标准量子极限（SQL）[8,9]
+的限制，由 <span class="math inline">\(\Delta\omega \geqslant 1/\sqrt{N
+T_2 t}\)</span> 给出，其中 <span class="math inline">\(T_2\)</span>
+是特征相干时间。对于固定的 <span
+class="math inline">\(N\)</span>，增强传感灵敏度的两种策略是延长 <span
+class="math inline">\(T_2\)</span> 或利用量子纠缠
+[10]。沿着这些方向，当前最先进的实验可以获得几分钟的相干时间
+[11–14]，并且研究人员确实已经展示了使用最大纠缠态来超越 SQL
+[15,16]。尽管取得了这些突破，但要进一步推进量子传感，仍然存在关键挑战。特别是，随着
+<span
+class="math inline">\(N\)</span>（以及系统尺寸）的增加，以可控方式生成纠缠态的复杂性也随之增加。此外，更大的系统更容易受到退相干的影响，并且在广泛的情况下，退相干会抑制由纠缠带来的传感优势
+[17]。因此，量子传感中的这些重要问题与宏观量子现象 [18–23]
+以及大质量系统中的量子-经典转变的研究密切相关。</p>
+<h1 id="理论模型">理论模型</h1>
+<p>构建了一个悬浮铁磁针的第一性原理哈密顿模型，该模型由嵌入晶格中的相互作用的原子自旋组成。除了传统的自旋交换相互作用（强度为
+<span
+class="math inline">\(J\)</span>），从文献中识别出的一个关键组成部分是赝偶极相互作用
+[33, 34]，其耦合强度记为 <span
+class="math inline">\(C\)</span>。这种相互作用源于自旋-轨道耦合，产生磁各向异性并将自旋取向耦合到晶格格点的相对位置
+[35]。赝偶极相互作用作为一种有效的自旋-晶格相互作用，对于整个针的相干进动的出现至关重要。结合这些项，我们得到以下总哈密顿量：</p>
+<p><span class="math display">\[H =
+-\sum_{i}\gamma\mathbf{B}\cdot\hat{\mathbf{S}}_{i}-J\sum_{i}
+\hat{\mathbf{S}}_{i}\cdot\hat{\mathbf{S}}_{i+1}-C\sum_{ij}(\hat{\mathbf{S}}_{i
+}\cdot\hat{\mathbf{r}}_{ij})(\hat{\mathbf{r}}_{ij}\cdot\hat{\mathbf{S}}_{j})
++
+\sum_{i}\frac{\hat{\mathbf{p}}_{i}^{2}}{2m}+\sum_{ij}V(\hat{r}_{ij}-\bar{r}_{ij})^{2}
+\tag{1}
+\]</span></p>
+<p>其中各符号的含义如下：</p>
+<ul>
+<li><span class="math inline">\(\hat{\mathbf{S}}_i\)</span>：第 <span
+class="math inline">\(i\)</span>
+个原子的自旋角动量算符（矢量算符），满足角动量对易关系。</li>
+<li><span
+class="math inline">\(\gamma\)</span>：电子的旋磁比（gyromagnetic
+ratio），<span class="math inline">\(\gamma \approx 1.76 \times 10^{11}
+\, \mathrm{rad \cdot s^{-1} \cdot
+T^{-1}}\)</span>，表示自旋磁矩与角动量的比例。</li>
+<li><span
+class="math inline">\(\mathbf{B}\)</span>：外加磁场（经典矢量），是待探测的目标量。</li>
+<li><span
+class="math inline">\(J\)</span>：相邻自旋之间的交换相互作用（exchange
+interaction）强度，为正值时使自旋倾向于平行排列，导致铁磁性。</li>
+<li><span
+class="math inline">\(C\)</span>：赝偶极相互作用（pseudodipolar
+interaction）强度，起源于自旋-轨道耦合，提供了自旋与晶格之间的耦合。</li>
+<li><span class="math inline">\(\hat{\mathbf{r}}_i\)</span>：第 <span
+class="math inline">\(i\)</span> 个原子的位置算符。</li>
+<li><span class="math inline">\(\hat{\mathbf{p}}_i\)</span>：第 <span
+class="math inline">\(i\)</span> 个原子的动量算符。</li>
+<li><span class="math inline">\(m\)</span>：单个原子的质量。</li>
+<li><span
+class="math inline">\(V\)</span>：描述晶格振动的谐波势的强度，用于维持晶格结构。</li>
+<li><span class="math inline">\(\bar{r}_{ij}\)</span>：原子 <span
+class="math inline">\(i\)</span> 和 <span
+class="math inline">\(j\)</span> 之间的平衡距离（常数）。</li>
+<li><span class="math inline">\(\hat{\mathbf{r}}_{ij} =
+\hat{\mathbf{r}}_i - \hat{\mathbf{r}}_j\)</span>：原子 <span
+class="math inline">\(i\)</span> 和 <span
+class="math inline">\(j\)</span> 之间的相对位置算符。</li>
+<li><span class="math inline">\(\hat{r}_{ij} =
+|\hat{\mathbf{r}}_{ij}|\)</span>：相对距离的大小。</li>
+</ul>
+<p>哈密顿量 (1) 中各项的物理意义：</p>
+<ul>
+<li>第一项：塞曼能（Zeeman energy），描述自旋在外磁场中的能量。</li>
+<li>第二项：海森堡交换能（Heisenberg exchange
+energy），使相邻自旋倾向于平行排列，是铁磁有序的起源。</li>
+<li>第三项：赝偶极相互作用，将自旋取向与晶格相对位置耦合，是实现自旋-晶格角动量转移的关键。</li>
+<li>第四项：原子的动能。</li>
+<li>第五项：晶格振动势能，采用简谐近似，维持晶格的稳定结构。</li>
+</ul>
+<p>强自旋-晶格锁定使整个铁磁针表现为集体宏观自旋的进动，且自旋间、自旋与晶格间无显著量子纠缠，因此可从量子哈密顿量出发，通过经典极限过渡得到经典动力学方程。</p>
+<p>从海森堡运动方程过渡到经典动力学方程的思路：量子海森堡运动方程（算符动力学）→
+经典极限（算符退化为经典变量，对易子退化为泊松括号 / 直接经典正则关系）→
+最终经典动力学方程组</p>
+<p>将式<span class="math inline">\((1)\)</span>概括为 <span
+class="math display">\[
+\hat{H} = \hat{H}_{\text{Zeeman}} + \hat{H}_{\text{exchange}} +
+\hat{H}_{\text{pseudodipolar}} + \hat{H}_{\text{lattice}}
+\]</span></p>
+<h2 id="基本对易关系">基本对易关系</h2>
+<p>在量子力学中，算符的运动方程由海森堡方程给出。需要用到以下基本对易关系：</p>
+<p>自旋算符（满足角动量代数）： <span class="math display">\[
+  [\hat{S}_i^\alpha, \hat{S}_j^\beta] = i\hbar \, \delta_{ij} \,
+\epsilon_{\alpha\beta\gamma} \, \hat{S}_i^\gamma,
+\]</span></p>
+<p>其中 <span class="math inline">\(\alpha, \beta, \gamma \in \{x, y,
+z\}\)</span>，<span
+class="math inline">\(\epsilon_{\alpha\beta\gamma}\)</span> 是
+Levi-Civita 符号，<span class="math inline">\(\delta_{ij}\)</span> 是
+Kronecker <span class="math inline">\(\delta\)</span>
+函数。不同原子的自旋算符对易。</p>
+<p>位置和动量算符： <span class="math display">\[
+  [\hat{r}_i^\alpha, \hat{p}_j^\beta] = i\hbar \, \delta_{ij} \,
+\delta_{\alpha\beta}, \quad [\hat{r}_i^\alpha, \hat{r}_j^\beta] = 0,
+\quad [\hat{p}_i^\alpha, \hat{p}_j^\beta] = 0.
+\]</span></p>
+<p>自旋算符与位置、动量算符对易，因为它们作用于不同的自由度。</p>
+<h2 id="自旋算符的海森堡运动方程">自旋算符的海森堡运动方程</h2>
+<p>自旋算符的运动方程为： <span class="math display">\[
+\frac{d\hat{\mathbf{S}}_i}{dt} = \frac{i}{\hbar} [H,
+\hat{\mathbf{S}}_i].
+\tag{2}
+\]</span></p>
+<p>分别计算哈密顿量中各部分与 <span
+class="math inline">\(\hat{\mathbf{S}}_i\)</span> 的对易子。</p>
+<h3 id="塞曼项">塞曼项</h3>
+<p><span class="math display">\[
+H_Z = -\gamma \sum_i \mathbf{B} \cdot \hat{\mathbf{S}}_i.
+\]</span> 利用对易关系： <span class="math display">\[
+[H_Z, \hat{S}_i^\alpha] = -\gamma B^\beta [\hat{S}_i^\beta,
+\hat{S}_i^\alpha] = -\gamma B^\beta (i\hbar \epsilon_{\beta\alpha\gamma}
+\hat{S}_i^\gamma) = i\hbar \gamma \epsilon_{\alpha\beta\gamma} B^\beta
+\hat{S}_i^\gamma = i\hbar \gamma (\mathbf{B} \times
+\hat{\mathbf{S}}_i)^\alpha.
+\]</span> 因此， <span class="math display">\[
+\frac{i}{\hbar} [H_Z, \hat{\mathbf{S}}_i] = \gamma \mathbf{B} \times
+\hat{\mathbf{S}}_i.
+\]</span> 注意 <span class="math inline">\(\mathbf{B} \times
+\hat{\mathbf{S}}_i = -\hat{\mathbf{S}}_i \times
+\mathbf{B}\)</span>，故也可写为 <span class="math inline">\(-\gamma
+\hat{\mathbf{S}}_i \times \mathbf{B}\)</span>。但经典进动方程为 <span
+class="math inline">\(d\mathbf{S}/dt = \gamma \mathbf{S} \times
+\mathbf{B}\)</span>，因此我们保留后一种形式： <span
+class="math display">\[
+\left( \frac{d\hat{\mathbf{S}}_i}{dt} \right)_Z = \gamma
+\hat{\mathbf{S}}_i \times \mathbf{B}.
+\tag{3}
+\]</span></p>
+<h3 id="交换项">交换项</h3>
+<p><span class="math display">\[
+H_{ex} = -J \sum_i \hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_{i+1}.
+\]</span> 仅当项中包含 <span
+class="math inline">\(\hat{\mathbf{S}}_i\)</span>
+时对易子非零。考虑最近邻相互作用，对自旋 <span
+class="math inline">\(i\)</span> 有贡献的项为 <span
+class="math inline">\(-J \hat{\mathbf{S}}_i \cdot
+\hat{\mathbf{S}}_{i+1}\)</span> 和 <span class="math inline">\(-J
+\hat{\mathbf{S}}_{i-1} \cdot \hat{\mathbf{S}}_i\)</span>。计算第一项：
+<span class="math display">\[
+[\hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_{i+1}, \hat{\mathbf{S}}_i] =
+-i\hbar \, \hat{\mathbf{S}}_{i+1} \times \hat{\mathbf{S}}_i.
+\]</span> 类似地，第二项给出 <span class="math inline">\(-i\hbar \,
+\hat{\mathbf{S}}_{i-1} \times \hat{\mathbf{S}}_i\)</span>。因此， <span
+class="math display">\[
+[H_{ex}, \hat{\mathbf{S}}_i] = -J (-i\hbar) (\hat{\mathbf{S}}_{i+1} +
+\hat{\mathbf{S}}_{i-1}) \times \hat{\mathbf{S}}_i = i\hbar J
+(\hat{\mathbf{S}}_{i+1} + \hat{\mathbf{S}}_{i-1}) \times
+\hat{\mathbf{S}}_i.
+\]</span> 于是， <span class="math display">\[
+\left( \frac{d\hat{\mathbf{S}}_i}{dt} \right)_{ex} = \frac{i}{\hbar}
+[H_{ex}, \hat{\mathbf{S}}_i] = J (\hat{\mathbf{S}}_{i+1} +
+\hat{\mathbf{S}}_{i-1}) \times \hat{\mathbf{S}}_i = J \hat{\mathbf{S}}_i
+\times (\hat{\mathbf{S}}_{i+1} + \hat{\mathbf{S}}_{i-1}).
+\tag{4}
+\]</span></p>
+<h3 id="自旋-晶格耦合项">自旋-晶格耦合项</h3>
+<p><span class="math display">\[
+H_{sl} = -C \sum_{i,j} (\hat{\mathbf{S}}_i \cdot
+\hat{\mathbf{r}}_{ij})(\hat{\mathbf{r}}_{ij} \cdot \hat{\mathbf{S}}_j).
+\]</span> 这里求和包括所有有序对 <span
+class="math inline">\((i,j)\)</span>，保证哈密顿量为厄密算符。对自旋
+<span class="math inline">\(i\)</span> 的贡献来自两项：一项是 <span
+class="math inline">\(i\)</span> 作为第一个指标（求和 over <span
+class="math inline">\(j\)</span>），另一项是 <span
+class="math inline">\(i\)</span> 作为第二个指标（求和 over <span
+class="math inline">\(k\)</span>，即 <span
+class="math inline">\((\hat{\mathbf{S}}_k \cdot
+\hat{\mathbf{r}}_{ki})(\hat{\mathbf{r}}_{ki} \cdot
+\hat{\mathbf{S}}_i)\)</span>）。详细计算可得（过程略）： <span
+class="math display">\[
+[H_{sl}, \hat{\mathbf{S}}_i] = -2i\hbar C \sum_j (\hat{\mathbf{S}}_i
+\times \hat{\mathbf{r}}_{ij}) (\hat{\mathbf{r}}_{ij} \cdot
+\hat{\mathbf{S}}_j).
+\]</span> 因此， <span class="math display">\[
+\left( \frac{d\hat{\mathbf{S}}_i}{dt} \right)_{sl} = \frac{i}{\hbar}
+[H_{sl}, \hat{\mathbf{S}}_i] = 2C \sum_j (\hat{\mathbf{S}}_i \times
+\hat{\mathbf{r}}_{ij}) (\hat{\mathbf{r}}_{ij} \cdot \hat{\mathbf{S}}_j)
+= 2C \hat{\mathbf{S}}_i \times \sum_j \hat{\mathbf{r}}_{ij}
+(\hat{\mathbf{r}}_{ij} \cdot \hat{\mathbf{S}}_j).
+\tag{5}
+\]</span></p>
+<h3 id="动能项和晶格势能项">动能项和晶格势能项</h3>
+<p>这两项不依赖于自旋，与 <span
+class="math inline">\(\hat{\mathbf{S}}_i\)</span> 对易，贡献为零。</p>
+<h3 id="自旋运动方程汇总">自旋运动方程汇总</h3>
+<p>将 (3)、(4)、(5) 合并，得到自旋算符的量子运动方程： <span
+class="math display">\[
+\frac{d\hat{\mathbf{S}}_i}{dt} = \gamma \hat{\mathbf{S}}_i \times
+\mathbf{B} + J \hat{\mathbf{S}}_i \times (\hat{\mathbf{S}}_{i+1} +
+\hat{\mathbf{S}}_{i-1}) + 2C \hat{\mathbf{S}}_i \times \sum_j
+\hat{\mathbf{r}}_{ij} (\hat{\mathbf{r}}_{ij} \cdot \hat{\mathbf{S}}_j).
+\tag{6}
+\]</span></p>
+<h2
+id="晶格自由度位置和动量的运动方程">晶格自由度（位置和动量）的运动方程</h2>
+<p>类似地，从海森堡方程出发计算 <span
+class="math inline">\(\hat{\mathbf{r}}_i\)</span> 和 <span
+class="math inline">\(\hat{\mathbf{p}}_i\)</span>
+的运动方程。由于计算较复杂，这里直接引用原文附录 A 的结果：</p>
+<p><span class="math display">\[
+\frac{d\hat{\mathbf{r}}_i}{dt} = \frac{\hat{\mathbf{p}}_i}{m},
+\tag{A1}
+\]</span></p>
+<p><span class="math display">\[
+\frac{d\hat{\mathbf{p}}_i}{dt} = 2C \sum_j \left[ \hat{\mathbf{S}}_i
+(\hat{\mathbf{r}}_{ij} \cdot \hat{\mathbf{S}}_j) + \hat{\mathbf{S}}_j
+(\hat{\mathbf{S}}_i \cdot \hat{\mathbf{r}}_{ij}) \right] - 4V \sum_j
+\frac{\hat{r}_{ij} - \bar{r}_{ij}}{\hat{r}_{ij}} \hat{\mathbf{r}}_{ij}.
+\tag{A2}
+\]</span></p>
+<p>其中第一项来自自旋-晶格耦合，第二项来自晶格谐波势。</p>
+<h2 id="从量子方程到经典方程的近似">从量子方程到经典方程的近似</h2>
+<p>上述方程 (6)、(A1)、(A2)
+是严格的量子算符方程，求解需要处理复杂的多体量子动力学。然而，在以下条件下可以简化：</p>
+<ul>
+<li><strong>系统的状态近似为相干态（coherent
+states）</strong>：角动量相干态是最小不确定态，其量子涨落最小。对于这样的态，自旋算符的期望值近似服从经典运动方程，且算符乘积的期望值可以近似分解为期望值的乘积，即
+<span class="math inline">\(\langle \hat{A} \hat{B} \rangle \approx
+\langle \hat{A} \rangle \langle \hat{B}
+\rangle\)</span>，量子关联可忽略。</li>
+<li><strong>纠缠可忽略</strong>：模拟显示，在演化过程中自旋之间以及自旋与晶格之间几乎没有纠缠，因此系统的量子关联很弱。</li>
+</ul>
+<p>这些条件得到了文献的支持（见原文参考文献 [36, 37]）。特别地，文献
+[37]（O. Giraud et al., PRA 78, 042112
+(2008)）证明了在相干态或近似可分离态下，自旋期望值的演化遵循经典动力学。</p>
+<p>因此，我们对量子运动方程取期望值，并用经典变量替换算符期望值： <span
+class="math display">\[
+\mathbf{S}_i \equiv \langle \hat{\mathbf{S}}_i \rangle, \quad
+\mathbf{r}_i \equiv \langle \hat{\mathbf{r}}_i \rangle, \quad
+\mathbf{p}_i \equiv \langle \hat{\mathbf{p}}_i \rangle.
+\]</span></p>
+<p>在相干态近似下，方程 (6)、(A1)、(A2)
+中的算符乘积期望值可分解，从而得到经典运动方程：</p>
+<p><span class="math display">\[
+\frac{d\mathbf{S}_i}{dt} = \gamma \mathbf{S}_i \times \mathbf{B} + J
+\mathbf{S}_i \times (\mathbf{S}_{i+1} + \mathbf{S}_{i-1}) + 2C
+\mathbf{S}_i \times \sum_j \mathbf{r}_{ij} (\mathbf{r}_{ij} \cdot
+\mathbf{S}_j)
+\tag{7}
+\]</span></p>
+<p><span class="math display">\[
+\frac{d\mathbf{r}_i}{dt} = \frac{\mathbf{p}_i}{m}
+\tag{8}
+\]</span></p>
+<p><span class="math display">\[
+\frac{d\mathbf{p}_i}{dt} = 2C \sum_j \left[ \mathbf{S}_i
+(\mathbf{r}_{ij} \cdot \mathbf{S}_j) + \mathbf{S}_j (\mathbf{S}_i \cdot
+\mathbf{r}_{ij}) \right] - 4V \sum_j \frac{r_{ij} -
+\bar{r}_{ij}}{r_{ij}} \mathbf{r}_{ij}
+\tag{9}
+\]</span></p>
+<p>其中 <span class="math inline">\(\mathbf{r}_{ij} = \mathbf{r}_i -
+\mathbf{r}_j\)</span>，<span class="math inline">\(r_{ij} =
+|\mathbf{r}_{ij}|\)</span>。</p>
+<h1 id="数值模拟实验">数值模拟实验</h1>
+<h2 id="运动模拟">运动模拟</h2>
+<p>基于以上动力学模型，模拟50个钴原子组成的链在恒定弱磁场中的运动。</p>
+<p>模拟实验验证了爱因斯坦-德哈斯效应。沿<span
+class="math inline">\(\mathrm{z}\)</span>轴的总自旋角动量<span
+class="math inline">\(\mathbf{S}_z\)</span>与沿<span
+class="math inline">\(\mathrm{z}\)</span>轴的晶格机械角动量<span
+class="math inline">\(\mathbf{L}_z\)</span>不断交换，但是二者的和随时间守恒<span
+class="math inline">\(\mathbf{J}_z = \mathbf{L}_z +
+\mathbf{S}_z\)</span></p>
+<p>同时模拟结果验证针的取向跟随自旋进动不是瞬时的，在集体进动之上存在小振荡。这种振荡的频率由自旋-晶格相互作用强度
+<span class="math inline">\(C\)</span> 控制。</p>
+<p>有效进动频率与纯自旋情况相比有轻微偏差，这是由于晶格感生的内场导致的，对进动频率产生了一个小的修正
+<span class="math inline">\(\omega = \gamma (B_{\mathrm{external}} +
+B_{\mathrm{effective}})\)</span>，其中 <span
+class="math inline">\(B_{\mathrm{effective}}\)</span>
+源于晶格的反作用。这一现象也在模拟实验中被观察到。</p>
+<p>在不同的外磁场强度下，基于微观模型的模拟也观察到了使用宏观模型预言的三种运动模式：进动、章动和摆动。实验结果证实并加强了早期一项用宏观自旋模型预测三种不同动力学区域的研究。</p>
+<p>在所有三种动力学区域中，我们始终有 <span class="math inline">\(M_x^2
++ M_y^2 + M_z^2 = 1\)</span>，表明宏观自旋 <span
+class="math inline">\((M_x, M_y, M_z)\)</span>
+保持在布洛赫球面上，并且没有可观测到的退相位。这说明所有单个自旋（在针轴周围快速平均后）具有相同的极化。这是对自旋自由度进行经典处理的一个有力理由。</p>
+<h2 id="微观动力学视角下超越sql">微观动力学视角下超越SQL</h2>
+<p>对于悬浮铁磁针，尽管存在固有的自旋-晶格耦合噪声，但在进动动力学过程中不确定性
+<span class="math inline">\(\Delta\phi\)</span>
+会饱和，而不是表现出特征的扩散行为。微观上，这验证了 Kimball 等人 [24]
+的定性见解。由于进动角不确定性的饱和，所有自旋保持“同相”，从而解释了上述观察到的宏观自旋确实保持在布洛赫球面上。实际上，自旋-自旋交换相互作用和自旋-晶格相互作用共同导致了整洁的动态退耦合效应
+[44,
+45]：任何导致自旋偏离晶格轴的噪声都被围绕晶格轴的快速旋转所抵消。有趣的是，这里的微观动力学还允许我们跟踪
+<span class="math inline">\(\Delta\phi\)</span>
+不确定性的显式时间依赖性：对于所示模拟中选择的参数，它表现出比进动频率本身快两个数量级以上的振荡。这种重要的自平均速率被发现直接由自旋-晶格耦合的强度决定。我们进一步检查了由自旋-晶格耦合和自旋-自旋相互作用引起的内在噪声的
+PSD。可以看到它具有特征性的平坦谱 [图
+2(e)]，因此接近于白噪声。使用白噪声极限和相关的克拉美-罗下界（CRLB），频率估计不确定性的标度由
+<span
+class="math inline">\(\Delta\omega\geqslant\sqrt{\frac{12}{\mathrm{SNR}\,
+f_{\mathrm{BW}} t}}\)</span> 给出，其中 SNR 表示信噪比，<span
+class="math inline">\(f_{\mathrm{BW}}=1/dt\)</span> 是频率带宽
+[46]。随着测量时间的增加，<span
+class="math inline">\(\Delta\omega\)</span> 按 <span
+class="math inline">\(t^{-3/2}\)</span> 标度变化，从而超越了
+SQL。与使用反馈控制实现合作自旋 [12]
+不同，这里铁磁针固有的自旋-自旋相关性提供了一种超越 SQL的内在方法。</p>
+<h2 id="振荡磁场频率传感">振荡磁场频率传感</h2>
+<p>最后，利用我们的微观理论，我们提出使用章动的动力学区域来确定具有缓慢振荡幅度的磁场的频率，如图
+3(c) 和 3(d) 所示。在存在振荡场的情况下，由正弦曲线 <span
+class="math inline">\(M_x\)</span> 或 <span
+class="math inline">\(M_y\)</span>
+表现的进动由于其频率对场幅度的依赖性而变得啁啾，从而使信号分析更具挑战性。有趣的是，章动运动为传感提供了一个更简单的替代方案，因为发现其幅度
+<span class="math inline">\(M_z\)</span>
+与振荡场的幅度直接成正比。作为一个例子，在振荡磁场 <span
+class="math inline">\(B_z = B_0[1 + 0.5\cos(0.2\omega_L t)]\)</span>
+下的章动动力学显示在图 3(d)
+中。在那里，蓝线代表针动力学的数值结果，而灰色虚线作为视觉引导，显示
+<span class="math inline">\(B_z\)</span> 和 <span
+class="math inline">\(M_z\)</span>
+的时间轮廓是重合的。使用傅里叶分析，我们可以然后确定施加磁场的振荡频率。这里已经得到第一性原理模拟的支持，悬浮针的章动运动预计将有助于感测类轴子暗物质
+[51, 52,
+53]，这通常与振荡场相关。使用一些类似于进动动力学情况的分析，很容易发现这里确定场振荡频率的精度极限也超过了
+SQL。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>悬浮铁磁针微观动力学</div>
+      <div>https://oni-hui.github.io/2025/12/03/悬浮铁磁针微观动力学/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>oniiii</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年12月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/03/%E9%93%81%E7%A3%81%E6%89%AD%E7%9F%A9%E4%BC%A0%E6%84%9F%E5%99%A8%E7%AC%94%E8%AE%B0/" title="铁磁扭矩传感器笔记">
+                        <span class="hidden-mobile">铁磁扭矩传感器笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
