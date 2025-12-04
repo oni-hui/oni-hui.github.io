@@ -26,10 +26,13 @@
 <meta property="og:site_name" content="oniiii的站点">
 <meta property="og:description" content="基于实验现象的动力学模型建模 前文考虑I型超导体微倾斜悬浮动力学模型得到的模拟结果仍然与实际实验现象相去甚远。 分析了一个更常见且易于实现的场景：I型超导体产生的悬浮势阱对称性破缺情况下，悬浮铁磁体呈倾斜状态，悬浮磁体做纯摆动运动的动力学模型 考虑一个悬浮的硬铁磁体；为简单起见，我们采用如参考文献 [8, 9, 10] 中的球体。设 \(\mu&#x3D;-\gamma_{0}S\) 为磁偶极矩，">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oni-hui.github.io/images/niu-jv/%E9%95%9C%E5%83%8F%E5%81%B6%E6%9E%81%E5%AD%90%E5%9B%BE1.png">
+<meta property="og:image" content="https://oni-hui.github.io/images/niu-jv/%E7%81%B5%E6%95%8F%E5%BA%A6%E5%AF%B9%E6%AF%94%E5%9B%BE2.png">
 <meta property="article:published_time" content="2025-12-03T14:07:31.000Z">
-<meta property="article:modified_time" content="2025-12-03T14:07:46.484Z">
+<meta property="article:modified_time" content="2025-12-04T05:51:41.195Z">
 <meta property="article:author" content="oniiii">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://oni-hui.github.io/images/niu-jv/%E9%95%9C%E5%83%8F%E5%81%B6%E6%9E%81%E5%AD%90%E5%9B%BE1.png">
   
   
   
@@ -226,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          2.9k 字
         
       </span>
     
@@ -237,7 +240,7 @@
         
         
         
-          21 分钟
+          24 分钟
         
       </span>
     
@@ -335,16 +338,18 @@ class="math inline">\(\alpha\)</span>
 <span class="math inline">\(\alpha\)</span> 运动是被束缚的。</p>
 <p>遵循参考文献 [5]，我们将偶极子的角运动方程写为：</p>
 <p><span
-class="math display">\[\dot{\bm{J}}=\bm{\tau}_{i}+\bm{\tau},\]</span></p>
-<p><span class="math display">\[\dot{\bm{S}}=\Omega\times
+class="math display">\[\dot{\boldsymbol{J}}=\boldsymbol{\tau}_{i}+\boldsymbol{\tau},\]</span></p>
+<p><span class="math display">\[\dot{\boldsymbol{S}}=\Omega\times
 S,\]</span></p>
-<p>其中 <span class="math inline">\(\bm{J}=\bm{L}+\bm{S}\)</span>
-是总角动量，<span class="math inline">\(\bm{L}=I\Omega\)</span>
-是动力学角动量；<span class="math inline">\(\bm{\tau}_{i}=\mu\times
-B_{i}\)</span> 是迈斯纳场 <span class="math inline">\(B_{i}\)</span>
-的恢复扭矩；<span class="math inline">\(\bm{\tau}\)</span>
+<p>其中 <span
+class="math inline">\(\boldsymbol{J}=\boldsymbol{L}+\boldsymbol{S}\)</span>
+是总角动量，<span class="math inline">\(\boldsymbol{L}=I\Omega\)</span>
+是动力学角动量；<span
+class="math inline">\(\boldsymbol{\tau}_{i}=\mu\times B_{i}\)</span>
+是迈斯纳场 <span class="math inline">\(B_{i}\)</span> 的恢复扭矩；<span
+class="math inline">\(\boldsymbol{\tau}\)</span>
 是外部扭矩。后者可能由额外的场 <span
-class="math inline">\(\bm{B}\)</span> 引起。方程 (6)
+class="math inline">\(\boldsymbol{B}\)</span> 引起。方程 (6)
 严格适用于硬铁磁体，即假设自旋始终锁定在各向异性轴上，因此刚性地附着在磁体晶体上
 [11, 5]。</p>
 <p>在线性化极限下，运动方程可以用角度 <span
@@ -439,11 +444,12 @@ class="math inline">\(f_I = \omega_I / 2\pi = 0.188  \, Hz\)</span> [图
 Hz\)</span>。这个值比当前实验低一个数量级，预计可以通过适当控制</p>
 <p>070801-3</p>
 <figure>
-<img src="" srcset="/img/loading.gif" lazyload alt="图1" />
-<figcaption aria-hidden="true">图1</figcaption>
+<img src="/images/niu-jv/镜像偶极子图1.png" srcset="/img/loading.gif" lazyload title="镜像偶极子模型"
+alt="图1 镜像偶极子模型" />
+<figcaption aria-hidden="true">图1 镜像偶极子模型</figcaption>
 </figure>
 <p><strong>图 1</strong>: (a) 采用的模型和约定。一个具有自旋 <span
-class="math inline">\(\bm{S}\)</span> 和磁矩 <span
+class="math inline">\(\boldsymbol{S}\)</span> 和磁矩 <span
 class="math inline">\(\mu=-\gamma_0 S\)</span> 的铁磁体被束缚在 <span
 class="math inline">\(x\)</span> 轴上。它可以绕 <span
 class="math inline">\(z\)</span> 以角度 <span
@@ -451,16 +457,17 @@ class="math inline">\(\alpha\)</span> 和绕 <span
 class="math inline">\(y\)</span> 以角度 <span
 class="math inline">\(\beta\)</span> 进行简谐振动。沿 <span
 class="math inline">\(y\)</span> 施加振荡磁场 <span
-class="math inline">\(\bm{B}\)</span> 将产生沿 <span
+class="math inline">\(\boldsymbol{B}\)</span> 将产生沿 <span
 class="math inline">\(z\)</span> 的扭矩 <span
-class="math inline">\(\bm{\tau}=\mu\times\bm{B}\)</span>，驱动 <span
-class="math inline">\(\alpha\)</span> 自由度的振动运动。(b)
+class="math inline">\(\boldsymbol{\tau}=\mu\times\boldsymbol{B}\)</span>，驱动
+<span class="math inline">\(\alpha\)</span> 自由度的振动运动。(b)
 处于迈斯纳状态下的超导平面（灰色区域）上方铁磁体的示意图。在此实现中，<span
 class="math inline">\(\beta\)</span> 角的简谐束缚自然源于与镜像偶极子
 <span class="math inline">\(\mu^{\prime}\)</span> 的相互作用。</p>
 <figure>
-<img src="" srcset="/img/loading.gif" lazyload alt="图2" />
-<figcaption aria-hidden="true">图2</figcaption>
+<img src="/images/niu-jv/灵敏度对比图2.png" srcset="/img/loading.gif" lazyload title="灵敏度对比"
+alt="图2 灵敏度对比" />
+<figcaption aria-hidden="true">图2 灵敏度对比</figcaption>
 </figure>
 <p><strong>图 2</strong>: (a) 半径为 <span
 class="math inline">\(R=30~{}\mu\)</span>m、<span
@@ -478,6 +485,67 @@ class="math inline">\(f_{a}=10f_{I}\)</span>。线条对应 (a) 中的
 ERL、热噪声、SQL 和自旋投影噪声。垂直线标记了 (a)
 中使用的半径。水平线对应于参考文献 [5]
 中讨论的相对论框架拖拽效应的有效磁场：德西特效应（紫色虚线），兰斯-蒂林效应（橙色实线）。</p>
+<p>[1] D. F. Jackson Kimball, A. O. Sushkov, and Dmitry Budker,<br />
+Precessing Ferromagnetic Needle Magnetometer, <em>Phys. Rev. Lett.</em>
+<strong>116</strong>, 190801 (2016).</p>
+<p>[5] P. Fadeev, T. Wang, Y. B. Band, D. Budker, P. W. Graham, A. O.
+Sushkov, and D. F. Jackson Kimball, Gravity probe spin: Prospects for
+measuring general-relativistic precession of intrinsic spin using a
+ferromagnetic gyroscope, <em>Phys. Rev. D</em> <strong>103</strong>,
+044056 (2021).</p>
+<p>[6] P. Fadeev, C. Timberlake, T. Wang, A. Vinante, Y. B. Band, D.
+Budker, A. O. Sushkov, H. Ulbricht, and D. F. Jackson Kimball,
+Ferromagnetic gyroscopes for tests of fundamental physics, <em>Quantum
+Sci. Technol.</em> <strong>6</strong>, 024006 (2021).</p>
+<p>[7] V. B. Braginsky, Classical and quantum restrictions on the
+detection of weak disturbances of a macroscopic oscillator, <em>Sov.
+Phys. JETP</em> <strong>26</strong>, 831 (1968).</p>
+<p>[8] T. Wang, S. Lourette, S. R. O’Kelley, M. Kayci, Y. B. Band, D. F.
+Jackson Kimball, A. O. Sushkov, and D. Budker, Dynamics of a
+Ferromagnetic Particle Levitated over a Superconductor, <em>Phys.
+Rev. Applied</em> <strong>11</strong>, 044041 (2019).</p>
+<p>[9] J. Gieseler, A. Kabcenell, E. Rosenfeld, J. D. Schaefer, A.
+Safira, M. J. A. Schuetz, C. Gonzalez-Ballestero, C. C. Rusconi, O.
+Romero-Isart, and M. D. Lukin, Single-Spin Magnetomechanics with
+Levitated Micromagnets, <em>Phys. Rev. Lett.</em> <strong>124</strong>,
+163604 (2020).</p>
+<p>[10] A. Vinante, P. Falferi, G. Gasbarri, A. Setter, C. Timberlake,
+and H. Ulbricht, Ultralow Mechanical Damping with Meissner-Levitated
+Ferromagnetic Microparticles, <em>Phys. Rev. Applied</em>
+<strong>13</strong>, 064027 (2020).</p>
+<p>[11] C. C. Rusconi, V. Pochhacker, K. Kustura, J. I. Cirac, and O.
+Romero-Isart, Quantum Spin Stabilized Magnetic Levitation, <em>Phys.
+Rev. Lett.</em> <strong>119</strong>, 167202 (2017).</p>
+<p>[12] A. Einstein and W. J. de Haas, Experimenteller Nachweis der
+Ampereschen Molekularstrome, <em>Dtsch. Phys. Ges. Verh.</em>
+<strong>17</strong>, 152 (1915).</p>
+<p>[13] H. B. Callen and T. A. Welton, Irreversibility and generalized
+noise, <em>Phys. Rev.</em> <strong>83</strong>, 34 (1951).</p>
+<p>[14] S. Nimmrichter, K. Hornberger, and K. Hammerer, Optomechanical
+Sensing of Spontaneous Wave-Function Collapse, <em>Phys. Rev. Lett.</em>
+<strong>113</strong>, 020405 (2014).</p>
+<p>[15] See Supplemental Material at
+http://link.aps.org/supplemental/10.1103/PhysRevLett.127.070801 for
+details on the mathematical derivation of the SQL and for an heuristic
+argument to compare ERL and SQL.</p>
+<p>[16] C. Timberlake, G. Gasbarri, A. Vinante, A. Setter, and H.
+Ulbricht, Acceleration Sensing with Magnetically Levitated Oscillators,
+<em>Appl. Phys. Lett.</em> <strong>115</strong>, 224101 (2019).</p>
+<p>[17] N. K. Raut, J. Miller, J. Pate, R. Chiao, and J. E. Sharping,
+Meissner levitation of a millimeter size neodymium magnet within a
+superconducting radio frequency cavity, <em>IEEE Trans. Appl.
+Supercon.</em> <strong>31</strong>, 1500204 (2021).</p>
+<p>[18] D. D. Awschalom, J. R. Rozen, M. B. Ketchen, W. J. Gallagher, A.
+W. Kleinsasser, R. L. Sandstrom, and B. Bumble, Low noise modular
+microsusceptometer using nearly quantum limited dc SQUIDs, <em>Appl.
+Phys. Lett.</em> <strong>53</strong>, 2108 (1988).</p>
+<p>[19] P. Falferi, M. Bonaldi, M. Cerdonio, R. Mezzena, G. A. Prodi, A.
+Vinante, and S. Vitale, 10ℏ superconducting quantum interference device
+amplifier for acoustic gravitational wave detectors, <em>Appl. Phys.
+Lett.</em> <strong>93</strong>, 172506 (2008).</p>
+<p>[20] V. B. Braginsky and Y. I. Vorontsov, Quantum-mechanical
+limitations in macroscopic experiments and modern experimental
+technique, <em>Sov. Phys. Usp.</em> <strong>17</strong>, 644 (1975).</p>
 
                 
               </div>
